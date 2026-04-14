@@ -1,22 +1,23 @@
 import prisma from "@/lib/db";
 import { NextResponse } from "next/server";
 
- 
+export async function GET(req: Request, context: any) {
+  const id = context.params?.chatId;
 
+  if (!id) {
+    return NextResponse.json(
+      { message: "id is required" },
+      { status: 400 }
+    );
+  }
 
- export async function GET(req:Request , { params }: { params: { chatId: string } }){
-    const id =  params?.chatId;
+  const getChat = await prisma.lead.findUnique({
+    where: { id },
+    include: { userSender: true, product: true },
+  });
 
-
-    if (!id){
-        return NextResponse.json({massege:"id is reqirued"} , {status:404})
-    }
-
-    const getChat = await prisma.lead.findUnique({
-        where:{id:params?.chatId},
-        include:{userSender:true,product:true}
-    })
-
-    return NextResponse.json({massege:"succes fetch chat" , data:getChat} , {status:200})
-
- }
+  return NextResponse.json(
+    { message: "success fetch chat", data: getChat },
+    { status: 200 }
+  );
+}
