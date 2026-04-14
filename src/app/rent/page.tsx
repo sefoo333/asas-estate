@@ -1,10 +1,7 @@
 "use client"
-import type { Metadata } from 'next'
-import React, { useState } from 'react'
-import ProductsRent from './_components/ProductsSection_Rent'
-import Maps from '@/componants/MapsSection'
-import SearchBar from '@/componants/SearchBar'
-import SearchBarMob from '@/componants/SearchBarMob'
+// import type { Metadata } from 'next'
+import React from 'react'
+
 import { useMediaQuery } from 'react-responsive'
 import RentPageMob from './_components/Responsive/RentPageMob'
 import RentPage from './_components/Responsive/RentPage'
@@ -16,8 +13,6 @@ import RentPage from './_components/Responsive/RentPage'
 
 function page() {
 
-   const [data , setData] = useState<any>({transactionType:"Rent"});
-  const [searchResults , setSearchResults] = useState<any>([]);
 const isMob = useMediaQuery({maxWidth:1016})
 
   return (

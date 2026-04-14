@@ -18,14 +18,7 @@ import Link from "next/link";
 function Products() {
 
   const {data} = useGetProducts("All");
-   const {data:session , update} = useSession();
-   const te = getSession();
-   const updater = async () => await update({isNewUser:false})
 
-      useEffect(() => {
-        // update({isNewUser:false})
-        console.log(te)
-      },[te])
   return (
     <div className="parent max-md:mt-35 mt-25 flex justify-center ">
         <div className="container">

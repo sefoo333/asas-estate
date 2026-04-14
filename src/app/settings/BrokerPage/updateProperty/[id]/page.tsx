@@ -1,23 +1,14 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import Head from '@/app/realEstats/[id]/components/Head'
-import { AiOutlineFileAdd } from "react-icons/ai";
-import { FiLink } from "react-icons/fi";
 import { Input } from '@/components/ui/input';
 import { ImBold } from "react-icons/im";
 import { FaItalic } from "react-icons/fa";
 import { CiBoxList } from "react-icons/ci";
 import { FaListOl } from "react-icons/fa";
 import { Textarea } from '@/components/ui/textarea';
-import Image from 'next/image'
-import { IoIosArrowDown, IoMdCheckmark } from "react-icons/io";
+import { IoMdCheckmark } from "react-icons/io";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Button } from '@/components/ui/button'
-import { GiGymBag } from 'react-icons/gi'
-import { CgGym } from 'react-icons/cg'
-import { IoClose } from 'react-icons/io5'
-import { BsMarkdownFill } from 'react-icons/bs'
-import { MdAdd } from 'react-icons/md'
 import { useForm } from 'react-hook-form'
 import { useMutation } from '@tanstack/react-query'
 import { toast } from 'sonner'
@@ -177,8 +168,12 @@ const tt = type?.startsWith("b_") ? type?.slice(2) : type.toString()
      <div className="type p-4 rounded-xl  relative">
     <Head_create>Building type</Head_create>
  <Select   onValueChange={(e) => {
-  e.startsWith("b") ? setBusiness(true) : setBusiness(false);
-  setType(e)
+  if (e.startsWith("b")){
+    setBusiness(true);
+  } else {
+    setBusiness(false);
+  }
+    setType(e)
  }}>
       <SelectTrigger className="w-full py-5 mt-3">
         <SelectValue placeholder={tt} />
@@ -187,13 +182,13 @@ const tt = type?.startsWith("b_") ? type?.slice(2) : type.toString()
         <SelectGroup>
           <SelectLabel>Residential</SelectLabel>
         {buildings_type_normal.map((e) => (
-                      <SelectItem value={e} id={e}>{e}</SelectItem>
+                      <SelectItem key={e} value={e} id={e}>{e}</SelectItem>
         ))}
         </SelectGroup>
         <SelectGroup>
           <SelectLabel>Commercial</SelectLabel>
          {buildings_type_bussiness.map((e) => (
-                      <SelectItem  value={`b_${e}`} id={e}>{e}</SelectItem>
+                      <SelectItem  key={e} value={`b_${e}`} id={e}>{e}</SelectItem>
         ))}
         </SelectGroup>
       </SelectContent>
@@ -245,8 +240,8 @@ const tt = type?.startsWith("b_") ? type?.slice(2) : type.toString()
     <Head_create>Description</Head_create>
         <div className="input mt-4">
             <div className="tools flex gap-6 p-5 py-3 border border-gray-200 border-b-0 bg-slate-100/80">
-{icons.map((E) =>(
-    <E className='cursor-pointer duration-300 hover:text-gray-600' />
+{icons.map((E,i:number) =>(
+    <E key={i} className='cursor-pointer duration-300 hover:text-gray-600' />
 ))}
             </div>
              <Textarea defaultValue={data?.description} className='h-[200px] rounded-t-none border-t-0' placeholder="Type your message here." {...register("description")} />

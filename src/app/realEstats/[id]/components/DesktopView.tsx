@@ -340,7 +340,7 @@ if (user && Array.isArray(FavouriteProduct)){
 <Head text='May you like' />
                                               <div className="w-full  flex gap-5">
                                                    
-                                           {mayProducts?.slice(0,1).map((e:any) => <Product product={e} />)}
+                                           {mayProducts?.slice(0,2).map((e:any , i:number) => <Product product={e} key={i}  />)}
                                               </div>
                                             </div>
          </div>
@@ -390,7 +390,7 @@ if (user && Array.isArray(FavouriteProduct)){
                <div className="second mt-10 bg-white   justify-center shadow-sm rounded-xl my-5 p-5 w-full flex  flex-col">
                 <Head text='May you like' />
                 <div className="boxs mt-8">
-                {mayProducts?.slice(0,3).map((e:any) => <MayProduct product={e} />)}
+                {mayProducts?.slice(0,3).map((e:any) => <MayProduct product={e} key={e?.id}  />)}
                 </div>
                </div>
 </div>

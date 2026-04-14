@@ -61,7 +61,12 @@ const [selectedNotifaction,setSelectedNotifaction]:any = useState(null);
 {data?.length > 0 && <>
 {data?.slice(0,4)?.map((e:any) => (
 <div onClick={() => {
-  e?.linkNotifaction === "review" ? (setOpen(true), setSelectedNotifaction(e)) : router.push(`${window.location.protocol}//${e?.linkNotifaction}`)
+ if ( e?.linkNotifaction === "review"){
+  setOpen(true);
+   setSelectedNotifaction(e)
+ } else {
+   router.push(`${window.location.protocol}//${e?.linkNotifaction}`)
+ } 
 }} className='relative z-999' key={e?.id}>
   <div className="box flex gap-4 items-center p-3 transition-all border-b border-b-gray-200 hover:bg-slate-100/20 cursor-pointer">
     <Image src={"/Hero.jpg"} alt='' className='rounded-full w-10 h-10' width={50} height={50} />

@@ -12,9 +12,9 @@ import { useQuery } from '@tanstack/react-query';
 import { usePathname, useRouter } from 'next/navigation';
 
 L.Icon.Default.mergeOptions({
-  iconRetinaUrl: require('leaflet/dist/images/marker-icon-2x.png'),
-  iconUrl: require('leaflet/dist/images/marker-icon.png'),
-  shadowUrl: require('leaflet/dist/images/marker-shadow.png'),
+  iconRetinaUrl: "/node_modules/leaflet/dist/images/marker-icon-2x.png",
+  iconUrl: "/node_modules/leaflet/dist/images/marker-icon.png",
+  shadowUrl: "/node_modules/leaflet/dist/images/marker-shadow.png",
 });
 
 
@@ -69,7 +69,7 @@ const {data,isLoading} =  useQuery({
           ) : (
             <>
               { data?.map((e:any) => (
-                  <div className="box py-3 border-b border-b-gray-200 cursor-pointer" onClick={() => {
+                  <div className="box py-3 border-b border-b-gray-200 cursor-pointer"key={e?.name} onClick={() => {
                     console.log(e.lat , e.lon)
                     setLocation([parseFloat(e.lat), parseFloat(e.lon)])
                     setGetSuggestions(e.name)

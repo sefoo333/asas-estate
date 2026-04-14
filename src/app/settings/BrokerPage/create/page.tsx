@@ -146,7 +146,11 @@ router.push(`/realEstats/${data.data._id}`)
      <div className="type p-4 rounded-xl  relative">
     <Head_create>Building type</Head_create>
  <Select  onValueChange={(e) => {
-  e.startsWith("b") ? setBusiness(true) : setBusiness(false);
+  if (e.startsWith("b")){  
+  setBusiness(true)
+  } else {
+    setBusiness(false)
+  }
   setType(e)
  }}>
       <SelectTrigger className="w-full py-5 mt-3">
@@ -156,13 +160,13 @@ router.push(`/realEstats/${data.data._id}`)
         <SelectGroup>
           <SelectLabel>Residential</SelectLabel>
         {buildings_type_normal.map((e) => (
-                      <SelectItem value={e} id={e}>{e}</SelectItem>
+                      <SelectItem key={e} value={e} id={e}>{e}</SelectItem>
         ))}
         </SelectGroup>
         <SelectGroup>
           <SelectLabel>Commercial</SelectLabel>
          {buildings_type_bussiness.map((e) => (
-                      <SelectItem  value={`b_${e}`} id={e}>{e}</SelectItem>
+                      <SelectItem  key={e} value={`b_${e}`} id={e}>{e}</SelectItem>
         ))}
         </SelectGroup>
       </SelectContent>
@@ -215,7 +219,7 @@ router.push(`/realEstats/${data.data._id}`)
         <div className="input mt-4">
             <div className="tools flex gap-6 p-5 py-3 border border-gray-200 border-b-0 bg-slate-100/80">
 {icons.map((E) =>(
-    <E className='cursor-pointer duration-300 hover:text-gray-600' />
+    <E key={E} className='cursor-pointer duration-300 hover:text-gray-600' />
 ))}
             </div>
              <Textarea className='h-[200px] rounded-t-none border-t-0' placeholder="Type your message here." {...register("description", { required: true })} />

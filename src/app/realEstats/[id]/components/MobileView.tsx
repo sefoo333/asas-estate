@@ -156,10 +156,10 @@ if (user && Array.isArray(data)){
             <AddToFavourite Type={true} isFavourite={IsFav} />
             <div className="scroller w-full h-full object-cover overflow-x-scroll flex">
 
-                {Productdata?.images.map((e:any) => <Image src={e} alt="real" width={500} height={500} className='w-full h-full' />)}
+                {Productdata?.images.map((e:any) => <Image key={e}  src={e} alt="real" width={500} height={500} className='w-full h-full' />)}
             </div>
             <div className="images absolute bottom-10 right-5 flex gap-5 z-9">
-{Productdata?.images?.map((e:string) =>   <Image src={e} alt="real" width={500} height={500} className='w-12 h-12 border-2 border-gray-300 rounded-lg' />)}
+{Productdata?.images?.map((e:string) =>   <Image key={e}  src={e} alt="real" width={500} height={500} className='w-12 h-12 border-2 border-gray-300 rounded-lg' />)}
 
             </div>
         </div>
@@ -236,9 +236,9 @@ if (user && Array.isArray(data)){
 <h1 className='font-semibold'>Nearby Schools</h1>
 <div className="flex flex-col mt-4 gap-10">
 
-{schoolsWithDistance.length > 0 ? schoolsWithDistance.map((e:any) => (
+{schoolsWithDistance.length > 0 ? schoolsWithDistance.map((e:any , i:number) => (
 
-        <div className="school flex gap-4 items-center">
+        <div className="school flex gap-4 items-center" key={i} >
     <div className="icon text-white p-4 bg-blue-700 rounded-full">
         <LuSchool size={25} />
     </div>
@@ -280,7 +280,7 @@ if (user && Array.isArray(data)){
                                                      <div className="second mt-15 bg-white   justify-center rounded-xl w-full flex  flex-col">
                                                             <h1 className='font-semibold'>May you like</h1>
                                                             <div className="boxs mt-8">
-                                                            {mayProducts?.slice(0,4)?.map((e:any) => <Product product={e} />)}
+                                                            {mayProducts?.slice(0,4)?.map((e:any) => <Product product={e} key={e?.id}  />)}
                                                             </div>
                                                            </div>
              

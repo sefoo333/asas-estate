@@ -84,14 +84,31 @@ return (
       <div className="section_features pb-5 border-b border-b-gray-300">
         <h1 className="text-[15px] text-start  font-semibold  mt-5">Features</h1>
                  <div className="collections  justify-start mt-4 grid grid-cols-2 gap-4">
-                 {featuresLabel.slice(0,length).map((e,x) => (
-                   <Button onClick={() => {!index.includes(x) ? setIndex((a) => [...a,x]) : setIndex((a) => a.filter((i) => i !== x)); 
-                    setData((prevData:any) => ({...prevData, features: !index.includes(x) ? [...(prevData.features || []), e.label] : prevData.features.filter((i:string) => i !== e.label) }))
-                   }} key={e.label} variant={"outline"} className={`rounded-full py-4 font-semibold ${index.includes(x) ? "bg-blue-400/20 " : ""}`} size={"sm"}>
-                     <e.icon />
-                     <span className="ml-2">{e.label}</span>
-                   </Button>
-                 ))}
+                {featuresLabel.slice(0,length).map((e,x) => (
+  <Button
+    onClick={() => {
+      if (!index.includes(x)) {
+        setIndex((a) => [...a, x]);
+      } else {
+        setIndex((a) => a.filter((i) => i !== x));
+      }
+
+      setData((prevData:any) => ({
+        ...prevData,
+        features: !index.includes(x)
+          ? [...(prevData.features || []), e.label]
+          : prevData.features.filter((i:string) => i !== e.label)
+      }));
+    }}
+    key={e.label}
+    variant={"outline"}
+    className={`rounded-full py-4 font-semibold ${index.includes(x) ? "bg-blue-400/20 " : ""}`}
+    size={"sm"}
+  >
+    <e.icon />
+    <span className="ml-2">{e.label}</span>
+  </Button>
+))}
                  <span className={`text-gray-600 text-center text-sm col-span-2 cursor-pointer ${length === featuresLabel.length ? 'hidden' : ''}`} onClick={() => setLenth(featuresLabel.length)}>
                    {length === featuresLabel.length ? "Show Less" : `Show More (${featuresLabel.length - length})`}
                  </span>
@@ -104,7 +121,7 @@ return (
           <h1 className="text-[15px] text-start  font-semibold  mb-2">Beds</h1>
 <div className="beds bg-white grid grid-cols-6 items-center   rounded-lg border border-gray-300 ">
 {Array.from({ length: 6 }, (_, i) => i).map((e) => (
-  <span onClick={() => {setBeds(e);setData((x:any) => ({...x , beds:e}))}} className={`p-2 ${e+1 !== 6 ? 'border-r border-r-gray-300' : ''} ${e  === Beds && "!bg-blue-500 text-white "} text-center w-full transition-all `}>{e+1}</span>
+  <span key={e} onClick={() => {setBeds(e);setData((x:any) => ({...x , beds:e}))}} className={`p-2 ${e+1 !== 6 ? 'border-r border-r-gray-300' : ''} ${e  === Beds && "!bg-blue-500 text-white "} text-center w-full transition-all `}>{e+1}</span>
 ))}
 </div>
 
@@ -113,7 +130,7 @@ return (
           <h1 className="text-[15px] text-start  font-semibold  mb-2">Baths</h1>
 <div className="beds bg-white grid grid-cols-6 items-center   rounded-lg border border-gray-300 ">
 {Array.from({ length: 6 }, (_, i) => i).map((e) => (
-  <span onClick={() => {setBaths(e); setData((x:any) => ({...x , baths:e}))}} className={`p-2 ${e+1 !== 6 ? 'border-r border-r-gray-300' : ''} ${e === baths && "!bg-blue-500 text-white "} text-center w-full transition-all focus:!bg-blue-500 focus:text-white `}>{e+1}</span>
+  <span key={e} onClick={() => {setBaths(e); setData((x:any) => ({...x , baths:e}))}} className={`p-2 ${e+1 !== 6 ? 'border-r border-r-gray-300' : ''} ${e === baths && "!bg-blue-500 text-white "} text-center w-full transition-all focus:!bg-blue-500 focus:text-white `}>{e+1}</span>
 ))}
 </div>
 

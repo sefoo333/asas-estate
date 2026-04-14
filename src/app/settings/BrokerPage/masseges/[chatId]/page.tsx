@@ -117,7 +117,7 @@ return test.json()
 
 <div className="grid grid-cols-2 gap-5">
     {data?.map((e) => (
-    <div className="box">
+    <div key={e?.id} className="box">
         <h1 className='font-semibold'>{e?.name}</h1>
         <h2 className='text-sm mt-1'>{e?.value}</h2>
     </div>

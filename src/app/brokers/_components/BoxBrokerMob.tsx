@@ -21,7 +21,7 @@ const max = Math.max(...returnPrices)
     <div className="rates flex gap-2 items-center my-2">
 <span className='font-semibold'>{avg}</span>
      <div className="flex gap-0.5">
-          {Array.from({length:avg}).map((e) => <FaStar />)}
+          {Array.from({length:avg}).map((e , i:number) => <FaStar key={i}  />)}
      </div>
     </div>
     <div className="price my-2">

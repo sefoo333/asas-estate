@@ -109,7 +109,7 @@ export default function TTable() {
   },
   {
     accessorKey: "userName",
-    header: ({ column }) => {
+    header: ({ column }:any) => {
       return (
         <Button
           variant="ghost"
@@ -121,7 +121,7 @@ export default function TTable() {
         </Button>
       )
     },
-    cell: ({ row }) => <div className="lowercase flex gap-2 items-center">
+    cell: ({ row }:any) => <div className="lowercase flex gap-2 items-center">
       <Image src={row?.original?.image} alt="" width={50} height={50} className="w-8 h-8 rounded-md" />
       <span>{row.getValue("userName")}</span>
     </div>,
@@ -158,7 +158,7 @@ export default function TTable() {
   {
     accessorKey: "price",
     header: () => <div className="text-right w-8  font-semibold">Added To</div>,
-    cell: ({ row }) => {
+    cell: ({ row }:any) => {
   
 
       return <div className="text-right font-medium w-15">{new Date(row?.original.createdAt).toLocaleDateString()}</div>

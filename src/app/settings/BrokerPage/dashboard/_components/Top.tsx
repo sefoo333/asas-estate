@@ -47,7 +47,7 @@ const [dataPro,setData]:any = useState([]);
     <>
     {
     dataPro?.map((e:any) => (
-      <ProTopBox data={e} />
+      <ProTopBox key={e?.id} data={e} />
     ))
   }
     </>

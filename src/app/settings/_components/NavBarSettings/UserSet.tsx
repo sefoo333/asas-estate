@@ -16,6 +16,7 @@ import { useUserStore } from '@/store/store'
 import Image from 'next/image'
 import { signOut } from 'next-auth/react'
 import { toast } from 'sonner'
+import { LogIn } from 'lucide-react'
 function UserSet() {
   const user:any = useUserStore((state) => state.user);
   const logout = useUserStore((state) => state.logout);
@@ -38,7 +39,7 @@ function UserSet() {
         
       {user?.image ? <Image src={user?.image || "/images.jpg"} alt='' width={30} height={30} className='size-9 border border-gray-300 rounded-full' /> : (
         <div className='bg-gray-100 rounded-full border border-gray-300 p-2'>
- <LuUserRound className='cursor-pointer'  size={21} />
+ {user?.id ? <LuUserRound className='cursor-pointer'  size={21} /> : <LogIn className='cursor-pointer'  size={21} />}
         </div>
       )}
   </DropdownMenuTrigger>

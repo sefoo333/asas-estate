@@ -40,7 +40,7 @@ const refer = useRef(null);
       <SelectContent className="!w-20">
         <SelectGroup>
           {countr?.map((e) => (
-              <SelectItem value={e?.locationCode}>
+              <SelectItem key={e?.locationCode}  value={e?.locationCode}>
                         {/* <span className={`fi fi-${e?.code.toLowerCase()}`}></span> */}
                         {e?.locationCode}
                         </SelectItem>

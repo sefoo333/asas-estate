@@ -15,13 +15,10 @@ import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { useUserStore } from "@/store/store"
 import { useMutation } from "@tanstack/react-query"
-import { Mail, MessageCircleMore } from "lucide-react"
-import { usePathname, useSearchParams } from "next/navigation"
+import { MessageCircleMore } from "lucide-react"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { IoChatboxEllipses } from "react-icons/io5"
-import { toast, Toaster } from "sonner"
-import { id } from "zod/v4/locales"
 
 export function SendChat({product , broker , type , box}:any) {
 

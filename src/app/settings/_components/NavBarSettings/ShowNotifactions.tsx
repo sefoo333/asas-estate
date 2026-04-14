@@ -30,7 +30,13 @@ export function ShowNotifactions({data,setOpen,setSelectedNotifaction}:any) {
          <div className="flex flex-col">
              {data?.map((e:any) => (
           <div onClick={() => {
-            e?.linkNotifaction === "review" ? (setOpen(true), setSelectedNotifaction(e)) : router.push(`${window.location.protocol}//${e?.linkNotifaction}`)
+          if (  e?.linkNotifaction === "review"){
+           setOpen(true)
+           setSelectedNotifaction(e) 
+          }
+            else {
+           router.push(`${window.location.protocol}//${e?.linkNotifaction}`)
+           }
           }} className='relative z-999' key={e?.id}>
             <div className="box flex gap-4 items-center px-3 py-5 transition-all border-b border-b-gray-200 hover:bg-slate-100/80 cursor-pointer">
               <Image src={"/Hero.jpg"} alt='' className='rounded-full w-10 h-10' width={50} height={50} />

@@ -2,9 +2,8 @@
 import Image from 'next/image'
 import  { useState } from 'react'
 import { IoIosArrowDown } from 'react-icons/io'
-import "flag-icons/css/flag-icons.min.css";
 
-function SelectCurrency({showList , setShowList,index , setIndex , currencies}:{showList:boolean , setShowList:Function,index:number , setIndex:Function , currencies:any[]}) {
+function SelectCurrency({showList , setShowList,index , setIndex , currencies}:{showList:boolean , setShowList:any,index:number , setIndex:any , currencies:any[]}) {
 
    
 
@@ -19,7 +18,7 @@ function SelectCurrency({showList , setShowList,index , setIndex , currencies}:{
                            <div className={`list absolute flex flex-col gap-1 -bottom-30 z-9 transition-all left-1/2 -translate-x-1/2 w-full bg-white rounded-md shadow-lg p-2 ${showList ? "block" : "hidden"}`}>
 
                             {currencies.map((e,a) => (
-                                <div className="item flex cursor-pointer transiton-all hover:bg-slate-50 p-1  items-center gap-2" onClick={() => {
+                                <div key={a} className="item flex cursor-pointer transiton-all hover:bg-slate-50 p-1  items-center gap-2" onClick={() => {
                                     setIndex(a)
                                     setShowList(false)
                                 }}>

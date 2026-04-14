@@ -40,7 +40,7 @@ function ImageAdd({images,setImages}:any) {
 <Image src="/Hero.jpg" alt='image' width={200} height={200} className='rounded-lg' /> */}
 
 {images.length > 0 ? images.map((img:string) => (
-    <div className="box relative">
+    <div key={img} className="box relative">
       <Trash size={18} className='text-red-600 absolute right-3 top-3 cursor-pointer' onClick={() => setImages((e:any) => e?.filter((x:any) => x !== img))} />
       <Image src={img} alt='image' width={200} height={200} className='rounded-lg' />
     </div>

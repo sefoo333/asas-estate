@@ -27,7 +27,7 @@ const data = [
 
 export function ToggleNavMenu() {
     const path = usePathname();
-    const user = useUserStore((state) => state.user)
+    const user:any = useUserStore((state) => state.user)
     const [open,setOpen] = useState(false);
   return (
     <Drawer defaultOpen={open}  direction="left">
@@ -66,7 +66,7 @@ export function ToggleNavMenu() {
         <ul className="flex  flex-col font-semibold  gap-2 ">
         
         {data?.map((e) =>  
-             <li className={`p-3 transition-all ${path === e.href ? "bg-primary/20 !text-primary rounded-lg" : ""} ${e.value === "stop" ? "border-t border-t-gray-200" : ""}`}>
+             <li key={e?.value} className={`p-3 transition-all ${path === e.href ? "bg-primary/20 !text-primary rounded-lg" : ""} ${e.value === "stop" ? "border-t border-t-gray-200" : ""}`}>
             <Link className="text-[#4e515b] dark:text-white transition hover:text-[#3f4147]" href={e.href}> {e.name} </Link>
           </li>)}
 

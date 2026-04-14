@@ -1,8 +1,5 @@
 "use client"
-import type { Metadata } from 'next'
 import React, { useState } from 'react'
-import Maps from '@/componants/MapsSection'
-import SearchBar from '@/componants/SearchBar'
 import ProductsRent from '../ProductsSection_Rent'
 import SearchBarMob from '@/componants/SearchBarMob'
 import { PiMapPinAreaBold } from 'react-icons/pi'

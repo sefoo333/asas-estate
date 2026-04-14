@@ -15,7 +15,7 @@ function Rate({data}:{data:Rate}) {
               <span className='mr-3 font-semibold'>{data?.rating}</span>
             
                  <div className="flex gap-0.5">
-                        {Array.from({length:+data?.rating}).map((e) => <FaStar />)}
+                        {Array.from({length:+data?.rating}).map((e , i:number) => <FaStar key={i}  />)}
                    </div>
         </div>
         <p>{data?.massege}</p>

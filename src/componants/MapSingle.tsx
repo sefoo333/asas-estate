@@ -14,9 +14,9 @@ import { useQuery } from "@tanstack/react-query";
 import FlyToLocation from "./Map/ToLocation";
 
 L.Icon.Default.mergeOptions({
-  iconRetinaUrl: require("leaflet/dist/images/marker-icon-2x.png"),
-  iconUrl: require("leaflet/dist/images/marker-icon.png"),
-  shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
+  iconRetinaUrl: "/node_modules/leaflet/dist/images/marker-icon-2x.png",
+  iconUrl: "/node_modules/leaflet/dist/images/marker-icon.png",
+  shadowUrl: "/node_modules/leaflet/dist/images/marker-shadow.png",
 });
 
 type Place = {
@@ -107,9 +107,10 @@ useEffect(() => {
 
   
 // أيقونة المدارس (أخضر)
+// أيقونة المدارس (أخضر)
 const schoolIcon = L.icon({
   iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png",
-  shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
+  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
   iconSize: [25, 41],
   iconAnchor: [12, 41],
   popupAnchor: [1, -34],
@@ -119,7 +120,7 @@ const schoolIcon = L.icon({
 // أيقونة المستشفيات (أحمر)
 const hospitalIcon = L.icon({
   iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png",
-  shadowUrl: require("leaflet/dist/images/marker-shadow.png"),
+  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
   iconSize: [25, 41],
   iconAnchor: [12, 41],
   popupAnchor: [1, -34],

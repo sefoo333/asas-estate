@@ -29,8 +29,8 @@ return Iconer ? <Iconer size={22} className='inline mr-3' /> : null
     <Head_create>Features</Head_create>
     <div className="boxs my-4 flex flex-col gap-5">
        
-        {features?.map((e:any) => (
-            <div className="box flex justify-between items-center py-4 px-4 border border-gray-200 rounded-xl">
+        {features?.map((e:any , i:number) => (
+            <div key={i} className="box flex justify-between items-center py-4 px-4 border border-gray-200 rounded-xl">
            <div className="first  items-center flex gap-3">
                <GetIcon icon={e.icon}/>
              {/* {edit ? (
@@ -61,7 +61,7 @@ return Iconer ? <Iconer size={22} className='inline mr-3' /> : null
       <SelectContent>
         <SelectGroup className='h-[200px]'>
         {featuresLabel.map((e) => (
-                      <SelectItem value={e.label} id={e.label}>{<e.icon size={15} className="mr-1" />} {e.label} </SelectItem>
+                      <SelectItem key={e?.id} value={e.label} id={e.label}>{<e.icon size={15} className="mr-1" />} {e.label} </SelectItem>
         ))}
         </SelectGroup>
     

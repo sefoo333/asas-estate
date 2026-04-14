@@ -95,7 +95,7 @@ const [open,setOpen] = useState(false);
     <h1 className='text-xl font-semibold mb-3'>Real Estats</h1>
     <div className="products max-md:w-[300px]">
       <div className='w-full grid-cols-3 max-md:overflow-x-scroll grid max-md:!flex gap-6 '>
-          {productsData?.map((e:any) => <Product product={e} />)}
+          {productsData?.map((e:any,i:number) => <Product key={i} product={e} />)}
       </div>
     </div>
 </div>
@@ -106,7 +106,7 @@ const [open,setOpen] = useState(false);
     <h2 className='font-semibold'>Total Rates: <span className='mx-3'>{avg.toFixed(1)}</span></h2>
 
      <div className="flex gap-0.5">
-            {Array.from({length:avg}).map((e) => <FaStar />)}
+            {Array.from({length:avg}).map((e,i) => <FaStar key={i}  />)}
        </div>
 </div>
 <Button onClick={() => setOpen((e) => !e)} variant={"outline"} className='rounded-full cursor-pointer text-[14px] flex items-center !font-semibold px-[30px] py-[20px]'>
@@ -138,8 +138,8 @@ const [open,setOpen] = useState(false);
     <h1 className='text-lg mt-10 text-center w-full font-semibold h-full animate-fade-in'>No brokers found</h1>
 ) : (
   <>
-   {data?.map((e:any) => (
-        <BrokerSug data={e} />
+   {data?.map((e:any , i:number) => (
+        <BrokerSug key={i}  data={e} />
 
  ))}
   </>

@@ -1,6 +1,6 @@
 import { Camera } from 'lucide-react'
 import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
+import React, {  useState } from 'react'
 import { ImagesCar } from './ImagesCar';
 import { IoClose } from 'react-icons/io5';
 

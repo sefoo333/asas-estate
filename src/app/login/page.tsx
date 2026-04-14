@@ -13,7 +13,6 @@ import { Mona_Sans } from 'next/font/google';
 import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import { signIn, signOut, useSession } from "next-auth/react"
-import UserName from '../settings/Account/_components/UserName';
 import { useUserStore } from '@/store/store';
 
 const geistSans = Mona_Sans({
@@ -27,7 +26,7 @@ const geistSans = Mona_Sans({
 function page() {
       const {data:session,status , update} = useSession();
 
-    const sign = async (data) => {
+    const sign = async (data:any) => {
     const test = await fetch(`/api/authUser/${!data?.userName && data?.provider !== "" && status === "authenticated" ? "register" : "login"}` , {
         method:"POST",
         headers:{

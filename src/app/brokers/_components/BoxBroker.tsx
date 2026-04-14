@@ -48,7 +48,7 @@ function BoxBroker({data}:{data:BoxBrokerProps['data'] | any}) {
  <div className="rates flex gap-2 items-center my-2">
 <span className='font-semibold'>{avg.toFixed(1)}</span>
      <div className="flex gap-0.5">
-          {Array.from({length:avg}).map((e) => <FaStar />)}
+          {Array.from({length:avg}).map((e,i:number) => <FaStar key={i}  />)}
      </div>
     </div>
 

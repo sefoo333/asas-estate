@@ -33,7 +33,6 @@ return test.json()
 }
 
 function page() {
-    const route = useRouter();
 
       const [animate, setAnimate] = useState(false);
   const [hide, setHide] = useState(false);

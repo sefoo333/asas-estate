@@ -58,7 +58,6 @@ if (!getRole){
     return NextResponse.json({massege:"Access denied"}, {status:400})
 }
 
-console.log
   
     try {
           const sendMassege = await prisma.lead.update({

@@ -1,10 +1,7 @@
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
-  DialogClose,
   DialogContent,
-  DialogDescription,
-  DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
@@ -24,7 +21,7 @@ export function FeaturesDialog({featuresData , GetIcon}:any) {
             <DialogTitle>Features</DialogTitle>
           </DialogHeader>
             <div className="features grid grid-cols-2 mt-4">
-                                                    {featuresData?.map((e , a:number) => (
+                                                    {featuresData?.map((e:any , a:number) => (
                                                         <div className={`box flex justify-between items-center`} key={a}>
                                                             <div className="title flex items-center py-5">
                                                             <GetIcon icon={e.icon}/>

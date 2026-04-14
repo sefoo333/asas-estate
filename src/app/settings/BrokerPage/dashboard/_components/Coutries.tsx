@@ -49,7 +49,7 @@ useEffect(() => {
     <div className="py-4 border border-gray-100 shadow rounded-xl bg-white">
  <h2 className=" px-4 font-semibold mb-0.5 border-b border-b-gray-100 pb-4 ">Area Map</h2>
       <div className="countries mt-4 px-4">
-{countriesArray?.map((z) => <CountryBox data={z}  />)}
+{countriesArray?.map((z,i:number) => <CountryBox data={z} key={i} />)}
       </div>
     </div>
   );

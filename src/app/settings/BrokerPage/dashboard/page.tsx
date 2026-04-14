@@ -73,8 +73,8 @@ const [cancel,setCancel] = useState(true);
                             <div className="boxs grid gap-5 mb-3 grid-cols-4 max-xl:grid-cols-2 max-md:grid-cols-1">
 
                               
-                            {data?.map((e) => (
-                              <DashBox Data={e} />
+                            {data?.map((e,i:number) => (
+                              <DashBox Data={e} key={i} />
                             ))}
                                
                                 

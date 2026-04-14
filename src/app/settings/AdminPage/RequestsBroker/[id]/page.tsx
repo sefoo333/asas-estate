@@ -91,12 +91,12 @@ const router = useRouter();
 
 <div className="grid grid-cols-2 gap-5">
     {data?.map((e) => (
-    <div className="box">
+    <div className="box" key={e?.value} >
         <h1 className='font-semibold'>{e?.name}</h1>
         {e?.name === "Languages" ? (
            <div className="flex gap-2 mt-2">
              {e?.value?.map((x:string) => (
-<Badge className='' variant={"outline"}>{x}</Badge>
+<Badge key={x}  className='' variant={"outline"}>{x}</Badge>
             ))}
            </div>
             
