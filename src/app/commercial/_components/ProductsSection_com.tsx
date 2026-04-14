@@ -1,0 +1,74 @@
+"use client"
+import React, { useEffect, useState } from 'react'
+import { IoLocationSharp } from "react-icons/io5";
+import { FaBath, FaBed } from 'react-icons/fa6'
+import { RxDimensions } from "react-icons/rx";
+import { MdEmail } from "react-icons/md";
+import { FaPhoneAlt } from "react-icons/fa";
+import { IoChatboxEllipses } from "react-icons/io5";
+import { Button } from '@/components/ui/button';
+import Image from 'next/image';
+import { BiHeart } from 'react-icons/bi';
+import {
+  Select,
+  SelectContent,
+  SelectGroup,
+  SelectItem,
+  SelectLabel,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
+import { useGetProducts } from '@/hooks/useGetProducts';
+import EasySearchsTypes from '@/componants/EasySearchsTypes';
+import { useMediaQuery } from 'react-responsive';
+import Product_BRC from '@/componants/Product_BRC';
+import Product from '@/componants/Product';
+function Products({searchResults}:any) {
+
+  const {data} = useGetProducts("com");
+const isMob = useMediaQuery({maxWidth:1000});
+
+
+  return (
+    <div className="parent max-md:w-full max-xl:px-4  basis-[80%] max-md:basis-full h-screen pb-70 overflow-y-scroll mt-20" style={{scrollbarWidth:"none"}}>
+        <div className="container">
+            <div className="title flex justify-between items-center">
+                <h1 className='font-semibold text-start text-3xl'>Properties for sale</h1>
+                <Select>
+                    <SelectTrigger className="w-[150px] max-md:hidden">
+                            <SelectValue className='font-semibold' placeholder={"Popular"} />
+                          </SelectTrigger>
+                    <SelectContent>
+<SelectGroup>
+    <SelectItem value='Popular' className='font-semibold'>Popular</SelectItem>
+    <SelectItem value='Newest' className='font-semibold'>Newest</SelectItem>
+    <SelectItem value='Oldest' className='font-semibold'>Oldest</SelectItem>
+    <SelectItem value='lPrice' className='font-semibold'>Lowest price</SelectItem>
+    <SelectItem value='hPrice' className='font-semibold'>Highest price</SelectItem>
+</SelectGroup>
+                    </SelectContent>
+                </Select>
+            </div>
+                     <EasySearchsTypes isCommercial={true} products={data} />
+            <div className="products flex flex-col  max-md:grid max-md:grid-cols-2 mt-14  gap-9 relative">
+                 {searchResults?.length > 0 ? searchResults.map((e:any) => (
+<>
+{isMob ?  <Product product={e} key={e} /> : <Product_BRC product={e} key={e} />}
+</>
+)) : 
+              (
+                data?.map((e:any) => (
+<>
+{isMob ?  <Product product={e} key={e} /> : <Product_BRC product={e} key={e} />}
+</>
+
+              ))
+              )
+              }
+            </div>
+        </div>
+    </div>
+  )
+}
+
+export default Products

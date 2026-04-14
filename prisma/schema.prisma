@@ -1,0 +1,150 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql" 
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String?
+  provider  String?
+  phone     String?
+  location  String? @default("un")
+  locationCode String? @default("un")
+  phoneCode String?
+  userName      String?
+    image String?
+  role String? @default("user")
+  createdAt DateTime @default(now())
+  UpdatedAt DateTime @default(now())
+  
+  leads Lead[]  
+
+  notificationsReceived Notfication[] @relation("UserTo")
+
+  notificationsSent Notfication[] @relation("UserFrom")
+
+  rates Rate[]
+}
+
+model Broker {
+  id        String  @id
+  userName  String
+  company   String
+  languages String[]
+  ratingSum    Int?
+  image String?
+  reviewsCount Int
+  phone String?
+  location String @default("egypt")
+  bio String?
+  locationCode String @default("eg")
+  propertiesCount Int
+  createdAt DateTime @default(now())
+  UpdatedAt DateTime @default(now())
+  realEstates RealEstate[]
+
+  rates Rate[]
+}
+
+model RequestBroker {
+  id        String  @id @default(uuid())
+  idUser     String
+  userName  String
+  company   String
+  languages String[]
+  image String?
+  phone String?
+  location String @default("egypt")
+  bio String?
+  locationCode String @default("eg")
+  createdAt DateTime @default(now())
+}
+
+model RealEstate {
+  id          String   @id @default(uuid())
+   userId String?
+  title       String
+  description String
+  price       Float
+  type        String     
+  beds        Int
+  Baths       Int
+  currency    String 
+  Sqft        Int
+  location    String
+  createdAt   DateTime @default(now())
+  UpdatedAt   DateTime @default(now())
+  images     Json[]
+  features     Json[]
+  TransactionType String
+  status String? @default("active")
+
+  user Broker? @relation(fields: [userId], references: [id], onDelete: Cascade)
+  favourites Favourites[]
+
+  leads Lead[]
+}
+
+model Lead {
+  id String  @id @default(cuid())
+  senderId String
+ massege String
+ idTo String?
+ status String? @default("not Replied")
+ productId String?
+
+ createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+ product RealEstate? @relation(fields: [productId], references: [id], onDelete: Cascade)
+ userSender User @relation(fields: [senderId], references: [id], onDelete: Cascade)
+}
+
+model Notfication {
+   id String  @id @default(cuid())
+   From String
+   To String
+   Content Json
+   linkNotifaction String
+
+   UserTo User @relation("UserTo", fields: [To], references: [id], onDelete: Cascade)
+    UserFrom User @relation("UserFrom", fields: [From], references: [id], onDelete: Cascade)
+}
+
+model Rate {
+  id        String   @id @default(cuid())
+  userId    String
+  BrokerId String
+  massege String?
+  rating    Int
+  createdAt DateTime @default(now())
+
+
+  User User @relation(fields: [userId], references: [id], onDelete: Cascade)
+  Broker Broker @relation(fields: [BrokerId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, BrokerId])
+}
+
+model Favourites {
+  id        String   @id @default(cuid())
+  userId    String
+  productId String
+  createdAt DateTime @default(now())
+
+  RealEstate RealEstate @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@unique([userId, productId]) 
+
+}

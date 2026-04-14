@@ -1,0 +1,40 @@
+import prisma from "@/lib/db";
+import { NextResponse } from "next/server";
+
+
+
+export async function POST(req:Request, { params }: { params: { id: string }}){
+const {userName, bio, image, company,idUser, phoneCode, phone, location, locationCode, languages} = await req.json();
+
+if (!idUser){
+    return NextResponse.json({message:"id not found"}, {status:201})
+
+}
+
+try {
+
+    const createBroker = await prisma.requestBroker.create({
+        data:{
+            idUser: idUser,
+            userName,
+            bio,
+            image,
+            company,
+            phone:`${phoneCode}${phone}`,
+            location,
+            locationCode,
+            languages: languages || [],
+        }
+    })
+
+        return NextResponse.json({message:"success create" , data:createBroker}, {status:200})
+
+} catch(err){
+    console.log(err)
+       return NextResponse.json({message:"failed to create"}, {status:500})
+ 
+}
+
+
+
+}

@@ -1,0 +1,183 @@
+"use client"
+
+import * as React from "react"
+import { CartesianGrid, Line, LineChart, XAxis } from "recharts"
+
+import {
+  Card,
+  CardContent,
+  CardDescription,
+  CardHeader,
+  CardTitle,
+} from "@/components/ui/card"
+import {
+  ChartContainer,
+  ChartTooltip,
+  ChartTooltipContent,
+  type ChartConfig,
+} from "@/components/ui/chart"
+import { format } from "date-fns";
+import { useQuery } from "@tanstack/react-query"
+import { useUserStore } from "@/store/store"
+
+export const description = "An interactive line chart"
+
+
+
+const chartConfig = {
+  views: {
+    label: "Total leads",
+  },
+  Opened: {
+    label: "Opened",
+    color: "var(--chart-1)",
+  },
+  Closed: {
+    label: "Closed",
+    color: "var(--chart-2)",
+  },
+} satisfies ChartConfig
+
+export function Buys() {
+
+  const user = useUserStore((state) => state.user)
+   const {data:masseges} = useQuery({
+      queryKey:["MassegesKey"],
+      queryFn: async () => { 
+        const res =  await fetch(`/api/Leads/Masseges?idUser=${user?.id}`)
+        const json = await res.json()
+        console.log("tsa",json)
+        return json?.data
+    },
+    refetchOnWindowFocus:false,
+    })
+  
+
+
+  const [activeChart, setActiveChart] =
+    React.useState<keyof typeof chartConfig>("Opened")
+const [data, setData] = React.useState([]);
+
+React.useEffect(() => {
+  if (!masseges) return;
+
+  const grouped: any = {};
+
+  masseges.forEach((lead: any) => {
+    const day = format(new Date(lead.createdAt), "yyyy-MM-dd");
+
+    if (!grouped[day]) {
+      grouped[day] = { date: day, Opened: 0, Closed: 0 };
+    }
+
+    if (lead?.status !== "Done"){
+      grouped[day].Opened++;
+    }  else {
+       grouped[day].Closed++;
+    }
+
+
+  });
+
+  const result:any = Object.values(grouped).sort(
+    (a: any, b: any) => new Date(a.date).getTime() - new Date(b.date).getTime()
+  );
+console.log(result)
+  setData(result);
+}, [masseges]);
+
+  const total = React.useMemo(
+    () => ({
+      Opened: data.reduce((acc, curr:any) => acc + curr.Opened, 0),
+      Closed: data.reduce((acc, curr:any) => acc + curr.Closed, 0),
+    }),
+    [data]
+  )
+
+
+  return (
+    <Card className="py-4 col-span-3 sm:py-0">
+      <CardHeader className="flex flex-col items-stretch border-b p-0! sm:flex-row">
+        <div className="flex flex-1 flex-col justify-center gap-1 px-6 pb-3 sm:pb-0">
+          <CardTitle>Total Leads</CardTitle>
+          <CardDescription>
+            your total Leads after you start
+          </CardDescription>
+        </div>
+        <div className="flex">
+          {["Opened", "Closed"].map((key) => {
+            const chart = key as keyof typeof chartConfig
+            return (
+              <button
+                key={chart}
+                data-active={activeChart === chart}
+                className="flex flex-1 flex-col justify-center gap-1 border-t px-6 py-4 text-left even:border-l data-[active=true]:bg-muted/50 sm:border-t-0 sm:border-l sm:px-8 sm:py-6"
+                onClick={() => setActiveChart(chart)}
+              >
+                <span className="text-xs text-muted-foreground">
+                  {chartConfig[chart].label}
+                </span>
+                <span className="text-lg leading-none font-bold sm:text-3xl">
+                  {total[key as keyof typeof total].toLocaleString()}
+                </span>
+              </button>
+            )
+          })}
+        </div>
+      </CardHeader>
+      <CardContent className="px-2 sm:p-6">
+        <ChartContainer
+          config={chartConfig}
+          className="aspect-auto h-[250px] w-full"
+        >
+          <LineChart
+            accessibilityLayer
+            data={data}
+            margin={{
+              left: 12,
+              right: 12,
+            }}
+          >
+            <CartesianGrid vertical={false} />
+            <XAxis
+              dataKey="date"
+              tickLine={false}
+              axisLine={false}
+              tickMargin={8}
+              minTickGap={32}
+              tickFormatter={(value) => {
+                const date = new Date(value)
+                return date.toLocaleDateString("en-US", {
+                  month: "short",
+                  day: "numeric",
+                })
+              }}
+            />
+            <ChartTooltip
+              content={
+                <ChartTooltipContent
+                  className="w-[150px]"
+                  nameKey="views"
+                  labelFormatter={(value) => {
+                    return new Date(value).toLocaleDateString("en-US", {
+                      month: "short",
+                      day: "numeric",
+                      year: "numeric",
+                    })
+                  }}
+                />
+              }
+            />
+            <Line
+              dataKey={activeChart}
+              type="monotone"
+              stroke={`var(--color-${activeChart})`}
+              strokeWidth={2}
+              dot={false}
+            />
+          </LineChart>
+        </ChartContainer>
+      </CardContent>
+    </Card>
+  )
+}

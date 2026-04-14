@@ -1,0 +1,102 @@
+"use client"
+import type { Metadata } from 'next'
+import React, { useEffect, useState } from 'react'
+import Product from '@/componants/Product'
+import { useSearchParams } from 'next/navigation'
+import { toast, Toaster } from 'sonner'
+import SearchBarMob from '@/componants/SearchBarMob'
+import { CiMap } from 'react-icons/ci'
+import ProductsMob from '../_components/ProductsSectionMob'
+import { PiMapPinAreaBold } from 'react-icons/pi'
+
+// export const metadata:Metadata = {
+//     title:"3qare - buy",
+//     description:"buy and rent any real estats"
+// }
+
+
+
+/*
+1- location
+2- price 
+3- beds & baths 
+4- estate type
+5- features 
+6- Sale or Rent
+
+*/
+
+
+interface Data {
+  location:string;
+  price:number;
+  beds:number;
+  baths:number;
+  estateType:string;
+  features:string[];
+  transactionType:string;
+}
+
+
+function page() {
+
+  const params:any = useSearchParams();
+  const [data , setData] = useState<Data>({});
+const [searchResults , setSearchResults] = useState<any>([]);
+
+const searchProducts = async () => {
+    const res = await fetch(`/api/RealEstats/RealEstates/search?${new URLSearchParams(params.entries())}`)
+    const json = await res.json()
+    console.log("sss",params);
+    if (json?.data?.length === 0){
+      toast.error("No results for your search 🙁")
+    }
+setSearchResults(json.data)
+    console.log(json)
+  }
+
+  useEffect(() => {
+searchProducts()
+  },[params])
+
+
+  
+
+  
+  // useEffect(() => {
+  // searchProducts(params.entries())
+  // },[])
+
+
+// useEffect(() => {
+
+// if (params.size === 1 && params.get('estateType')){
+//     searchProducts({
+//       ...Object.fromEntries(params.entries())
+//     } as any)
+
+//   }
+
+// },[params])
+
+
+  return (
+   <>
+   <Toaster />
+    <div className='overflow-y-hidden'>
+      
+        <SearchBarMob setData={setData} setSearchResults={setSearchResults} data={data} />
+        
+            <div className="window flex relative gap-30 p-5 overflow-hidden">
+              <ProductsMob setSearchResults={setSearchResults} searchResults={searchResults} />
+            {/* <Maps /> */}
+            <div className="map  fixed right-0 bottom-10 p-3 bg-white shadow-sm text-primary rounded-full">
+                <PiMapPinAreaBold size={24} className='text-primary' />
+            </div>
+        </div>
+    </div>
+   </>
+  )
+}
+
+export default page
