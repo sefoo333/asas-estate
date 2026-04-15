@@ -3,7 +3,7 @@ import { NextResponse } from "next/server";
 
 
 
-export async function POST(req:Request, { params }: { params: { id: string }}){
+export async function POST(req:Request){
 const {userName, bio, image, company,idUser, phoneCode, phone, location, locationCode, languages} = await req.json();
 
 if (!idUser){
