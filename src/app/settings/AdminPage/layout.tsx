@@ -9,8 +9,8 @@ function layout({children}:{children:React.ReactNode}) {
     const router = useRouter();
     const user = useUserStore((state) => state.user);
     useEffect(() => {
-      console.log(user);
-      console.log(user?.role)
+      
+      
 if (user?.role !== "Admin" && user?.role !== undefined) {
     toast.error("Access Denied")
 router.back()

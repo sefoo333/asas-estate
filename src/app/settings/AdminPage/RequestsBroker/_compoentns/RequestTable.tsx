@@ -63,7 +63,7 @@ export default function TTable() {
     queryFn: async () => { 
       const res =  await fetch(`/api/brokers/requests`)
       const json = await res.json()
-      console.log("tsa",json)
+      
       return json?.data
   },
   refetchOnWindowFocus:false,
@@ -73,7 +73,7 @@ export default function TTable() {
     mutationFn: async ({ action, id }: { action: string; id: string }) => { 
       const res =  await fetch(`/api/brokers/requests/${id}` , {method:action})
       const json = await res.json()
-      console.log("tsa",json)
+      
       return json?.data
   },
   onSuccess:() => {
@@ -187,7 +187,7 @@ export default function TTable() {
             </DropdownMenuTrigger>
             <DropdownMenuContent align="end">
               {/* <DropdownMenuSeparator /> */}
-              <DropdownMenuItem onClick={() => console.log(row)}>
+              <DropdownMenuItem >
                 <Link href={`/settings/AdminPage/RequestsBroker/${payment.id}`}>
                 Open Request
                 </Link>

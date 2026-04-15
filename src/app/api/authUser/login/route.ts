@@ -63,17 +63,14 @@ await (await cookies()).set("token" ,token)
     
     
     if (!getUser){
-        console.log("s")
         return NextResponse.json({message:"Invalid email or password"}, {status:400})
     }
     
     if (!hash) {
-        console.log("s2")
         return NextResponse.json({message:"Invalid email or password"}, {status:400})
     }
     
     
-    console.log(process.env.JWT_SECRET_KEY)
     
     const token = jwt.sign({
         email,

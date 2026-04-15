@@ -10,7 +10,6 @@ export const useSearchProducts = (type: string) => {
 
   useEffect(() => {
    const searchProducts = async () => {
-    console.log(params.entries())
     const res = await fetch(`/api/RealEstats/RealEstates/search?${new URLSearchParams(params.entries())}`)
     const json = await res.json()
     setData(json.data)

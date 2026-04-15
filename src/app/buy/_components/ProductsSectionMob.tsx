@@ -33,13 +33,12 @@ const [myData,setData]:any = useState([]);
 
 const {data} = useGetProducts("Sale");
 
-useEffect(() => {console.log(data)},[data])
 const searchQuery = params.get("search"); 
 
 const { Data:searchData } = useSearchProducts("Sale");
 
 useEffect(() => {
-  console.log("searching", searchQuery, searchData);
+  
   if (searchQuery) {
     setSearchResults(searchData);
   } else {

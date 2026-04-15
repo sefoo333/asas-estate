@@ -65,7 +65,7 @@ export default function MassegesTable() {
     queryFn: async () => { 
       const res =  await fetch(`/api/Leads/Masseges?idUser=${user?.id}`)
       const json = await res.json()
-      console.log("tsa",json)
+      
       return json?.data
   },
   refetchOnWindowFocus:false,
@@ -82,7 +82,7 @@ export default function MassegesTable() {
     body: JSON.stringify({ id }),    
         })
         const json = await res.json()
-        console.log("tsa",json)
+        
         return json?.data
     },
     onSuccess:() => {
@@ -159,7 +159,7 @@ queryClient.invalidateQueries({ queryKey: ["MassegesKey"] })
          </Button>
        )
      },
-     cell: ({ row }) => <div onClick={() => console.log(row)} className="lowercase w-10">{new Date().toLocaleDateString()}</div>,
+     cell: ({ row }) => <div className="lowercase w-10">{new Date().toLocaleDateString()}</div>,
    },
    {
      accessorKey: "status",
@@ -222,7 +222,7 @@ queryClient.invalidateQueries({ queryKey: ["MassegesKey"] })
                  View Massege
                  </Link>
                </DropdownMenuItem>
-               <DropdownMenuItem onClick={() => console.log(row)}>
+               <DropdownMenuItem>
                  <Link href={`/realEstats/${payment.productId}`}>
                  View Real Estate
                  </Link>

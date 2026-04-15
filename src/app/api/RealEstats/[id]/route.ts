@@ -37,7 +37,7 @@ try {
       return NextResponse.json({ message: "No token found" }, { status: 401 });
     }
 
-    console.log("that's",cleanData);
+    
     
     const  unLookToken:any = jwt.verify(unLookCookie , process.env.JWT_SECRET_KEY as any) ;
     
@@ -67,7 +67,7 @@ const realEstates = await prisma.realEstate.update({
 
 return NextResponse.json({message:"Real estate fetched successfully",data:realEstates}, {status:200})
 } catch(err){
-    console.log("ohm",err)
+    
     return NextResponse.json({message:"err fetch",err:err}, {status:500})
 
 }

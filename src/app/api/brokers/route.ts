@@ -35,7 +35,6 @@ try {
 
 return Response.json({message:"Brokers fetched successfully",data:getBrokers}, {status:200});
 } catch (err) {
-    console.log(err)
     return Response.json({message:"Error fetching brokers" , err:err}, {status:500})
 }
 }

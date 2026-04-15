@@ -49,7 +49,7 @@ const test = await fetch(`/api/Leads/SendMassege` , {
     })
 })
 
-console.log(data)
+
 
 return test.json()
         },

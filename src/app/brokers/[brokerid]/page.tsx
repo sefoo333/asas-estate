@@ -24,7 +24,7 @@ function page() {
     const params = useParams();
 
     const user = useUserStore((state) => state.user)
-    console.log("params" , params)
+    
 
 
     const {data: brokerData} = useQuery<Broker | any>({
@@ -32,7 +32,7 @@ function page() {
         queryFn: async () => {
             const res = await fetch(`/api/brokers/search?brokerId=${params.brokerid}`);
             const data = await res.json();
-            console.log("broker" , data)
+            
             return data.data
         },
         refetchOnWindowFocus:false,
@@ -46,7 +46,7 @@ function page() {
     queryFn:() => fetchBrokers(3),
     refetchOnWindowFocus:false
   })
-    console.log("data" , productsData)
+    
       const avg = (brokerData?.ratingSum ?? 0) / (brokerData?.reviewsCount ?? 1) || 0;
 const [open,setOpen] = useState(false);
   return (

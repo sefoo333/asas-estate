@@ -36,7 +36,7 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: "All fields are required" }, { status: 400 });
     }
 
-	console.log(unLookToken)
+	
 	
 
     const realEstate = await prisma.realEstate.create({

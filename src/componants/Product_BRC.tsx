@@ -28,7 +28,6 @@ function Product_BRC({product}: {product: RealEstate | any}) {
     queryFn:async () => {
       const res = await fetch(`/api/users/favourite`)
       const json = await res.json()
-    //   console.log("s",data?.includes({id:product?.id}))
       return json?.data
     },
     refetchOnWindowFocus:false

@@ -7,8 +7,7 @@ export async function VerifyToken(){
 
 const  unLookToken:any = jwt.verify(unLookCookie , process.env.JWT_SECRET_KEY as any) ;
 
-console.log("cookie",unLookCookie);
-console.log("token",unLookToken);
+
 
 return await unLookCookie?.id
 

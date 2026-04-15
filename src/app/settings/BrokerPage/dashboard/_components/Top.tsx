@@ -13,7 +13,7 @@ const [dataPro,setData]:any = useState([]);
     queryFn: async () => { 
       const res =  await fetch(`/api/Leads/Masseges?idUser=${user?.id}`)
       const json = await res.json()
-      console.log("tsa",json)
+      
       return json?.data
   },
   refetchOnWindowFocus:false,

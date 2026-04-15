@@ -30,7 +30,7 @@ const router = useRouter();
     queryFn: async () => {
 const fetcher = await fetch(`/api/users/Notifactions/${user?.id}`);
 const json = await fetcher.json();
-console.log(json)
+
 return json
     },
     enabled: user?.id !== undefined && user?.id !== null,

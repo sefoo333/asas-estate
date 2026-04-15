@@ -25,7 +25,6 @@ if (getUser?.role !== "Admin"){
 try {
 
     const getDataRequests = await prisma.requestBroker.findMany();
-console.log("soso",getDataRequests)
         return NextResponse.json({message:"success fetch",data:getDataRequests}, {status:200})
 } catch (err){
         return NextResponse.json({message:"failed to get"}, {status:500})

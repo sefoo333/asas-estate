@@ -35,8 +35,8 @@ function page() {
         body:JSON.stringify({...data , Prvoided:session?.Provided})
     })
     
-    console.log(data)
-    console.log(`${data?.provider === "google" ? "/Provider" : data?.userName ? "register" : "login"}`)
+    
+    
     
     return test.json()
     }
@@ -46,7 +46,7 @@ const user = useUserStore((state) => state?.user);
         mutationFn: sign,
         onSuccess: (data) => {
             router.replace("/")
-            console.log("success" , data);
+            
         }
     })
 
@@ -75,7 +75,7 @@ router.replace("/")
   const [switcher,setSwitch] = useState(true);
 
   useEffect(() => {
-    console.log(session)
+    
   },[session])
 
   useEffect(() => {
@@ -92,7 +92,7 @@ mutation.mutate({
   email: session?.user?.email,
 });
 
-console.log(session)
+
         // router.replace("/");
         // window.open("/","_self")
       }

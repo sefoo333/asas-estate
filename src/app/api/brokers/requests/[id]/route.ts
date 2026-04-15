@@ -34,7 +34,6 @@ export async function POST(req:Request, context:any){
 
         const getRequest:any = await prisma.requestBroker.findUnique({where:{id:id}});
         
-        console.log("thost",getRequest , id)
         const createBroker = await prisma.broker.create({
             data: {
                 id: getRequest?.idUser,
@@ -59,7 +58,6 @@ export async function POST(req:Request, context:any){
             return NextResponse.json({message:"success",data:createBroker}, {status:200})
     
     }catch(err){
-        console.log("post err" , err)
                 return NextResponse.json({message:"failed to get"}, {status:500})
     }
 

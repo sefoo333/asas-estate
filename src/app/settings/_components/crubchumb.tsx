@@ -8,7 +8,7 @@ function Crubchumb({parent , child}:{parent?:string,child?:string}) {
 const pathj = usePathname();
 const filtering:any = pathj?.split("/").slice(1)
 useEffect(() => {
-console.log(filtering.length !== (filtering[1] - 1))
+
 },[])
   return (
     <nav aria-label="Breadcrumb">

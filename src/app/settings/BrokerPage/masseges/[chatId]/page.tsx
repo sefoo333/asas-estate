@@ -25,7 +25,7 @@ const user = useUserStore((state) => state.user);
         queryFn:async () => {
 const fetcher = await fetch(`/api/Leads/${chatId}`);
 const json = await fetcher.json();
-console.log(json)
+
 return json.data
         },
         refetchOnWindowFocus:false
@@ -79,7 +79,7 @@ const test = await fetch(`/api/Leads/SendMassege` , {
 return test.json()
         },
         onSuccess:() => {
-            console.log(chatProduct)
+            
             toast.success(`${open ? "Request evaluation" : "Response massege"} sent successfully`)
         },
         onError:() => {

@@ -17,8 +17,8 @@ function Languages({setData,data}:any) {
                 setData((e:any) => ({...e, languages:[...e?.languages || [] , x.target.value]}));
                 x.target.value = ""
             }
-            console.log(x.code)
-            console.log(data)
+            
+            
         }}  />
     </div>
  </div>

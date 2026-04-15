@@ -4,7 +4,6 @@ import Image from 'next/image'
 import React from 'react'
 
 function error({error ,reset }:any) {
-    console.log(error)
   return (
     <div className="parent absolute w-full h-full z-9 bg-white top-0 flex justify-center items-center text-center flex-col">
             <Image src={"/notFound.jpg"} alt='' width={400} height={400} className='object-contain' />

@@ -20,14 +20,13 @@ const queryString = new URLSearchParams(params).toString()
       const fetcher = await fetch(`/api/brokers/searchAll?${new URLSearchParams(params)}`);
       const json = await fetcher.json();
       const data = json.data;
-      console.log(`/api/brokers/searchAll?${new URLSearchParams(params)}`)
+      
       return data;
     },
     refetchOnWindowFocus:false,
     staleTime:0,
   })
 
-  useEffect(()=>{console.log(params)},[params])
   const isMob = useMediaQuery({maxWidth:767})
 
 

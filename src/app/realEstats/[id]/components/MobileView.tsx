@@ -35,7 +35,7 @@ function MobileView({wParams}:any) {
     const getData = async () => {
         const getData = await fetch(`/api/RealEstats/${wParams.id}`);
         const data = await getData.json();
-        console.log("data",data)
+        
         setData(data.data)
     }
 
@@ -96,8 +96,8 @@ const schoolQueries = useQueries({
       const url = `https://router.project-osrm.org/route/v1/driving/${dataLocation[1]},${dataLocation[0]};${school.lon},${school.lat}?overview=full&geometries=geojson`;
       const res = await fetch(url);
       const json = await res.json();
-      console.log("jsjs",json)
-      console.log("jsjs2",url)
+      
+      
       return json.routes[0].distance;
     },
     refetchOnWindowFocus:false,
@@ -113,7 +113,7 @@ const schoolsWithDistance = nearbySchools.slice(0,5).map((school:object, i:numbe
 }));
 
 useEffect(() => {
-    console.log(schoolsWithDistance)
+    
 },[schoolsWithDistance])
 
 
@@ -131,8 +131,8 @@ const {data:mayProducts} = useGetProducts("All");
     queryFn:async () => {
       const res = await fetch(`/api/users/favourite`)
       const json = await res.json()
-    //   console.log("s",data?.includes({id:Productdata?.id}))
-    console.log("favs",json)
+    //   
+    
       return json?.data
     },
     refetchOnWindowFocus:false

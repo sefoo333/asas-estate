@@ -6,7 +6,6 @@ export async function POST(request:Request) {
     const {rating, BrokerId, userId}:any = await request.json();
 
  try {
-    console.log(rating)
     const createStar = await prisma.rate.create({
     data:{
 userId,
@@ -36,8 +35,6 @@ createdAt:new Date(),
  return NextResponse.json({message:"Rate created successfully", rate:createStar,broker:updateBroker},{status:200})
  
 } catch (err){
-     console.log({rating, BrokerId, userId})
-    console.log(err)
     return NextResponse.json({message:"Error creating rate",err}, {status:500})
  }
 }

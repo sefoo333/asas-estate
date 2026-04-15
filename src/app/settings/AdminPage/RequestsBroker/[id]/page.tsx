@@ -24,7 +24,7 @@ const user = useUserStore((state) => state.user);
         queryFn:async () => {
 const fetcher = await fetch(`/api/brokers/requests/${id}`);
 const json = await fetcher.json();
-console.log(json)
+
 return json.data
         },
         refetchOnWindowFocus:false
@@ -69,7 +69,7 @@ const router = useRouter();
      mutationFn: async ( action : string) => { 
        const res =  await fetch(`/api/brokers/requests/${id}` , {method:action})
        const json = await res.json()
-       console.log("tsa",json)
+       
        return json?.data
    },
    onSuccess:() => {

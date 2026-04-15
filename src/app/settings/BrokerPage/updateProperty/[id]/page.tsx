@@ -58,7 +58,6 @@ const [data,setData] = useState<RealEstate | any>({});
     const getData = async () => {
             const getData = await fetch(`/api/RealEstats/${params?.id}`);
             const data = await getData.json();
-            console.log("data",data)
             setImages(data.data.images);
             setType(data.data.type);
             setTransType(data.data.TransactionType);
@@ -90,7 +89,6 @@ const router = useRouter();
 router.push(`/realEstats/${data?.id}`)
         },
         onError:(error) => {
-          console.log(error)
           toast.error("Error creating real estate")
         }
     })
@@ -130,8 +128,6 @@ const tt = type?.startsWith("b_") ? type?.slice(2) : type.toString()
 
 <div className="flex flex-col  w-1/2 max-xl:w-full max-md:w-full">
 <form action="" onSubmit={handleSubmit((dataer) => {
-    console.log(dataer);
-    console.log(images)
     mutation.mutate({...dataer , id:data?.id,images:images,currency:currencies[index].label || data?.currency,type:data?.type || type,TransactionType:data?.TransactionType || TransactionType,features:features});
 })}>
 <h1 className='text-lg font-semibold'>Project Details</h1>

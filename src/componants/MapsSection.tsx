@@ -32,7 +32,6 @@ const {data,isLoading} =  useQuery({
     const res = await fetch(`/api/getLocation?q=${name}`)
   
   const data = await res.json()
-  console.log(data)
   return data;
   },
   enabled: name.length > 3,
@@ -67,7 +66,6 @@ const {data,isLoading} =  useQuery({
             <>
               { data?.map((e:any) => (
                   <div className="box py-3 border-b border-b-gray-200 cursor-pointer"key={e?.name} onClick={() => {
-                    console.log(e.lat , e.lon)
                     setLocation([parseFloat(e.lat), parseFloat(e.lon)])
                     setGetSuggestions(e.name)
                     route.push(`/${path.split("/")[1]}?location=${e.name}`)

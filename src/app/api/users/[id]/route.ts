@@ -58,14 +58,14 @@ if (body?.password) {
 
 // validation
 
-console.log("tktkt",{...body,password:body?.password})
+
 
 const result = updateUserSchema.safeParse({...body,password:hashedPassword})
 
 
 
   if (!result.success) {
-      console.log(result.error)
+      
       return NextResponse.json(
           { error: result.error },
           { status: 400 }
@@ -81,7 +81,7 @@ const result = updateUserSchema.safeParse({...body,password:hashedPassword})
     )
     
     if (Object.keys(data).length === 0) {
-      console.log("s2")
+      
     return NextResponse.json({ error: "No fields to update" }, { status: 400 })
   }
 

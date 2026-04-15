@@ -46,7 +46,7 @@ export function Buys() {
       queryFn: async () => { 
         const res =  await fetch(`/api/Leads/Masseges?idUser=${user?.id}`)
         const json = await res.json()
-        console.log("tsa",json)
+        
         return json?.data
     },
     refetchOnWindowFocus:false,
@@ -82,7 +82,7 @@ React.useEffect(() => {
   const result:any = Object.values(grouped).sort(
     (a: any, b: any) => new Date(a.date).getTime() - new Date(b.date).getTime()
   );
-console.log(result)
+
   setData(result);
 }, [masseges]);
 

@@ -44,7 +44,7 @@ const res = await fetch("/api/Leads/SendMassege", {
 
 const json = await res.json()
 
-console.log(json)
+
 
 return json
     },

@@ -25,7 +25,7 @@ const searchQuery = params.get("search");
 const { Data:searchData } = useSearchProducts("Rent");
 
 useEffect(() => {
-  console.log("searching", searchQuery, searchData);
+  
   if (searchQuery) {
     setSearchResults(searchData);
   } else {

@@ -93,9 +93,9 @@ export function SelectCountryT({setSelect}:any) {
      <Combobox
     onValueChange={(e:any) => {
        const fullCountry = countr.find(c => c.location === e);
-console.log(fullCountry)    
+
     if (fullCountry) {
-      console.log(fullCountry.phoneCode);
+      
       // 2. الآن يمكنك تخزين الكائن بالكامل أو أجزاء منه
       setSelect({
         locationCode: fullCountry.locationCode,

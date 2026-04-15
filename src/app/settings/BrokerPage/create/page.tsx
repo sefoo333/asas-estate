@@ -45,7 +45,7 @@ const test = await fetch(`/api/RealEstats/addRealEstate` , {
     })
 })
 
-console.log(data)
+
 
 return test.json()
 }
@@ -67,7 +67,7 @@ const router = useRouter();
     const mutation = useMutation({
         mutationFn: AddRealEstat,
         onSuccess: (data) => {
-            console.log("success" , data);
+            
             toast.success("Property created 😀")
 router.push(`/realEstats/${data.data._id}`)
         },
@@ -109,7 +109,7 @@ router.push(`/realEstats/${data.data._id}`)
 
 <div className="flex flex-col  w-1/2 max-xl:w-full max-md:w-full">
 <form action="" onSubmit={handleSubmit((data) => {
-    console.log(data);
+    
     mutation.mutate({...data,images:images,currency:currencies[index].label,type,TransactionType,features,user:[]});
 })}>
 <h1 className='text-lg font-semibold'>Project Details</h1>

@@ -10,9 +10,6 @@ export default function AuthProvider({ children }: { children: React.ReactNode }
 //   const [user,setUser] = useState<User | null>(null);
 
 const setUser = useUserStore((state) => state.setUser);
-const setLoading = useUserStore((state) => state.setLoading);
-const user = useUserStore((state) => state.user);
-
 
 
 const {data, isLoading} = useQuery({

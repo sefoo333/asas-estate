@@ -1,15 +1,10 @@
 "use client"
 import React from 'react'
-import { IoLocationSharp } from "react-icons/io5";
 import Image from "next/image";
-import { GoHeart } from "react-icons/go";
-import { IoChatboxEllipses } from "react-icons/io5";
-import { FaBath, FaBed } from "react-icons/fa"
 import { MdOutlineBed } from 'react-icons/md';
 import { LuBath } from 'react-icons/lu';
 import { CiRuler } from 'react-icons/ci';
-import { BsShare } from 'react-icons/bs';
-import { BiHeart } from 'react-icons/bi';
+
 import Link from 'next/link';
 import AddToFavourite from './AddToFavourite';
 import { useQuery } from '@tanstack/react-query';
@@ -24,6 +19,7 @@ interface Product {
     beds:number,
     location:string,
     id:string,
+    images:string[],
     Sqft:number,
 }
 

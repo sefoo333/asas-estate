@@ -1,21 +1,10 @@
 "use client"
 import React, { useState } from 'react'
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
 
-import { Input } from "@/components/ui/input"
 import { Button } from "@/components/ui/button"
 import SelectHero from './Selects/SelectEstat'
 import SelectPrice from './Selects/SelectPrice'
 import SelectTypes from './Selects/SelectTypes'
-import { IoLocationSharp } from "react-icons/io5";
 import SearchInput from './SearchInput'
 import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation'
@@ -31,7 +20,7 @@ function HeroInputSearch() {
 const [textSearch , setTextSearh] = useState("");
 const [selectHero,setSelectHero] = useState("");
     const [selectPrice,setSelectPrice] = useState<{min?:string,max?:string}>({});
-const [selectType,setSelectType] = useState<{beds?:string,baths?:string}>({});
+const [selectType,setSelectType]:any = useState<{beds?:string,baths?:string}>({});
 
 
 const router = useRouter();
@@ -53,15 +42,10 @@ router.push(`/${switcher ? "rent" : "buy"}?${new URLSearchParams({title:textSear
 </button>
 </div>
  <div className="flex w-full max-w-md items-center gap-2">
-<SearchInput setTextSearh={setTextSearh} />
+<SearchInput setTextSearh={setTextSearh} finder={false} placeholder={'search Location'} />
       <Button onClick={() => {
         searchProducts()
-        console.log({
-          SearchText:textSearch,
-          RealEstat:selectHero,
-          priceRange:selectPrice,
-          types:selectType
-        })
+      
       }}  className="py-6 bg-blue-600 px-7 cursor-pointer hover:bg-blue-700 hover:text-white text-white" variant="outline">
         Search
       </Button>

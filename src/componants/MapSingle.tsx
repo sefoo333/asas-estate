@@ -38,7 +38,6 @@ function MapSingle({location , setNearbySchools,setDataLocation}:{location:strin
       const res = await fetch(`/api/getLocation?q=${location}`)
       
       const data = await res.json()
-      console.log("ss",data)
       // setDataLocation([data[0]?.lat || 30.0444, data[0]?.lon || 31.2357])
       setCenter([data[0]?.lat, data[0]?.lon])
   setDataLocation([data.lat ?? 30.0444, data.lon ?? 31.2357])
@@ -57,8 +56,6 @@ function MapSingle({location , setNearbySchools,setDataLocation}:{location:strin
 
 const fetchPlaces = async () => {
 
-  console.log("tt",center)
-  // console.log("tt",data)
   // استعلام Overpass API -> مدارس + مستشفيات حوالين القاهرة
   const query = `
     [out:json][timeout:25];
@@ -69,7 +66,6 @@ const fetchPlaces = async () => {
     out body;
   `;
 
-  console.log("query",query)
 
   const url = "https://overpass-api.de/api/interpreter";
 

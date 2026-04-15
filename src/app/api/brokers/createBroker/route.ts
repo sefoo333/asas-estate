@@ -30,7 +30,6 @@ try {
         return NextResponse.json({message:"success create" , data:createBroker}, {status:200})
 
 } catch(err){
-    console.log(err)
        return NextResponse.json({message:"failed to create"}, {status:500})
  
 }

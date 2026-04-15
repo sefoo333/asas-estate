@@ -23,16 +23,14 @@ function AddToFavourite({Type = true,product,isFavourite}:any) {
     }
     const AddToFavourite = useMutation({
         mutationFn:Favourite,
-        onSuccess:(e) => console.log("success" , e),
-        onError:(e) => console.log("error" , e),
+
     })
 
-    const [fav,setFav] = useState();
+    const [fav,setFav] = useState(false);
 
 
     useEffect(() => {
       setFav(isFavourite)
-      console.log("favvv!!" , isFavourite)
     },[isFavourite])
 
   return (

@@ -27,7 +27,7 @@ function Account() {
       body:JSON.stringify(data)
     })
 
-    console.log(data)
+    
   
     
     return test.json()

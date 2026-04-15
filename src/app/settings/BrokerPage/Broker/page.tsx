@@ -24,7 +24,7 @@ function Account() {
         body:JSON.stringify(data)
       })
   
-      console.log(data)
+      
     
       
       return test.json()
@@ -36,7 +36,7 @@ function Account() {
         queryFn: async () => {
             const res = await fetch(`/api/brokers/search?brokerId=${user?.id}`);
             const data = await res.json();
-            console.log("broker" , data , user)
+            
             return data.data
         },
         enabled: user !== null,
@@ -53,8 +53,6 @@ setData(brokerData)
   
     const changeAccount = useMutation({
       mutationFn:  ChangeAccount,
-      onSuccess:(e) => console.log("success " , e),
-      onError:(e) => console.log("error " , e)
     })
   return (
      <div className="page  px-7 py-7 max-md:px-5 basis-[100%]">

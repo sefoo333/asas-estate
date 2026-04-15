@@ -18,7 +18,7 @@ const [imager,setImage] = useState("");
 
 useEffect(() => {
   if(image) {
-    console.log("set image" , image)
+    
     setImage(image)
   }
 },[image])

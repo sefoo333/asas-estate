@@ -15,7 +15,7 @@ export async function GET(request: Request) {
           type: searchParams.get("estateType")!,
         },
       });
-      console.log("that");
+      
       return NextResponse.json(
         { message: "Real estates fetched successfully", data: realEstates },
         { status: 200 }
@@ -68,7 +68,7 @@ export async function GET(request: Request) {
       );
     }
 
-    console.log("realEstates", realEstates);
+    
 
     return NextResponse.json(
       { message: "Real estates fetched successfully", data: realEstates },

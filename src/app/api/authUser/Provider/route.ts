@@ -43,7 +43,6 @@ const result = userSchema.safeParse({
 });
 
 if (!result.success) {
-    console.log(result.error)
     return NextResponse.json({ message: "Data is not valid" }, { status: 400 })
 }
 

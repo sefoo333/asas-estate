@@ -46,12 +46,12 @@ const [searchResults , setSearchResults] = useState<any>([]);
 const searchProducts = async () => {
     const res = await fetch(`/api/RealEstats/RealEstates/search?${new URLSearchParams(params.entries())}`)
     const json = await res.json()
-    console.log("sss",params);
+    
     if (json?.data?.length === 0){
       toast.error("No results for your search 🙁")
     }
 setSearchResults(json.data)
-    console.log(json)
+    
   }
 
   useEffect(() => {
@@ -66,7 +66,7 @@ searchProducts()
 const isMob = useMediaQuery({maxWidth:767})
 
 useEffect(() => {
-  console.log(isMob)
+  
 },[])
 
 const [open,setOpen] = useState(false);

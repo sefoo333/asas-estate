@@ -6,7 +6,7 @@ export async function GET(request:Request){
     const { searchParams } = new URL(request.url);
     const type = searchParams.get("type") || "Sale";
 
-    console.log("type" , type)
+    
     let realEstates;
 
     const id = searchParams.get("idBroker")
@@ -16,7 +16,7 @@ export async function GET(request:Request){
                where:{userId:id},
                include:{user:true}
            });
-    console.log("thatera" , id)
+    
         }
 
 
@@ -26,7 +26,7 @@ if (!id){
         where:{TransactionType:{in:["Sale","Rent"]}},
                        include:{user:true}
     });
-    console.log("1")
+    
 }else if (type === "com"){
     realEstates = await prisma.realEstate.findMany({
            where:{type:{startsWith:"b_"}},
@@ -42,7 +42,7 @@ if (!id){
 }
 }
 
-console.log("realEstatews" , realEstates)
+
 
 return NextResponse.json({message:"Real estates fetched successfully",data:realEstates}, {status:200})
 

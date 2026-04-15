@@ -163,7 +163,6 @@ return (
      </div>
     <DrawerFooter className="justify-start">
       <Button onClick={() => {
-        console.log(data)
         if (data?.transactionType === "rent") {
 route.push(`/rent?${new URLSearchParams(data)}`)
         } else {

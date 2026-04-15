@@ -22,7 +22,6 @@ export async function POST(req:Request){
         include:{userSender:true,product:true}
     })
 
-    console.log(id,idTo,title,linkNoti)
 
     const sendNotifaction = await prisma.notfication.create({
         data:{
@@ -39,7 +38,6 @@ export async function POST(req:Request){
             return NextResponse.json({massege:"success to send !" , data:sendMassege , notifcation:sendNotifaction}, {status:200})
 
     } catch (err){
-        console.log(err)
                 return NextResponse.json({massege:"something went wrong",err:err}, {status:400})
     }
 
@@ -69,7 +67,6 @@ if (!getRole){
             return NextResponse.json({massege:"success to edit !" , data:sendMassege}, {status:200})
 
     } catch (err){
-        console.log(err)
                 return NextResponse.json({massege:"something went wrong",err:err}, {status:400})
     }
 
@@ -89,7 +86,6 @@ if (!id) {
             return NextResponse.json({massege:"success to delete !" , data:sendMassege}, {status:200})
 
     } catch (err){
-        console.log(err)
                 return NextResponse.json({massege:"something went wrong",err:err}, {status:400})
     }
 

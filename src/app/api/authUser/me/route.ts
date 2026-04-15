@@ -11,13 +11,10 @@ const unLookCookie = (await cookies()).get("token")?.value;
       return NextResponse.json({ message: "No token found" }, { status: 401 });
     }
 
-    console.log("please" , process.env.JWT_SECRET_KEY)
 
-    console.log("cookie",unLookCookie);
 
 const  unLookToken:any = jwt.verify(unLookCookie , process.env.JWT_SECRET_KEY as string);
 
-console.log("token",unLookToken);
 
 if (!unLookToken){
     return NextResponse.json({message:"Unauthorized"}, {status:401})

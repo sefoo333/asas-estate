@@ -24,7 +24,7 @@ export async function POST(req: Request) {
     return NextResponse.json({ message: "المنتج مش موجود" }, { status: 404 })
   }
 
-console.log(Object.keys(prisma))
+
   // toggle — لو محفوظ اشيله، لو مش محفوظ احفظه
   const existing = await prisma.favourites.findUnique({
     where: {
@@ -63,7 +63,7 @@ const cookieStore = await cookies()
     orderBy: { createdAt: "desc" },
   })
 
-  console.log(saved)
+  
 
   return NextResponse.json({massege:"succes" , data:saved.map(s => s.RealEstate)} , {status:200})
 }

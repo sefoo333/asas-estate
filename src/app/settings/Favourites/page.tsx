@@ -20,7 +20,6 @@ function Favourite() {
     queryFn:async () => {
       const res = await fetch(`/api/users/favourite`)
       const json = await res.json()
-      console.log(json)
       return json?.data
     },
     refetchOnWindowFocus:false

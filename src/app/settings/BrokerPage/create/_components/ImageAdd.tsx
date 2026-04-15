@@ -25,9 +25,9 @@ function ImageAdd({images,setImages}:any) {
     const uploadImage = async (event:any) => {
         const data:{secure_url:string}[] = await GiveMeImage(event);
         setImages((prevImages:string[]) => [...prevImages, ...data.map((e:any) => e.secure_url)]);
-              console.log("dadad",images)
+              
     toast.success("image has been added !")
-    console.log()
+    
   } 
 
   return (

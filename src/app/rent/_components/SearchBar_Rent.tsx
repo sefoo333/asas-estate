@@ -19,7 +19,7 @@ function SearchBarRent({setData,setSearchResults,data}:any) {
     const res = await fetch(`/api/RealEstats/RealEstates/search?${new URLSearchParams({...data, transactionType:"Rent"})}`)
     const json = await res.json()
 setSearchResults(json.data)
-    console.log(json)
+    
   }
 
 

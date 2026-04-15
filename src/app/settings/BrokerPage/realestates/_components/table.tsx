@@ -182,7 +182,7 @@ location.reload()
               </DropdownMenuTrigger>
               <DropdownMenuContent align="end">
                 {/* <DropdownMenuSeparator /> */}
-                <DropdownMenuItem onClick={() => console.log(row)}>
+                <DropdownMenuItem >
                   <Link href={`/realEstats/${payment.id}`}>
                   View Real Estate
                   </Link>

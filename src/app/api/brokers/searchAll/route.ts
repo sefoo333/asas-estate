@@ -4,7 +4,6 @@ import { NextResponse } from "next/server";
 export async function GET(req: Request) {
 //   const { brokerId } = await params;
 
-//   console.log("brokerId", brokerId);
 
 const {searchParams} = new URL(req.url);
 const title = searchParams.get("title") || ""; // لو null هيتحول لنص فاضي
@@ -37,7 +36,6 @@ try {
     }
   });
 
-console.log(brokers)
 
 
     if (!brokers) {
@@ -46,8 +44,6 @@ console.log(brokers)
 
     return NextResponse.json({ data: brokers });
   } catch (err) {
-    console.log(err);
-    console.log(searchParams)
     return NextResponse.json({ message: "Error fetching broker", err }, { status: 500 });
   }
 }

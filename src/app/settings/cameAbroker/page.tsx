@@ -34,14 +34,12 @@ function page() {
         })
     })
     
-    console.log(data)
     
     return test.json()
     }
     const mutation = useMutation({
         mutationFn: CreateBroker,
         onSuccess: (data) => {
-            console.log("success" , data);
             toast.success("request sent !")
         },
         onError:(error) => {
@@ -70,7 +68,6 @@ function page() {
 
 <div className="flex flex-col  w-1/2 max-md:w-full">
 <form action="" onSubmit={handleSubmit((data) => {
-    console.log(data);
     mutation.mutate({...data,...myData,location:select?.location,locationCode:select?.locationCode});
 })}>
 {/* <h1 className='text-lg font-semibold'>Project Details</h1> */}

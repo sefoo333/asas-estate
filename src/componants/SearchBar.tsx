@@ -24,8 +24,8 @@ route.push(`/${pathname.split("/")[1]}?${new URLSearchParams({...data , transact
     <div className="parent flex justify-center my-4">
         <div className="container flex flex-col  gap-6 w-[80rem]">
            <div className="flex gap-3 items-center">
-             <SearchInput  setData={setData} />
-            <Button onClick={() => setOpen((e) => !e)} className='h-full w-40'>
+             <SearchInput  setData={setData} finder={false} placeholder={'search Location'} />
+            <Button onClick={() => setOpen((e:boolean) => !e)} className='h-full w-40'>
               <MapIcon />
               Open Map
             </Button>
@@ -36,7 +36,6 @@ route.push(`/${pathname.split("/")[1]}?${new URLSearchParams({...data , transact
             <SelectEstat setData={setData} />
                 <OPtionsDrawer data={data} setData={setData} />
                    <Button variant={"default"} className='py-5 px-8 w-[150px] cursor-pointer' onClick={() => {
-                    console.log(data)
                     searchProducts()
                    }}>
                 <Search size={30} /> <span className='font-semibold text-sm '>Search</span>

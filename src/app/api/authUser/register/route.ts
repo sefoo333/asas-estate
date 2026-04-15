@@ -42,7 +42,6 @@ export async function POST(req:Request) {
 
 
    if (!result.success){
-    console.log(result.error)
             return NextResponse.json({message:"Data is not valid"}, {status:400})
    }
 

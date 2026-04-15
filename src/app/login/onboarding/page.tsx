@@ -27,7 +27,7 @@ const test = await fetch(`/api/authUser/register` , {
     body:JSON.stringify({...data,provider:"google"})
 })
 
-console.log("sds", data)
+
 
 return test.json()
 }
@@ -63,14 +63,14 @@ function page() {
          await extractData?.update({isNewUser:false})
             toast.success("account has been created !");
 await window.open("/","_self")
-            console.log("success" , data);
+            
         }
     })
 
     const [image,setImage] = useState({image:extractData?.data?.user?.image});
 
     useEffect(() => {
-  console.log(extractData)
+  
 setImage({image:extractData?.data?.user?.image})
     },[extractData?.data])
 

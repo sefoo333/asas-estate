@@ -16,7 +16,6 @@ export const GiveMeImage = async (event:any) => {
         const data = await response.json();
         dataImages = [...dataImages,data]
       }
-      console.log("dadad",dataImages)
     
         return dataImages
 }

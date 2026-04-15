@@ -13,7 +13,6 @@ const updateBrokerSchema = BrokerSchema.partial().refine(data => Object.keys(dat
 export async function GET(req: Request) {
 //   const { brokerId } = await params;
 
-//   console.log("brokerId", brokerId);
 
 const {searchParams} = new URL(req.url);
 const brokerId = searchParams.get("brokerId");
@@ -36,7 +35,6 @@ try {
 
     return NextResponse.json({ data: getBroker });
   } catch (err) {
-    console.log(err);
     return NextResponse.json({ message: "Error fetching broker", err }, { status: 500 });
   }
 }
@@ -52,7 +50,6 @@ export async function PATCH(req:Request){
       return NextResponse.json({ message: "No token found" }, { status: 401 });
     }
 
-    console.log("that's",body);
     
     const  unLookToken:any = jwt.verify(unLookCookie , process.env.JWT_SECRET_KEY as any) ;
     
@@ -75,7 +72,6 @@ const result = updateBrokerSchema.safeParse({...body})
 
 
   if (!result.success) {
-      console.log(result.error)
       return NextResponse.json(
           { error: result.error },
           { status: 400 }
@@ -91,7 +87,6 @@ const result = updateBrokerSchema.safeParse({...body})
     )
     
     if (Object.keys(data).length === 0) {
-      console.log("s2")
     return NextResponse.json({ error: "No fields to update" }, { status: 400 })
   }
 
