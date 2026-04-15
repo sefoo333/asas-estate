@@ -56,7 +56,7 @@ const isMob = useMediaQuery({maxWidth:767})
   <h1 className='text-2xl text-center w-full font-semibold col-span-2 animate-fade-in'>No brokers found</h1>
 ) : (
   <>
-   {data?.map((e) => (
+   {data?.map((e:any) => (
     <>
        {!isMob ?  <BoxBroker data={e} /> : <BoxBrokerMob data={e} />}
 </>
