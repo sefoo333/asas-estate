@@ -14,12 +14,18 @@ import { useQuery } from "@tanstack/react-query";
 import FlyToLocation from "./Map/ToLocation";
 import MapSingle from "./MapSingle";
 import { GoScreenFull, GoScreenNormal } from "react-icons/go";
+import icon from "leaflet/dist/images/marker-icon.png";
+import iconRetina from "leaflet/dist/images/marker-icon-2x.png";
+import shadow from "leaflet/dist/images/marker-shadow.png";
+// delete (L.Icon.Default.prototype as any)._getIconUrl;
+
 
 L.Icon.Default.mergeOptions({
-  iconRetinaUrl: "/node_modules/leaflet/dist/images/marker-icon-2x.png",
-  iconUrl: "/node_modules/leaflet/dist/images/marker-icon.png",
-  shadowUrl: "/node_modules/leaflet/dist/images/marker-shadow.png",
+  iconRetinaUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon-2x.png",
+  iconUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-icon.png",
+  shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
 });
+
 
 type Place = {
   id: number;

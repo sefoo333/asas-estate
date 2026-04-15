@@ -42,7 +42,7 @@ router.push(`/${switcher ? "rent" : "buy"}?${new URLSearchParams({title:textSear
 </button>
 </div>
  <div className="flex w-full max-w-md items-center gap-2">
-<SearchInput setTextSearh={setTextSearh} finder={false} placeholder={'search Location'} />
+<SearchInput setTextSearh={setTextSearh} finder={true} placeholder={'search Location'} />
       <Button onClick={() => {
         searchProducts()
       

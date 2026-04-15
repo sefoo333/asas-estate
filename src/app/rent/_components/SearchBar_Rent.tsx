@@ -29,7 +29,7 @@ setSearchResults(json.data)
   return (
   <div className="parent flex justify-center my-4">
         <div className="container flex flex-col  gap-6 w-[80rem]">
-            <SearchInput setData={setData} finder={false} placeholder={'Search Location'} />
+            <SearchInput setData={setData} finder={true} placeholder={'Search Location'} />
            <div className="select flex gap-5 w-full">
              <SelectTypes setData={setData} />
             <SelectPrice setData={setData} />

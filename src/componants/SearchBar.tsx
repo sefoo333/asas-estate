@@ -24,7 +24,7 @@ route.push(`/${pathname.split("/")[1]}?${new URLSearchParams({...data , transact
     <div className="parent flex justify-center my-4">
         <div className="container flex flex-col  gap-6 w-[80rem]">
            <div className="flex gap-3 items-center">
-             <SearchInput  setData={setData} finder={false} placeholder={'search Location'} />
+             <SearchInput  setData={setData} finder={true} placeholder={'search Location'} />
             <Button onClick={() => setOpen((e:boolean) => !e)} className='h-full w-40'>
               <MapIcon />
               Open Map
