@@ -30,7 +30,7 @@ function SelectTypes({setTypes,type , setData}:{setTypes?:any,type?:{beds?:numbe
        <div className="grid grid-cols-5 gap-2">
          {arr.map((e,a) => (
           <Button key={e} variant={"outline"} className={`rounded-xl shadow-none cursor-pointer  ${type?.beds === a +1 ? "bg-accent" : ""}`} onClick={() => {
-            setTypes?.((a) => ({...a, beds:e}));
+            setTypes?.((a:any) => ({...a, beds:e}));
             setData?.((prevData:any) => ({ ...prevData, beds: e }));
           }}>
             {e}
@@ -43,7 +43,7 @@ function SelectTypes({setTypes,type , setData}:{setTypes?:any,type?:{beds?:numbe
        <div className="grid grid-cols-5 gap-2">
          {arr.map((e,a) => (
           <Button key={e} variant={"outline"} className={` rounded-xl shadow-none cursor-pointer ${type?.baths === a +1 ? "bg-accent" : ""}`} onClick={() => {
-            setTypes?.((a) => ({...a, baths:e}));
+            setTypes?.((a:any) => ({...a, baths:e}));
             setData?.((prevData:any) => ({ ...prevData, baths: e }));
           }}>
             {e}

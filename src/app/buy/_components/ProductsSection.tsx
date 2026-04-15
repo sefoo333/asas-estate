@@ -67,7 +67,7 @@ useEffect(() => {
                 </Select>
             </div>
            <EasySearchsTypes products={data} />
-            <div className="products mt-14 flex flex-col gap-9 relative">
+            <div className="products mt-14 mb-12 flex flex-col gap-9 relative">
                             {searchResults?.length > 0 && searchQuery
     ? searchResults.map((e:any) => <Product key={e.id} product={e} />)
     : data?.map((e:any) => <Product key={e.id} product={e} />)

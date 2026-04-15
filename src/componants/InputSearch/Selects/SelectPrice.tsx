@@ -13,7 +13,7 @@ import {
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { Input } from '@/components/ui/input';
 
-function SelectPrice({setSelectPrice , prices , setData}:{setSelectPrice?:({min,max}: {min?:string,max?:string}) => void , prices?: {min?:string,max?:string} , setData?:(data:any) => void}) {
+function SelectPrice({setSelectPrice , prices , setData}:{setSelectPrice?:({min,max}: {min?:string,max?:string}) => void , prices?: {min?:string,max?:string} | any , setData?:(data:any) => void}) {
     const [select , SetSelect] = useState(false)
     const [price, setPrice] = useState<{min?:string,max?:string}>({})
 
@@ -35,7 +35,7 @@ function SelectPrice({setSelectPrice , prices , setData}:{setSelectPrice?:({min,
         <h1 className='font-semibold mb-1 text-sm'>Min</h1>
         <Input type='number' onChange={(e) => {
 
-  if (+e.target.value > +prices?.max){
+  if (+e.target.value > parseInt(prices?.max)){
             e.target.value = prices?.max || ""
           }
           handlePriceChange('min', e.target.value)
