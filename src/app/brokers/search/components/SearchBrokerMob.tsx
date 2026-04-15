@@ -1,5 +1,5 @@
+"use client"
 import SearchInput from '@/componants/InputSearch/SearchInput'
-import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 import { SearchBrokerMobDialog } from './SearchBrokerMobDialog';
 
