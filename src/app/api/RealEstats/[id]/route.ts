@@ -4,12 +4,13 @@ import { NextResponse } from "next/server";
 import jwt from "jsonwebtoken";
 import { GetRole } from "@/modules/GetRole";
 
-export async function GET(req:Request , {params}:any){
+export async function GET(req:Request , context: any){
 
+  const id = context.params?.chatId;
 
 const realEstates = await prisma.realEstate.findUnique({
     where: {
-        id: params.id
+        id: id
     },
                    include:{user:true}
 });
@@ -18,7 +19,7 @@ return NextResponse.json({message:"Real estate fetched successfully",data:realEs
 
 }
 
-export async function PATCH(req:Request , {params}:any){
+export async function PATCH(req:Request , context: any){
 const body = await req.json();
 
 const cleanData = Object.fromEntries(
@@ -57,7 +58,8 @@ if (!isHaveArole){
     
 const realEstates = await prisma.realEstate.update({
     where: {
-        id: params.id
+        id: context.params?.chatId,
+
     },
     data:cleanData,
                    include:{user:true}

@@ -49,7 +49,7 @@ return NextResponse.json({message:"Real estates fetched successfully",data:realE
 }
 
 
-export async function DELETE(req:Request , {params}:any){
+export async function DELETE(req:Request ){
 const {ids} = await req.json();
 
 const realEstates = await prisma.realEstate.deleteMany({
