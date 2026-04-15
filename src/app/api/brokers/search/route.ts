@@ -42,7 +42,7 @@ try {
 }
 
 
-export async function PATCH(req:Request , { params }: { params: { id: string } }){
+export async function PATCH(req:Request){
     const body = await req.json();
     // extract cookie
     const unLookCookie = (await cookies()).get("token")?.value;

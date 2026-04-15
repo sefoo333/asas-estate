@@ -2,7 +2,7 @@ import prisma from "@/lib/db";
 import { NextResponse } from "next/server";
 
 export async function GET(req:Request,context: any){
-  const id = context.params?.chatId;
+  const id = context.params?.id;
 
     if (!id){
             return NextResponse.json({message:"id not found"}, {status:400})
@@ -22,8 +22,8 @@ export async function GET(req:Request,context: any){
 }
 
 
-export async function POST(req:Request, { params }: { params: Promise<{ id: string }> }){
-    const {id} = (await params);
+export async function POST(req:Request, context:any){
+  const id = context.params?.id;
 
     if (!id){
             return NextResponse.json({message:"id not found"}, {status:400})
@@ -68,8 +68,8 @@ export async function POST(req:Request, { params }: { params: Promise<{ id: stri
 }
 
 
-export async function DELETE(req:Request, { params }: { params: Promise<{ id: string }> }){
-    const id = (await params).id;
+export async function DELETE(req:Request, context:any){
+  const id = context.params?.id;
 
     if (!id){
             return NextResponse.json({message:"id not found"}, {status:400})

@@ -10,16 +10,17 @@ const updateUserSchema = userSchema.partial().refine(data => Object.keys(data).l
     message: "one field is required to edit",
   });
 
-export async function GET(request:Request,{ params }: { params: { id: string } }) {
+export async function GET(request:Request,context:any) {
+  const id = context.params?.id;
 
-   if (!params.id) {
+   if (!id) {
       return NextResponse.json({ message: "No user found" }, { status: 401 });
     }
 
 
 
 const getUser = await prisma.user.findUnique({
-    where:{id:params.id},
+    where:{id:id},
 })
 
 
@@ -28,8 +29,10 @@ return NextResponse.json({message:"User fetched successfully",user:getUser}, {st
 }
 
 
-export async function PATCH(req:Request , { params }: { params: { id: string } }){
+export async function PATCH(req:Request , context:any){
     const body = await req.json();
+      const id = context.params?.id;
+
     // extract cookie
     const unLookCookie = (await cookies()).get("token")?.value;
     
@@ -87,7 +90,7 @@ const result = updateUserSchema.safeParse({...body,password:hashedPassword})
 
 
 const user = await prisma.user.update({
-    where: { id: params.id },
+    where: { id: id },
     data,
     select: { id: true, userName: true,location:true,locationCode:true,phone:true, email: true,role:true , password:true},
 })

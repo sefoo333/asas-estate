@@ -6,7 +6,7 @@ import { GetRole } from "@/modules/GetRole";
 
 export async function GET(req:Request , context: any){
 
-  const id = context.params?.chatId;
+  const id = context.params?.id;
 
 const realEstates = await prisma.realEstate.findUnique({
     where: {
