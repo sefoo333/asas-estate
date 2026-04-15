@@ -1,11 +1,8 @@
 "use client"
-import type { Metadata } from 'next'
 import React, { useEffect, useState } from 'react'
-import Product from '@/componants/Product'
 import { useSearchParams } from 'next/navigation'
-import { toast, Toaster } from 'sonner'
+import { toast } from 'sonner'
 import SearchBarMob from '@/componants/SearchBarMob'
-import { CiMap } from 'react-icons/ci'
 import ProductsMob from '../_components/ProductsSectionMob'
 import { PiMapPinAreaBold } from 'react-icons/pi'
 

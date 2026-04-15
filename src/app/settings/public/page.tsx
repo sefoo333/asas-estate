@@ -2,8 +2,13 @@
 import React from 'react'
 import Crubchumb from '../_components/crubchumb'
 import HeadS from '../_components/HeadS'
-import Theme from './_components/Theme/Theme'
-import Language from './_components/Language/Language'
+import dynamic from 'next/dynamic';
+const Themer = dynamic(() => import("./_components/Theme/Theme"), {
+  ssr: false,
+});
+const Languager = dynamic(() => import("./_components/Language/Language"), {
+  ssr: false,
+});
 
 function page() {
   return (
@@ -12,8 +17,8 @@ function page() {
                 <HeadS title="Public" />
 
                 <div className="options mt-10 max-md:w-full">
-               <Theme />
-               <Language />
+               <Themer />
+               <Languager />
                 </div>
     </div>
   )

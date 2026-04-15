@@ -2,10 +2,11 @@
 // import type { Metadata } from 'next'
 import React from 'react'
 
-import { useMediaQuery } from 'react-responsive'
-import RentPageMob from './_components/Responsive/RentPageMob'
-import RentPage from './_components/Responsive/RentPage'
-
+import SwitcherMob from './_components/SwitcherMob'
+import dynamic from 'next/dynamic';
+const SwitcherMobi = dynamic(() => import("./_components/SwitcherMob"), {
+  ssr: false,
+});
 // export const metadata:Metadata = {
 //     title:"3qare - rent",
 //     description:"buy and rent any real estats"
@@ -13,11 +14,10 @@ import RentPage from './_components/Responsive/RentPage'
 
 function page() {
 
-const isMob = useMediaQuery({maxWidth:1016})
 
   return (
     <>
-        {isMob ? <RentPageMob /> : <RentPage />}
+    <SwitcherMobi />
     </>
   )
 }
