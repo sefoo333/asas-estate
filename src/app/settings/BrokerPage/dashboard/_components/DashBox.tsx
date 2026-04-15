@@ -1,6 +1,4 @@
 import React from 'react'
-import { BiMoney } from 'react-icons/bi'
-import { PiArrowUpRightBold } from 'react-icons/pi'
 
 function DashBox({Data}:any) {
   return (

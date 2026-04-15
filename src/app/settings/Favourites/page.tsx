@@ -37,7 +37,7 @@ const isMob = useMediaQuery({maxWidth:767})
 <div className="favourites relative flex flex-col gap-10">
   {data?.length > 0 && user ? (
     <>
-    {data?.map((e) => (
+    {data?.map((e:any) => (
  <>
  {isMob ?  <Product product={e} key={e} /> : <Product_BRC product={e} key={e} />}
  </>

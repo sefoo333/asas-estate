@@ -2,7 +2,6 @@
 import React from 'react'
 import Crubchumb from '../_components/crubchumb'
 import HeadS from '../_components/HeadS'
-import { SelectTheme } from './_components/Theme/SelectTheme'
 import Theme from './_components/Theme/Theme'
 import Language from './_components/Language/Language'
 

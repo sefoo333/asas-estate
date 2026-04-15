@@ -1,11 +1,8 @@
-import { ArrowUp, ArrowUpRight } from 'lucide-react'
-import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import ProTopBox from './ProTopBox'
 import { useGetProducts } from '@/hooks/useGetProducts'
 import { useUserStore } from '@/store/store'
 import { useQuery } from '@tanstack/react-query'
-import NotFound from '@/componants/NotFound'
 
 function Top() {
 const user = useUserStore((state) => state.user);

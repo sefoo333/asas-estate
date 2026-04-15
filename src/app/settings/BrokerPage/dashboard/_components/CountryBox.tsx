@@ -1,6 +1,5 @@
 import { ArrowUp } from 'lucide-react'
 import React from 'react'
-import "flag-icons/css/flag-icons.min.css";
 import { useUserStore } from '@/store/store';
 function CountryBox({data}:any) {
   const user = useUserStore((state) => state?.user)

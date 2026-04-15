@@ -15,7 +15,7 @@ import { useUserStore } from '@/store/store';
 import { signOut } from 'next-auth/react';
 
 function DeleteButton() {
-      const user = useUserStore((state) => state.user);
+      const user:any = useUserStore((state) => state.user);
       const logout = useUserStore((state) => state.logout);
     
         const Delete = async () => {

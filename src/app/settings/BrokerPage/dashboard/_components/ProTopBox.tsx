@@ -1,4 +1,4 @@
-import { ArrowUp, ArrowUpRight } from 'lucide-react'
+import { ArrowUp } from 'lucide-react'
 import Image from 'next/image'
 import React from 'react'
 

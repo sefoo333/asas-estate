@@ -1,7 +1,6 @@
 import React from 'react'
 import Crubchumb from '../_components/crubchumb'
 import HeadS from '../_components/HeadS'
-import { RiVisaLine } from "react-icons/ri";
 import Payment_box from '../_components/Payment_box';
 import { Button } from '@/components/ui/button';
 

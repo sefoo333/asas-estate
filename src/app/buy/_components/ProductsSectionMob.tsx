@@ -71,8 +71,8 @@ useEffect(() => {
            {/* <EasySearchsTypes products={data} /> */}
             <div className="products mt-5 max-md:flex max-md:flex-col  max-xl:grid max-xl:grid-cols-2 relative">
                             {searchResults?.length > 0 && searchQuery
-    ? searchResults.map((e) => <Product key={e.id} product={e} />)
-    : data?.map((e) => <Product key={e.id} product={e} />)
+    ? searchResults.map((e:any) => <Product key={e.id} product={e} />)
+    : data?.map((e:any) => <Product key={e.id} product={e} />)
   }
             </div>
         </div>

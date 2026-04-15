@@ -5,11 +5,10 @@ import { useMutation, useQuery } from '@tanstack/react-query';
 import { useParams } from 'next/navigation'
 import React, { useState } from 'react'
 import { lead } from '../_components/OrdersTable';
-import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import { Button } from '@/components/ui/button';
 import { BsWhatsapp } from 'react-icons/bs';
-import { Phone, Star } from 'lucide-react';
+import {  Star } from 'lucide-react';
 import Link from 'next/link';
 import { LuPhone } from 'react-icons/lu';
 import { toast } from 'sonner';

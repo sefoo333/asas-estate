@@ -6,13 +6,13 @@ import Image from 'next/image'
 import React, { useEffect, useState } from 'react'
 import { toast } from 'sonner';
 
-function ChangeImage({data,setData,image , broker = false , onboarding}:{onboarding?:boolean,broker:boolean,image?:string,setData:any,data:object}) {
+function ChangeImage({data,setData,image , broker = false , onboarding}:{onboarding?:boolean,broker:boolean,image?:string,setData:any,data:any}) {
 
 const user = useUserStore((state) => state.user)
 const [imager,setImage] = useState("");
   const uploadImage = async (event:any) => {
       const data:{secure_url:string} = await GiveMeImage(event);
-      setData((e) => ({...e,image:data.secure_url}))
+      setData((e:any) => ({...e,image:data.secure_url}))
   toast.success("image has been added !")
 } 
 

@@ -59,8 +59,8 @@ function Account() {
             <HeadS title="Account Settings" />
             <div className="window p-8 mt-10 rounded-lg border border-gray-200 w-full  max-md:w-full">
              
-              <ChangeImage setData={setData} data={data} />
-              <UserName setData={setData} />
+              <ChangeImage setData={setData} data={data} broker={false} />
+              <UserName setData={setData} data={user}  />
               <SecurityAccount setData={setData} select={select} setSelect={setSelect} />
 
            <div className="delete flex justify-between items-center mt-10 max-md:flex-col max-md:items-start">

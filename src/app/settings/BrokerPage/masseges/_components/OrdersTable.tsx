@@ -22,8 +22,6 @@ import {
   DropdownMenuCheckboxItem,
   DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuLabel,
-  DropdownMenuSeparator,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 import { Input } from "@/components/ui/input"
@@ -37,11 +35,9 @@ import {
 } from "@/components/ui/table"
 import { Badge } from "@/components/ui/badge"
 import Image from "next/image"
-import { useGetProducts } from "@/hooks/useGetProducts"
 import { RealEstate } from "@/types/realEstate"
 import { useRouter } from "next/navigation"
 import Link from "next/link"
-import DeleteButton from "@/app/settings/Account/_components/DeleteButton"
 import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query"
 import { useUserStore } from "@/store/store"
 import { User } from "@/types/User"

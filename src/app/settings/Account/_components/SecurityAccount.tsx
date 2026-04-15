@@ -18,7 +18,7 @@ function SecurityAccount({setData,select,setSelect}:any) {
                <div className="first md:w-1/2 mt-8">
                    <label htmlFor="email" className='text-sm font-semibold'>Phone</label>
                 <div className="box relative h-full ">
-                    <input type='text' onChange={(x) => setData((e) => ({...e , phoneCode:x?.target.value}))} defaultValue={ select?.phoneCode} className='country_code flex items-center justify-center w-[50px] h-fit  !outline-none  !shadonw-none  p-2  px-3  text-sm   !border-r !border-r-gray-300 left-1 absolute mr-5 top-3' />
+                    <input type='text' onChange={(x) => setData((e:any) => ({...e , phoneCode:x?.target.value}))} defaultValue={ select?.phoneCode} className='country_code flex items-center justify-center w-[50px] h-fit  !outline-none  !shadonw-none  p-2  px-3  text-sm   !border-r !border-r-gray-300 left-1 absolute mr-5 top-3' />
                   <input type="text" id='phone' onChange={(x) => setData((e:any) => ({...e , phone:x.target.value}))} placeholder='Enter your phone' className='pl-15 w-full mt-2 p-3 text-sm rounded-md border border-gray-300 outline-0' />
                 </div>
                 <div className="box relative h-full ">

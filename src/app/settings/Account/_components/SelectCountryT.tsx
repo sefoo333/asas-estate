@@ -16,7 +16,6 @@ import {
 } from "@/components/ui/item"
 import { countries } from "countries-list"
 import Fuse from "fuse.js"
-import "flag-icons/css/flag-icons.min.css";
 
 // const countries = [
 //   { code: "", value: "", continent: "", label: "Select country" },
@@ -114,7 +113,7 @@ console.log(fullCountry)
         <ComboboxList>
           {(country) => (
             <ComboboxItem key={country.locationCode} value={country.location}>
-              <Item size="xs" className="p-0">
+              <Item className="p-0">
                 <ItemContent>
                   <ItemTitle className="whitespace-nowrap">
                               <span className={`fi fi-${country.locationCode.toLowerCase()}`} />
