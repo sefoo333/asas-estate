@@ -53,7 +53,7 @@ const types = [{
 
 
   useEffect(() => {
-setData((e) => ({...e,finder:e ? "name" : "location"}))
+setData((e:any) => ({...e,finder:e ? "name" : "location"}))
   },[switcher])
 
   const searchProducts = async () => {

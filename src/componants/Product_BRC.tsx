@@ -19,7 +19,7 @@ import { BsWhatsapp } from 'react-icons/bs';
 import { SendChat } from '@/app/realEstats/[id]/components/SendChat';
 import { ShareProfile } from '@/app/brokers/[brokerid]/_compoents/ShareProfile';
 
-function Product_BRC({product}: {product: RealEstate}) {
+function Product_BRC({product}: {product: RealEstate | any}) {
 
     const user = useUserStore((state) => state?.user)
 
@@ -47,7 +47,7 @@ function Product_BRC({product}: {product: RealEstate}) {
                       
                          {/* {user && <AddToFavourite isFavourite={user?.id && data?.map((e) => e?.id).includes(product?.id)} product={product} />} */}
                             <div className="points absolute bottom-4 left-1/2 translate-x-[-50%] items-center flex gap-3">
-                            {product?.images.map((e,a) =>                         <div key={a} className={`w-2 h-2 bg-white rounded-full transition-all ${index === a && "w-3 h-3"}`} onClick={()  => setIndex(a)}></div>)}
+                            {product?.images.map((e:string,a:number) =>                         <div key={a} className={`w-2 h-2 bg-white rounded-full transition-all ${index === a && "w-3 h-3"}`} onClick={()  => setIndex(a)}></div>)}
                               
                             </div>
                             {index + 1 !== product?.images?.length &&      <IoIosArrowForward onClick={() => setIndex((a) => a + 1)} size={30} className="cursor-pointer absolute h-full right-2 top-1/2 -translate-y-1/2 text-white" />

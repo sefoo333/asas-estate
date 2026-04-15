@@ -16,6 +16,7 @@ export interface Broker {
     userName:string;
     company:string;
     languages:string[];
+    phone:string;
     location:string;
     propertiesCount:number;
     locationCode:string;

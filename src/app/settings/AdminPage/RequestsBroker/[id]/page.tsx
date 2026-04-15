@@ -90,8 +90,8 @@ const router = useRouter();
                             <div className="window   p-8 mt-5 bg-white shadow  rounded-lg border border-gray-100  ">
 
 <div className="grid grid-cols-2 gap-5">
-    {data?.map((e) => (
-    <div className="box" key={e?.value} >
+    {data?.map((e:any) => (
+    <div className="box" key={e?.id} >
         <h1 className='font-semibold'>{e?.name}</h1>
         {e?.name === "Languages" ? (
            <div className="flex gap-2 mt-2">

@@ -21,7 +21,6 @@ import { useQuery } from '@tanstack/react-query'
 
 function layout({children}: {children: React.ReactNode}) {
 const pathName = usePathname().split("/").slice(1);
-const loading = useUserStore((state) => state.loading);
 const router = useRouter();
 
 const {data, isLoading} = useQuery({

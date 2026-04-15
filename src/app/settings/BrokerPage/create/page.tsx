@@ -218,8 +218,8 @@ router.push(`/realEstats/${data.data._id}`)
     <Head_create>Description</Head_create>
         <div className="input mt-4">
             <div className="tools flex gap-6 p-5 py-3 border border-gray-200 border-b-0 bg-slate-100/80">
-{icons.map((E) =>(
-    <E key={E} className='cursor-pointer duration-300 hover:text-gray-600' />
+{icons.map((E,i) =>(
+    <E key={i} className='cursor-pointer duration-300 hover:text-gray-600' />
 ))}
             </div>
              <Textarea className='h-[200px] rounded-t-none border-t-0' placeholder="Type your message here." {...register("description", { required: true })} />

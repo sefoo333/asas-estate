@@ -1,5 +1,4 @@
 "use client"
-import 'leaflet/dist/leaflet.css';
 import React, { useEffect, useState } from 'react'
 import { MapContainer, TileLayer, Marker, Popup, ZoomControl, useMap } from 'react-leaflet';
 
@@ -47,7 +46,7 @@ const {data,isLoading} =  useQuery({
   return (
   
     <div className={`parent relative basis-[40%]  transition-all  h-[90dvh] ${open && "hidden"}`}>
-      {open && <div  onClick={() => setOpen((e) => !e)} className="box bg-white  rounded-full shadow-sm p-3 absolute left-0 z-9 bottom-30 border border-gray-300">
+      {open && <div  onClick={() => setOpen((e:boolean) => !e)} className="box bg-white  rounded-full shadow-sm p-3 absolute left-0 z-9 bottom-30 border border-gray-300">
         <MapIcon size={26} />
       </div>}
       <div className="box absolute top-0 left-0 w-[70%]  z-10">
@@ -55,9 +54,7 @@ const {data,isLoading} =  useQuery({
         <Input onChange={(e) => {
           setName(e.target.value)
         }} placeholder='Search Location' className='w-full mt-4  p-6 bg-white rounded-full' />
-        <Search onClick={() => {
-          setName(e.target.value)
-        }} size={20} className='absolute right-3 text-gray-700 top-1/2 translate-x-[-50%]' />
+        <Search size={20} className='absolute right-3 text-gray-700 top-1/2 translate-x-[-50%]' />
       </div>
      {data && (
        <div className="window absolute overflow-y-auto left-3 top-22 w-full h-[200px] bg-white rounded-md shadow flex flex-col py-4 px-5 ">

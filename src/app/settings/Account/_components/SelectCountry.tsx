@@ -9,7 +9,6 @@ import {
   SelectValue,
 } from "@/components/ui/select"
 import { countries } from "countries-list";
-import "flag-icons/css/flag-icons.min.css";
 import { useRef, useState } from "react";
 import Fuse from "fuse.js";
 
@@ -27,13 +26,13 @@ export function SelectCountry({select,setSelect}:any) {
   threshold: 0.3, // كل ما يقل = دقة أعلى
 });
 
-const refer = useRef(null);
+const refer:any = useRef(null);
 
   return (
     <div className="mt-5">
         <h1 className="font-semibold">Location</h1>
 <div className="flex items-center gap-2">
-    <Select onValueChange={(e) => setSelect({locationCode:e?.locationCode , location:e?.location , phoneCode:e?.phoneCode})} value={select?.locationCode}>
+    <Select onValueChange={(e:any) => setSelect({locationCode:e?.locationCode , location:e?.location , phoneCode:e?.phoneCode})} value={select?.locationCode}>
       <SelectTrigger className="w-20 py-5">
         <SelectValue placeholder="" />
       </SelectTrigger>
@@ -62,10 +61,18 @@ const refer = useRef(null);
 
   {suges?.length > 0 && (
     <div className="absolute top-[80%] mt-2 left-0 w-full bg-white border border-gray-300 flex flex-col p-3 rounded-md shadow-md z-50">
-      {suges.map((e) => (
+      {suges.map((e:any) => (
         <span
           key={e.item.locationCode}
-          onClick={() => {setSelect(e.item);refer?.current.value = e?.item?.location; setSuges([])}}
+         onClick={() => {
+  setSelect(e.item);
+
+  if (refer?.current) {
+    refer.current.value = e?.item?.location;
+  }
+
+  setSuges([]);
+}}
           className="cursor-pointer hover:bg-slate-100 rounded-md p-2 transition-all"
         >
           <span className={`fi fi-${e.item.locationCode.toLowerCase()} mr-2`} />
