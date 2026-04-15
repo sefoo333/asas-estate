@@ -12,12 +12,12 @@ import SearchBrokerMob from './components/SearchBrokerMob'
 
 function page() {
   const params = useSearchParams();
-const queryString = new URLSearchParams(params).toString()
+const queryString = params.toString()
 
   const {data} = useQuery({
     queryKey:["searchBroker" , queryString],
     queryFn: async () => {
-      const fetcher = await fetch(`/api/brokers/searchAll?${new URLSearchParams(params)}`);
+      const fetcher = await fetch(`/api/brokers/searchAll?${queryString}`);
       const json = await fetcher.json();
       const data = json.data;
       
