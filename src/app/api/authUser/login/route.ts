@@ -50,6 +50,7 @@ await (await cookies()).set("token" ,token)
 
     return NextResponse.json({
         message:"Login Done",
+        pass:true,
         data:{
             email,
             userName:getUser?.userName,
@@ -83,6 +84,7 @@ await (await cookies()).set("token" ,token)
 
     return NextResponse.json({
         message:"Login Done",
+        pass:true,
         data:{
             email,
             userName:getUser?.userName,
