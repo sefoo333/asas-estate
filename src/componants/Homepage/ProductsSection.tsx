@@ -14,6 +14,7 @@ import { useGetProducts } from "@/hooks/useGetProducts";
 import ProductsCarsoul from "./ProductsCarsoul";
 import { getSession, useSession } from "next-auth/react";
 import Link from "next/link";
+import { Skeleton } from "@/components/ui/skeleton";
 
 function Products() {
 
@@ -25,10 +26,23 @@ function Products() {
             <Head>Explore New Projects</Head>
             <div className="products max-xl:hidden grid grid-cols-4 gap-3 mt-15">
             
-            {data?.slice(0,4).map((e:any) => (
+           {data ? (
+            <>
+             {data?.slice(0,4).map((e:any) => (
               
               <Product key={e?.id} product={e} />
             ))}
+            </>
+           ) : (
+            <>
+            {Array.from({length:4}).map((e) => <div>
+              <Skeleton className="rounded-lg w-full h-[200px]"></Skeleton>
+                     <Skeleton className='w-60 h-5 mt-4'></Skeleton>
+                    <Skeleton className='w-40 h-5 mt-4'></Skeleton>
+                    <Skeleton className='w-30 h-5 mt-4'></Skeleton>
+            </div>)}
+            </>
+           )}
             
             
 
