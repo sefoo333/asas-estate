@@ -1,19 +1,14 @@
 "use client"
 import {Sidebar, SidebarContent, SidebarFooter, SidebarGroup, SidebarGroupContent, SidebarGroupLabel, SidebarHeader, SidebarMenu, SidebarMenuButton, SidebarMenuItem, SidebarProvider, useSidebar } from '@/components/ui/sidebar'
-import { Item } from '@radix-ui/react-select'
-import React from 'react'
-import { IoChatboxEllipsesOutline, IoSettingsOutline  } from "react-icons/io5";
-import { HiOutlineCreditCard } from "react-icons/hi";
-import { CiPhone } from "react-icons/ci";
+import {  IoSettingsOutline  } from "react-icons/io5";
 import { BsHouses } from "react-icons/bs";
 import { AiOutlineHeart } from "react-icons/ai";
 import Image from 'next/image';
-import { RxDashboard, RxDropdownMenu } from 'react-icons/rx';
+import { RxDashboard } from 'react-icons/rx';
 import { CgLogOut } from "react-icons/cg";
 import Link from 'next/link';
 import { FiHome, FiUser, FiUserPlus, FiUsers } from "react-icons/fi";
 import { BsHouseAdd } from "react-icons/bs";
-import { FaBoxArchive } from 'react-icons/fa6';
 import { MdOutlineMarkunreadMailbox } from 'react-icons/md';
 import { useUserStore } from '@/store/store';
 import { User } from 'lucide-react';
@@ -22,22 +17,14 @@ function SidebarSettings() {
 
   const user:any = useUserStore((state) => state.user)
 
-    const {
-      state,
-      open,
-      setOpen,
-      openMobile,
-      setOpenMobile,
-      isMobile,
-      toggleSidebar,
-    } = useSidebar()
+
     
 
   const dark = false
     const menuItems = [
       { icon: IoSettingsOutline, label: "Public" , link:"public" },
         { icon: FiUser, label: "Account" , link:"Account" },
-        { icon: HiOutlineCreditCard, label: "Credit Cards" , link:"Cards" },
+        // { icon: HiOutlineCreditCard, label: "Credit Cards" , link:"Cards" },
         { icon: AiOutlineHeart , label: "Favourite" , link:"Favourites" },
     ];
     const BrokerMenu = [
