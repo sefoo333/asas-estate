@@ -1,4 +1,3 @@
-import React from 'react'
 import Head from '../Head'
 import { LuSchool } from 'react-icons/lu'
 
