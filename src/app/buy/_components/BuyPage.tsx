@@ -79,7 +79,7 @@ const [open,setOpen] = useState(false);
             <div className="window flex relative gap-30 pl-35 max-xl:pl-5 overflow-hidden">
             
               <Products setSearchResults={setSearchResults} searchResults={searchResults} />
-            <Maps open={open} setOpen={setOpen} />
+            {/* <Maps open={open} setOpen={setOpen} /> */}
         </div>
    </>
   )
