@@ -2,8 +2,6 @@ import prisma from "@/lib/db";
 import NextAuth from "next-auth"
 import GoogleProvider from "next-auth/providers/google"
 import FacebookProvider from "next-auth/providers/facebook";
-import { JWT } from "next-auth/jwt";
-import { Session } from "next-auth";
 
 declare module "next-auth" {
   interface Session {

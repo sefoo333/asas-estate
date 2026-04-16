@@ -71,7 +71,7 @@ const schoolsWithDistance = nearbySchools.slice(0,5).map((school:object, i:numbe
 
   return (
     <div className="paren relative">
-       <CarsoulImages images={Productdata}  />
+       <CarsoulImages Productdata={Productdata}  />
         <div className="content rounded-4xl bg-white w-full h-full relative bottom-8 p-6">
            <Main Productdata={Productdata} />
             <div className="description mt-7">
