@@ -4,10 +4,10 @@ import Link from 'next/link'
 import React from 'react'
 import { RiArrowRightSLine } from 'react-icons/ri'
 
-function BrokerSug({data}: {data: Broker}) {
+function BrokerSug({data}: {data: Broker | any}) {
   return (
      <div className="box flex gap-3 items-center bg-slate-100/30 p-3 rounded-lg  ">
-    <Image src={"/Heroo.webp"} alt='' width={200} height={200} className=" w-15 h-15  object-cover rounded-full " />
+    <Image src={data?.image} alt='' width={200} height={200} className=" w-15 h-15  object-cover rounded-full " />
   <div className="flex justify-between w-full items-center">
       <div className="text">
         <h1 className='font-semibold text-lg'>{data?.userName}</h1>

@@ -23,6 +23,7 @@ export interface Broker {
     bio:string;
     rating:number;
     ratingSum:number;
+    image:string;
     reviewsCount:number;
     rates:Rate[];
 }
