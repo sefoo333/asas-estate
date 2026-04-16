@@ -1,10 +1,16 @@
 "use client"
 import { useMediaQuery } from 'react-responsive'
-import DesktopView from './components/DesktopView';
 import { useParams } from 'next/navigation';
-import MobileView from './components/MobileView';
+import dynamic from 'next/dynamic';
 
-function page({params}:any) {
+const MobileView = dynamic(() => import('./components/MobileView'), {
+  ssr: false,
+});
+const DesktopView = dynamic(() => import('./components/DesktopView'), {
+  ssr: false,
+});
+
+function page() {
   const isMob = useMediaQuery({maxWidth:767});
       const wParams = useParams();
   

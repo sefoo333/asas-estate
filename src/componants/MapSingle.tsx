@@ -1,15 +1,13 @@
 "use client";
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import {
   MapContainer,
   TileLayer,
   Marker,
   Popup,
   ZoomControl,
-  useMap,
 } from "react-leaflet";
 import L from "leaflet";
-import { TfiFullscreen } from "react-icons/tfi";
 import { useQuery } from "@tanstack/react-query";
 import FlyToLocation from "./Map/ToLocation";
 
@@ -28,10 +26,10 @@ type Place = {
 
 function MapSingle({location , setNearbySchools,setDataLocation}:{location:string,setNearbySchools:any,setDataLocation:any}) {
   const [active, setActive] = useState(false);
-  const [center,setCenter] = useState<[number, number]>([0,0]); // القاهرة
+  const [center,setCenter] = useState<[number, number]>([0,0]); 
   const [places, setPlaces] = useState<Place[]>([]);
   
-  const {data,isLoading} =  useQuery({
+  const {data} =  useQuery({
     queryKey: ['searchLocation', location],
     queryFn: async () => {
       
@@ -47,16 +45,10 @@ function MapSingle({location , setNearbySchools,setDataLocation}:{location:strin
     refetchOnWindowFocus:false
   })
 
-// useEffect(() => {
-//   if (!data) return; // 👈 مهم عشان متشلش undefined
 
-//   // setCenter([data?.lat || 30.0444, data?.lon || 31.2357])
-//   setDataLocation([data.lat ?? 30.0444, data.lon ?? 31.2357])
-// }, [data])
 
 const fetchPlaces = async () => {
 
-  // استعلام Overpass API -> مدارس + مستشفيات حوالين القاهرة
   const query = `
     [out:json][timeout:25];
     (
@@ -80,7 +72,7 @@ const fetchPlaces = async () => {
     id: el.id,
     lat: el.lat,
     lon: el.lon,
-    name: el.tags?.name || "مكان غير معروف",
+    name: el.tags?.name || "unknown",
   }));
 
 setNearbySchools(extracted.filter((p) => p.name?.endsWith("School")).slice(0,5));
@@ -101,9 +93,6 @@ useEffect(() => {
 
 
 
-  
-// أيقونة المدارس (أخضر)
-// أيقونة المدارس (أخضر)
 const schoolIcon = L.icon({
   iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-green.png",
   shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
@@ -113,7 +102,7 @@ const schoolIcon = L.icon({
   shadowSize: [41, 41],
 });
 
-// أيقونة المستشفيات (أحمر)
+
 const hospitalIcon = L.icon({
   iconUrl: "https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-red.png",
   shadowUrl: "https://unpkg.com/leaflet@1.9.4/dist/images/marker-shadow.png",
@@ -123,7 +112,6 @@ const hospitalIcon = L.icon({
   shadowSize: [41, 41],
 });
 
-// const [fullScreen , setFullScreen] = useState(false);
 
   return (
    <>
@@ -142,15 +130,13 @@ const hospitalIcon = L.icon({
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           />
 
-          {/* الماركر الأساسي للقاهرة */}
           <Marker position={[data?.lat || 0,data?.lon || 0]}>
             <Popup>{location}</Popup>
           </Marker>
 
-          {/* الأماكن المستخرجة */}
           {places.map((p) => (
             <Marker 
-                icon={p.name?.includes("School") ? schoolIcon : hospitalIcon} // مثال شرط
+                icon={p.name?.includes("School") ? schoolIcon : hospitalIcon} 
             key={p.id} position={[p.lat, p.lon]}>
               <Popup>{p.name}</Popup>
             </Marker>

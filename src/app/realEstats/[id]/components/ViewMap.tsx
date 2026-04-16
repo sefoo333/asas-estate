@@ -1,5 +1,5 @@
 import MapSingle from '@/componants/MapSingle';
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { GoScreenNormal } from 'react-icons/go';
 import { LiaMapMarkedAltSolid } from 'react-icons/lia'
 

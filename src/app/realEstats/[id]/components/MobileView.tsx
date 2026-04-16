@@ -7,14 +7,21 @@ import { useQueries, useQuery } from '@tanstack/react-query';
 import { PhoneCall } from 'lucide-react';
 import Image from 'next/image'
 import { useEffect, useState } from 'react'
-import ViewMap from './ViewMap';
 import Link from 'next/link';
 import { SendChat } from './SendChat';
-import CarsoulImages from './PageComponentsMob/CarsoulImages';
 import Main from './PageComponentsMob/Main';
 import AboutProduct from './PageComponentsMob/AboutProduct';
 import Features from './PageComponents/Features';
-import NearbySchools from './PageComponents/NearbySchools';
+import dynamic from 'next/dynamic';
+
+const CarsoulImages = dynamic(() => import('./PageComponentsMob/CarsoulImages'), {
+  ssr: false,
+});
+const ViewMap = dynamic(() => import('./ViewMap'), {
+  ssr: false,
+});
+
+const NearbySchools = dynamic(() => import("./PageComponents/NearbySchools"));
 
 function MobileView({wParams}:any) {
 
@@ -57,48 +64,24 @@ const schoolsWithDistance = nearbySchools.slice(0,5).map((school:object, i:numbe
   distance: schoolQueries[i]?.data,
 }));
 
-useEffect(() => {
-    
-},[schoolsWithDistance])
 
 
 
 const {data:mayProducts} = useGetProducts("All");
 
-   const {data:FavouriteProduct}:any = useQuery({
-    queryKey:["Favourites",Productdata?.id],
-    queryFn:async () => {
-      const res = await fetch(`/api/users/favourite`)
-      const json = await res.json()
-
-    
-      return json?.data
-    },
-    refetchOnWindowFocus:false
-  })
-
-  const [IsFav,setIsFav]= useState(false)
-
-  const user = useUserStore((state) => state.user)
-  useEffect(() => {
-if (user && Array.isArray(FavouriteProduct)){
-    setIsFav(FavouriteProduct?.map((e:any) => e?.id)?.includes(Productdata?.id))
-}
-    
-  },[FavouriteProduct])
 
         
 
   return (
     <div className="paren relative">
-       <CarsoulImages images={Productdata?.images || []} IsFav={IsFav} />
+       <CarsoulImages images={Productdata}  />
         <div className="content rounded-4xl bg-white w-full h-full relative bottom-8 p-6">
            <Main Productdata={Productdata} />
             <div className="description mt-7">
                 <h1 className='font-semibold'>Description</h1>
-                <p className='text-[#5a5a5a] text-sm mt-2'>
-{Productdata?.description}
-                </p>
+               <p className="text-[#5a5a5a] text-sm mt-2 min-h-[80px]">
+  {Productdata?.description || ""}
+</p>
             <ViewMap setDataLocation={setDataLocation} setNearbySchools={setNearbySchools} location={Productdata?.location} />
             </div>
 
