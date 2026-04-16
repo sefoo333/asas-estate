@@ -17,21 +17,20 @@ import Link from "next/link";
 
 function Products() {
 
-  const {data,loading} = useGetProducts("All");
+  const {data,isLoading} = useGetProducts("All");
 
   return (
     <div className="parent max-md:mt-35 mt-25 flex justify-center ">
         <div className="container">
             <Head>Explore New Projects</Head>
             <div className="products max-xl:hidden grid grid-cols-4 gap-3 mt-15">
-            {loading && 
-            <>
+            
             {data?.slice(0,4).map((e:any) => (
               
               <Product key={e?.id} product={e} />
             ))}
-            </>
-            }
+            
+            
 
             </div>
 <ProductsCarsoul data={data} /> 

@@ -45,18 +45,18 @@ function Product({product}:{product:Product}) {
   return (
    <Link href={`/realEstats/${product?.id}`}>
     <div className="product p-3 rounded-xl max-xl:w-full ">
-                       <div className="image  w-full h-[200px]  relative">
+                       <div className="image  w-full h-[170px]  relative">
                         {/* <span className="rounded-full text-white px-3 py-0.5 text-[13px] whitespace-nowrap bg-blue-500 absolute right-2 top-2">
       New - 5 hours
     </span> */}
     
-                         <Image priority  loading={"lazy"} className="image rounded-t-xl rounded-xl w-full h-full bg-transparent " src={product?.images[0] || "/Heroo.webp"} alt="" width={300} height={200} />
+                         <Image  className="image rounded-t-xl rounded-xl w-full h-full bg-transparent " src={product?.images[0]} alt="" width={300} height={200} />
 {user && Array.isArray(data) &&                          <AddToFavourite Type="product_landing" product={product} isFavourite={user?.id && Array.isArray(data) && data?.map((e) => e?.id).includes(product?.id) || false} />}
                        </div>
                         <div className="box py-4 px-1">
-                            <div className="flex justify-between items-center mt-1">
+                            <div className="flex justify-between items-center mt-1 max-xl:flex-col-reverse max-xl:items-start">
                                 <h1 className="font-bold text-xl">{product?.title}</h1>
-                        <h1 className="font-semibold text-2xl ">${product?.price}</h1>
+                        <h1 className="font-semibold text-2xl max-xl:text-[15px] max-xl:mb-1">${product?.price}</h1>
                             </div>
                         <div className="location flex text-gray-600 gap-2 mb-2 items-center text-[15px]">
                              {/* <IoLocationSharp size={18} />  */}

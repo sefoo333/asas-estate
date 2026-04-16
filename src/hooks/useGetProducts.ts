@@ -1,22 +1,22 @@
 
 "use client"
 
+import { useQuery } from "@tanstack/react-query"
 import { useEffect, useState } from "react"
 
 export const useGetProducts = (type?: string , id?:string | any) => {
-  const [data, setData] = useState<any>(null)
   const [loading, setLoading] = useState(true)
 
-  useEffect(() => {
-    const fetchData = async () => {
-      const res = await fetch(`/api/RealEstats/RealEstates?${type !== "" ? `type=${type}` : `idBroker=${id}`}`)
-      const json = await res.json()
-      setData(json.data)
-      setLoading(false)
-    }
+  const fetchData = async () => {
+    const res = await fetch(`/api/RealEstats/RealEstates?${type !== "" ? `type=${type}` : `idBroker=${id}`}`)
+    const json = await res.json()
+   return json?.data
+  }
+  const {data , isLoading} = useQuery({
+    queryKey:["fetchProducts"],
+    queryFn:fetchData,
+  refetchOnWindowFocus:false
+  })
 
-    fetchData()
-  }, [type , id])
-
-  return { data, loading }
+  return { data, isLoading }
 }

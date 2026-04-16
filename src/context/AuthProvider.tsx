@@ -5,6 +5,7 @@ import { User } from '@/types/User';
 import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query'
 import { SessionProvider, signOut } from 'next-auth/react';
 import { useEffect, useState } from 'react'
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
 
 export default function AuthProvider({ children }: { children: React.ReactNode }) {
 //   const [user,setUser] = useState<User | null>(null);
@@ -46,6 +47,7 @@ document.documentElement.classList.add(getTheme);
   return (
       <>
       <SessionProvider refetchOnWindowFocus={false}>
+        {/* <ReactQueryDevtools initialIsOpen={false} /> */}
       {children}
       </SessionProvider>
       </>
