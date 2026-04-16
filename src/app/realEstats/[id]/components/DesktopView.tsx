@@ -363,7 +363,7 @@ if (user && Array.isArray(FavouriteProduct)){
                 {/* <Head text='Agent Details' /> */}
     {/* <div className="flex flex-col items-center mt-4"> */}
                       <div className="account flex flex-col items-center">
-                     <Image src={Productdata?.user?.image || "/Heroo.jpg"} alt='' width={150} height={150} className='w-20 h-20 mb-2 rounded-full bg-white' />
+                     <Image src={Productdata?.user?.image || "/Heroo.webp"} alt='' width={150} height={150} className='w-20 h-20 mb-2 rounded-full bg-white' />
                   <div className="text text-xl font-semibold text-center">
                     <h1>{Productdata?.user?.userName}</h1>
                     <h2 className='text-sm text-[#5e5e5e] font-medium'>{Productdata?.user?.company}</h2>

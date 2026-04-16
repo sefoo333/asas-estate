@@ -50,7 +50,7 @@ function Product({product}:{product:Product}) {
       New - 5 hours
     </span> */}
     
-                         <Image loading={"lazy"} className="image rounded-t-xl rounded-xl w-full h-full bg-transparent " src={product?.images[0] || "/Heroo.jpg"} alt="" width={300} height={200} />
+                         <Image priority  loading={"lazy"} className="image rounded-t-xl rounded-xl w-full h-full bg-transparent " src={product?.images[0] || "/Heroo.webp"} alt="" width={300} height={200} />
 {user && Array.isArray(data) &&                          <AddToFavourite Type="product_landing" product={product} isFavourite={user?.id && Array.isArray(data) && data?.map((e) => e?.id).includes(product?.id) || false} />}
                        </div>
                         <div className="box py-4 px-1">

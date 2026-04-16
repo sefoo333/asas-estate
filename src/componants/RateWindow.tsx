@@ -77,7 +77,7 @@ return test.json()
           </DialogHeader>
 
 {broker ? <div className="box mb-5 mt-7 flex gap-2 items-center p-3 transition-all border rounded-xl bg-white border-gray-200 ">
-    <Image src={broker?.image || "/Heroo.jpg"} alt="User Image" width={100} height={100} className="rounded-full w-15 h-15 " />
+    <Image src={broker?.image || "/Heroo.webp"} alt="User Image" width={100} height={100} className="rounded-full w-15 h-15 " />
     <div className="info ml-3">
         <h2 className="font-semibold">{broker?.userName}</h2>
         <p className="text-sm text-gray-500">Broker</p>
@@ -85,7 +85,7 @@ return test.json()
 </div>
  : 
  <div className="box mb-5 mt-7 flex gap-2 items-center p-3 transition-all border rounded-xl bg-white border-gray-200 ">
-    <Image src={product?.UserTo?.image || "/Heroo.jpg"} alt="User Image" width={100} height={100} className="rounded-full w-15 h-15 " />
+    <Image src={product?.UserTo?.image || "/Heroo.webp"} alt="User Image" width={100} height={100} className="rounded-full w-15 h-15 " />
     <div className="info ml-3">
         <h2 className="font-semibold">{product?.UserTo?.userName}</h2>
         <p className="text-sm text-gray-500">{product?.UserTo?.email}</p>

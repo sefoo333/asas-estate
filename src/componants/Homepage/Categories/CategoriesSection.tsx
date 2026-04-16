@@ -21,7 +21,7 @@ function Categories() {
                 <Category Title="Villa" image="/villa.jpg" Description='Explore Villas' />
                 <Category Title='House' Description='Explore Houses' />
                 <Category value={"commercial"} Title='Store' image="/store.jpg" Description='Explore Stores' />
-                <Category Title='Combound' image='/Heroo.jpg' Description='Explore Combounds' />
+                <Category Title='Combound' image='/Heroo.webp' Description='Explore Combounds' />
 
     </div>
                   <div onClick={() => {

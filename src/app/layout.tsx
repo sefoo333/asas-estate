@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono, Open_Sans } from "next/font/google";
+import { Open_Sans } from "next/font/google";
 import "./globals.css";
 import "leaflet/dist/leaflet.css";
 import Providers from "@/context/Provider";
@@ -8,6 +8,8 @@ import Wrapper from "@/componants/Wrapper";
 const geistSans = Open_Sans({
   variable: "--font-geist-sans",
   subsets: ["latin"],
+    preload: true,
+display:"swap",
   weight: ["300", "400", "500", "600", "700", "800"],
 });
 

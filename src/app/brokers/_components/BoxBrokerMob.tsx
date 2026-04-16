@@ -13,7 +13,7 @@ const max = Math.max(...returnPrices)
  <div className="box border border-gray-300 bg-white p-5 rounded-lg">
        <div className=' flex gap-3 w-full mb-2   '>
         <div className="i basis-[30%]">
-            <Image src="/Heroo.jpg" alt='' width={150} height={150} className='w-20 h-20 rounded-full' />
+            <Image src="/Heroo.webp" alt='' width={150} height={150} className='w-20 h-20 rounded-full' />
         </div>
   <div className="text basis-[70%]">
     <h1 className='font-semibold text-lg'>{data.userName}</h1>

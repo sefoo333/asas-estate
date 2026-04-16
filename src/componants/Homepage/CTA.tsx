@@ -4,7 +4,7 @@ import React from 'react'
 function CTA() {
   return (
   <section
-  className="mt-30 overflow-hidden bg-[url(/Heroo.jpg)] bg-cover bg-center bg-no-repeat"
+  className="mt-30 overflow-hidden bg-[url(/Heroo.webp)] bg-cover bg-center bg-no-repeat" 
 >
   <div className="bg-black/50 p-8 md:p-12 lg:px-16 lg:py-24 flex justify-center">
      <div className="container text-center ltr:sm:text-left rtl:sm:text-right">

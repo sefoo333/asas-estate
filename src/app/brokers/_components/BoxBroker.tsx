@@ -31,7 +31,7 @@ function BoxBroker({data}:{data:BoxBrokerProps['data'] | any}) {
   return (
   <Link href={`/brokers/${data?.id}`} >
       <div className="box  max-md:flex-col relative bg-white  flex justify-start border  border-gray-300 rounded-xl gap-5 p-5 w-full duration-300 hover:bg-blue-50/30 cursor-pointer">
-<Image src={data?.image || "/Heroo.jpg"} alt="" width={400} height={400} className='w-[140px] rounded-full h-[140px] max-md:h-[220px] max-md:w-full max-md:rounded-lg' />
+<Image src={data?.image || "/Heroo.webp"} alt="" width={400} height={400} className='w-[140px] rounded-full h-[140px] max-md:h-[220px] max-md:w-full max-md:rounded-lg' />
   <div className="box w-full max-md:relative">
       <div className="text w-full">
   {/* <span className="rounded-full bg-blue-100 px-2.5 py-0.5 text-sm whitespace-nowrap max-md:hidden font-semibold text-blue-700">

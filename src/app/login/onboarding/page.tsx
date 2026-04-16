@@ -113,7 +113,7 @@ signout()
 
 <form action="" onSubmit={handleSubmit((data) => mutation.mutate({...data,image:image?.image ?? extractData?.data?.user?.image,email:extractData.data?.user?.email,provider:"google", userName:extractData.data?.user?.name}))} className='mt-6'>
 
-            <ChangeImage setData={setImage} data={image} onboarding={true} image={"/Heroo.jpg"} broker={false} />
+            <ChangeImage setData={setImage} data={image} onboarding={true} image={"/Heroo.webp"} broker={false} />
 <div className="userName">
         <Label className='text-sm font-medium'>UserName</Label>
         <input {...register("userName" , {required:"UserName is requried"})} type="text" name='userName' id='userName' placeholder='Enter your userName' className='w-full mt-2 mb-4 px-3 py-3 border border-gray-300 rounded-md outline-none text-sm focus:border-[#333446] transition-all duration-200 '/>
