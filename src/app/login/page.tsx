@@ -51,7 +51,7 @@ const user = useUserStore((state) => state?.user);
         onSuccess: (data) => {
             console.log(data)
            if (data?.pass !== undefined){
- window.open("/")
+ window.open("/" , "_parent")
            } else {
             console.log("none")
                         toast.error(data?.reason === "email" ? "Email is already used" : "data is not valid")
