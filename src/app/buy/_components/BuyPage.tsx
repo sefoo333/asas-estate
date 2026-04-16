@@ -1,8 +1,7 @@
 "use client"
-import type { Metadata } from 'next'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
-import { toast, Toaster } from 'sonner'
+import { toast } from 'sonner'
 import { useMediaQuery } from 'react-responsive'
 import SearchBar from '@/componants/SearchBar'
 import Products from './ProductsSection'
