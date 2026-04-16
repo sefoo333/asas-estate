@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import { useState } from 'react'
 import ProductsRent from '../ProductsSection_Rent'
 import SearchBarMob from '@/componants/SearchBarMob'
 import { PiMapPinAreaBold } from 'react-icons/pi'

@@ -83,7 +83,7 @@ export function ToggleNavMenu() {
       </nav>
 
         </div>
-
+{user?.id &&
         <DrawerFooter>
            <div className="flex  my-5 items-center justify-between">
               <div className="account flex items-center  gap-3">
@@ -97,7 +97,7 @@ export function ToggleNavMenu() {
            <CgLogOut size={21} className='' />
               </div>
            </div>
-        </DrawerFooter>
+        </DrawerFooter>}
        
       </DrawerContent>
     </Drawer>

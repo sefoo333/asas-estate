@@ -1,5 +1,4 @@
 "use client"
-import React from 'react'
 import { useMediaQuery } from 'react-responsive'
 import RentPage from './Responsive/RentPage'
 import RentPageMob from './Responsive/RentPageMob'

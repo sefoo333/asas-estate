@@ -1,5 +1,4 @@
 "use client"
-import React from 'react'
 import { useMediaQuery } from 'react-responsive'
 import DesktopView from './components/DesktopView';
 import { useParams } from 'next/navigation';

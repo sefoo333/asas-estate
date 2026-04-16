@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import  { useState } from 'react'
 import Maps from '@/componants/MapsSection'
 import SearchBar from '@/componants/SearchBar'
 import ProductsRent from '../ProductsSection_Rent'

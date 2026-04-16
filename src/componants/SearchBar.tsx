@@ -5,11 +5,8 @@ import SelectPrice from '@/componants/InputSearch/Selects/SelectPrice'
 import SelectTypes from '@/componants/InputSearch/Selects/SelectTypes'
 import OPtionsDrawer from '@/componants/OPtionsDrawer'
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
 import { MapIcon, Search } from 'lucide-react'
 import { usePathname, useRouter } from 'next/navigation'
-import React, { useEffect } from 'react'
-import { IoFilterOutline } from "react-icons/io5";
 
 function SearchBar({setData,data , setSearchResults , transactionType,setOpen ,open}:any) {
 

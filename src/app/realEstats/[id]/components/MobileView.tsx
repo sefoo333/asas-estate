@@ -23,6 +23,12 @@ import { MdBalcony, MdFitnessCenter, MdOutlineReport, MdPool, MdSecurity } from 
 import { RxDimensions } from 'react-icons/rx';
 import MayProduct from './MayProduct';
 import ViewMap from './ViewMap';
+import Link from 'next/link';
+import { SendChat } from './SendChat';
+import CarsoulImages from './PageComponentsMob/CarsoulImages';
+import Main from './PageComponentsMob/Main';
+import AboutProduct from './PageComponentsMob/AboutProduct';
+import Features from './PageComponents/Features';
 // import { Link as Linker, Element } from 'react-scroll';
 
 function MobileView({wParams}:any) {
@@ -152,43 +158,9 @@ if (user && Array.isArray(data)){
 
   return (
     <div className="paren relative">
-        <div className="image relative h-[260px]">
-            <AddToFavourite Type={true} isFavourite={IsFav} />
-            <div className="scroller w-full h-full object-cover overflow-x-scroll flex">
-
-                {Productdata?.images.map((e:any) => <Image key={e}  src={e} alt="real" width={500} height={500} className='w-full h-full' />)}
-            </div>
-            <div className="images absolute bottom-10 right-5 flex gap-5 z-9">
-{Productdata?.images?.map((e:string) =>   <Image key={e}  src={e} alt="real" width={500} height={500} className='w-12 h-12 border-2 border-gray-300 rounded-lg' />)}
-
-            </div>
-        </div>
+       <CarsoulImages images={Productdata?.images || []} IsFav={IsFav} />
         <div className="content rounded-4xl bg-white w-full h-full relative bottom-8 p-6">
-            <div className="main flex justify-between items-center">
-                <div className="text">
-                    <h1 className='font-semibold'>{Productdata?.title}</h1>
-                    <h2 className='text-sm flex items-center gap-1 text-[#5a5a5a] mt-0.5'>
-                        <GoLocation size={18} className='' /> {Productdata?.location}
-                     </h2>
-                </div>
-                <h2 className='text-primary font-semibold text-lg'>${Productdata?.price}</h2>
-            </div>
-            <div style={{scrollbarWidth:"none"}} className="features overflow-scroll gap-4 mt-3">
-              <div className="wrapper w-full grid grid-cols-3 ">
-                  <div className="box p-4 py-3 mt-5 flex items-center gap-2 border  flex-col border-gray-300 rounded-lg w-fit">
-                    <LiaBedSolid size={28} color='#5a5a5a'  />
-                    <span className='text-[13px] font-medium text-[#5a5a5a]'>{Productdata?.beds} Bedroom</span>
-                </div>
-                <div className="box p-4 py-3 mt-5 flex items-center gap-2 border  flex-col border-gray-300 rounded-lg w-fit">
-                    <LiaBathSolid size={28} color='#5a5a5a'  />
-                    <span className='text-[13px] font-medium text-[#5a5a5a]'>{Productdata?.baths} Bathroom</span>
-                </div>
-                <div className="box p-4 py-3 mt-5 flex items-center gap-2 border  flex-col border-gray-300 rounded-lg w-fit">
-                    <LiaRulerSolid size={28} color='#5a5a5a'  />
-                    <span className='text-[13px] font-medium text-[#5a5a5a]'>{Productdata?.Sqft} Sqft</span>
-                </div>
-              </div>
-            </div>
+           <Main Productdata={Productdata} />
             <div className="description mt-7">
                 <h1 className='font-semibold'>Description</h1>
                 <p className='text-[#5a5a5a] text-sm mt-2'>
@@ -198,39 +170,10 @@ if (user && Array.isArray(data)){
             <ViewMap setDataLocation={setDataLocation} setNearbySchools={setNearbySchools} location={Productdata?.location} />
             </div>
 
-              <div className="about_estate mt-15  bg-white rounded-xl ">
-                <h1 className='font-semibold'>About Property</h1>
-                                                            <div className="features grid grid-cols-1 mt-4">
-                                                                {data.map((e , a:number) => (
-                                                                    <div className={`box flex gap-2 justify-between items-center ${a !== data.length -1 ? "border-b border-gray-300/40" : ""}`} key={a}>
-                                                                        <div className="title flex items-center py-5">
-                                                                        <e.icon size={22} className='inline mr-3' />
-                                                                        <h1>{e.name}</h1>
-                                                                    </div>
-                                                                    <div className="flex justify-start basis-[55%] ">
-                                                                        <h2 className='font-semibold'>{e.value}</h2>
-                                                                    </div>
-                                                                    </div>
-                                                                ))}
-                                                            </div>
-                                                        </div>
- <div  className="features bg-white mt-15 rounded-xl">
-                <h1 className='font-semibold'>Features</h1>
-                                                 <div className="features grid grid-cols-2 mt-4">
-                                                    {Productdata?.features?.map((e:any , a:number) => (
-                                                        <div className={`box flex justify-between items-center`} key={a}>
-                                                            <div className="title flex items-center gap-3 py-5">
-                                                            <GetIcon icon={e?.icon} />
-                                                            <h1>{e.label}</h1>
-                                                        </div>
-                                                      
-                                                        </div>
-                                                    ))}
-                                                </div>
-                                                    {/* {features?.length >= 6 ? (
-                                                       <FeaturesDialog featuresData={features} GetIcon={} />
-                                                    ) : null} */}
-                                            </div>
+            <AboutProduct data={data} />
+<div className='mt-5'>
+    <Features Productdata={Productdata} />
+</div>
 
                                                                 <div className="schools bg-white mt-15 rounded-xl ">
 <h1 className='font-semibold'>Nearby Schools</h1>
@@ -264,13 +207,13 @@ if (user && Array.isArray(data)){
                                                 </div>
                                                 </div>
                                                 <div className="buttons z-99 flex fixed bottom-0 pb-5 py-3 bg-white left-0 px-2   w-full gap-3">
-                                                    <button className='border-2 border-primary basis-[45%]  gap-3 p-4 py-0 text-primary font-semibold rounded-lg'>
-                                                        Chat
-                                                        </button>
+            <SendChat product={Productdata} type="mobile-product" />
+                                                        <Link href={`tel:${Productdata?.user?.phone}`}>
                                                         <button className='flex justify-center items-center basis-[80%] gap-3 p-4  bg-primary text-white rounded-lg'>
                                                             <PhoneCall size={19} />
                                                             Call The Owner
                                                             </button>
+                                                        </Link>
 
                                                 </div>
                                                

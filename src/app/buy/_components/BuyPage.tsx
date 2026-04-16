@@ -58,15 +58,6 @@ searchProducts()
   },[params])
 
 
-  
-
-
-
-const isMob = useMediaQuery({maxWidth:767})
-
-useEffect(() => {
-  
-},[])
 
 const [open,setOpen] = useState(false);
 
@@ -75,10 +66,10 @@ const [open,setOpen] = useState(false);
    {/* from-black via-zinc-900 to-zinc-800 text-white */}
         <SearchBar setData={setData} setSearchResults={setSearchResults} data={data} />
   
-            <div className="window flex relative gap-30 pl-35 max-xl:pl-5 overflow-hidden">
+            <div className="window flex relative gap-30 pl-35 max-2xl:pl-20 max-xl:pl-5 overflow-hidden">
             
               <Products setSearchResults={setSearchResults} searchResults={searchResults} />
-            {/* <Maps open={open} setOpen={setOpen} /> */}
+            <Maps open={open} setOpen={setOpen} />
         </div>
    </>
   )

@@ -75,6 +75,10 @@ return test.json()
       <IoChatboxEllipses  size={20}  />
       <span>Send</span>
                                                               </Button>
+) : type === "mobile-product" ? (
+  <button className='border-2 border-primary basis-[45%]  gap-3 p-4 py-0 text-primary font-semibold rounded-lg'>
+                                                        Chat
+                                                        </button>
 ) : (
    <MessageCircleMore  size={21} />
 

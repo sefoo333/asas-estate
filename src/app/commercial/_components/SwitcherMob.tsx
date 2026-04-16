@@ -1,8 +1,6 @@
 "use client"
-import type { Metadata } from 'next'
-import React, { useState } from 'react'
+import { useState } from 'react'
 import Maps from '@/componants/MapsSection'
-import Product from '@/componants/Product'
 import SearchBar from '@/componants/SearchBar'
 import { useMediaQuery } from 'react-responsive'
 import SearchBarMob from '@/componants/SearchBarMob'

@@ -7,8 +7,6 @@ import SelectTypes from '@/componants/InputSearch/Selects/SelectTypes'
 import OPtionsDrawer from '@/componants/OPtionsDrawer'
 import { Button } from '@/components/ui/button'
 import { Search } from 'lucide-react'
-import { useParams, useRouter, useSearchParams } from 'next/navigation'
-import React, { useEffect } from 'react'
 
 function SearchBarRent({setData,setSearchResults,data}:any) {
 

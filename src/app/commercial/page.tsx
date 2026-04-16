@@ -1,9 +1,7 @@
 
 "use client"
 // import type { Metadata } from 'next'
-import React from 'react'
 
-import SwitcherMob from './_components/SwitcherMob'
 import dynamic from 'next/dynamic';
 const SwitcherMobi = dynamic(() => import("./_components/SwitcherMob"), {
   ssr: false,

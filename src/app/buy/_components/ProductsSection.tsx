@@ -1,33 +1,21 @@
 "use client"
-import React, { useEffect, useState } from 'react'
-import { IoLocationSharp } from "react-icons/io5";
-import { FaBath, FaBed } from 'react-icons/fa6'
-import { RxDimensions } from "react-icons/rx";
-import { MdEmail } from "react-icons/md";
-import { FaPhoneAlt } from "react-icons/fa";
-import { IoChatboxEllipses } from "react-icons/io5";
-import { Button } from '@/components/ui/button';
-import Image from 'next/image';
-import { BiHeart } from 'react-icons/bi';
+import { useEffect } from 'react'
+
 import Product from '../../../componants/Product_BRC';
 import {
   Select,
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
 import { useGetProducts } from '@/hooks/useGetProducts';
 import { useSearchParams } from 'next/navigation';
 import { useSearchProducts } from '@/hooks/useSearchProducts';
-import NotFound from '@/componants/NotFound';
 import EasySearchsTypes from '@/componants/EasySearchsTypes';
 function Products({searchResults,setSearchResults}:any) {
-const [myData,setData]:any = useState([]);
 
-// let myData = getProducts("buy");
   const params = useSearchParams();
 
 const {data} = useGetProducts("Sale");
