@@ -1,8 +1,6 @@
 "use client"
-import React, { useEffect } from 'react'
-import { IoCartOutline } from "react-icons/io5";
+import { useEffect, useState } from 'react'
 import { FaRegHeart } from "react-icons/fa6";
-import { BiSearch } from 'react-icons/bi';
 import Link from 'next/link';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -10,11 +8,11 @@ import { useQuery } from '@tanstack/react-query';
 import UserSet from '@/app/settings/_components/NavBarSettings/UserSet';
 import { ToggleNavMenu } from './ToggleNavMenu';
 import { useUserStore } from '@/store/store';
-import { LuUserRound } from 'react-icons/lu';
+import { LogIn } from 'lucide-react';
 
-function Navbar({landing}:{landing?:boolean}) {
+function Navbar() {
 
-      const [active,setActive] = React.useState(false)
+      const [active,setActive] = useState(false)
   const path = usePathname();
   const user = useUserStore((state) => state.user);
 
@@ -96,7 +94,7 @@ function Navbar({landing}:{landing?:boolean}) {
         {/* <div className='size-10 rounded-full bg-red-300'></div> */}
        {/* <Image src={"/images.jpg"} alt='' width={30} height={30} className='size-10 rounded-full' /> */}
        {user?.id ? <UserSet /> :  <div className='bg-gray-100 rounded-full border border-gray-300 p-2'>
- <LuUserRound className='cursor-pointer'  size={21} />
+ <LogIn className='cursor-pointer'  size={21} />
         </div> }
 
 {/* <div className="cart flex gap-2">
