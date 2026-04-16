@@ -1,13 +1,9 @@
 import  { useState } from 'react'
 import Head_create from './Head_create'
-import { CgGym, CgHomeAlt, CgProfile, CgSmartHomeBoiler } from 'react-icons/cg'
 import { IoClose } from 'react-icons/io5'
-import { Input } from '@/components/ui/input'
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 import { Button } from '@/components/ui/button'
-import { IoMdCafe, IoMdCheckmark } from 'react-icons/io'
-import { FaUtensils } from 'react-icons/fa6'
-import { FaParking, FaPray, FaSwimmingPool } from 'react-icons/fa'
+import {  IoMdCheckmark } from 'react-icons/io'
 import { featuresLabel } from '@/lib/Features'
 
 function Features({features,setFeatures,edit = false}:{features:any,setFeatures:any,edit:boolean}) {
@@ -17,12 +13,15 @@ function Features({features,setFeatures,edit = false}:{features:any,setFeatures:
     const [icon,setIcon] =  useState(null);
 
 
-const GetIcon = ({icon}:any) => {
-    const getIcon = featuresLabel.find((e) => e.icon.name === icon)
-const Iconer = getIcon?.icon;
+ const featureIconMap = Object.fromEntries(
+  featuresLabel.map((f) => [f.key, f.icon])
+);
 
-return Iconer ? <Iconer size={22} className='inline mr-3' /> : null
-}
+  const GetIcon = ({ icon }: any) => {
+  const Icon:any = featureIconMap[icon];
+  console.log(Icon)
+  return Icon ? <Icon size={22} className="inline mr-3" /> : null;
+};
 
   return (
 <div className="features p-4">
@@ -32,7 +31,7 @@ return Iconer ? <Iconer size={22} className='inline mr-3' /> : null
         {features?.map((e:any , i:number) => (
             <div key={i} className="box flex justify-between items-center py-4 px-4 border border-gray-200 rounded-xl">
            <div className="first  items-center flex gap-3">
-               <GetIcon icon={e.icon}/>
+               <GetIcon icon={e?.key}/>
              {/* {edit ? (
              ): (
                 <e.icon size={25} />
@@ -76,8 +75,9 @@ return Iconer ? <Iconer size={22} className='inline mr-3' /> : null
                     if (selectedFeature) {
                         setFeatures((x:any) => [...x, {
                             label:selectedFeature.label,
+                            key:selectedFeature?.key,
                             icon:selectedFeature.icon?.name,
-                            idTwo:selectedFeature.id,
+                            idTwo:selectedFeature?.id,
                             id:Date.now(),
                         }])
                     }

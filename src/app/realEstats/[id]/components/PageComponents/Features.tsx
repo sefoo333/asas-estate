@@ -3,13 +3,16 @@ import Head from '../Head'
 import { FeaturesDialog } from '../FeaturesDialog'
 import { featuresLabel } from '@/lib/Features'
 
+export const featureIconMap = Object.fromEntries(
+  featuresLabel.map((f) => [f.key, f.icon])
+);
+
 function Features({Productdata}:any) {
-    const GetIcon = ({icon}:any) => {
-        const getIcon = featuresLabel.find((e) => e.icon.name === icon)
-    const Iconer = getIcon?.icon;
-    
-    return Iconer ? <Iconer size={22} className='inline mr-3' /> : null
-    }
+  const GetIcon = ({ icon }: any) => {
+  const Icon:any = featureIconMap[icon];
+  console.log(Icon)
+  return Icon ? <Icon size={22} className="inline mr-3" /> : null;
+};
 
   return (
 <>
@@ -18,7 +21,7 @@ function Features({Productdata}:any) {
                                                     {Productdata?.features?.map((e:any , a:number) => (
                                                         <div className={`box flex justify-between items-center`} key={a}>
                                                             <div className="title flex items-center py-5">
-                                                            <GetIcon icon={e.icon}/>
+                                                            <GetIcon icon={e?.key}/>
                                                             <h1>{e.label}</h1>
                                                         </div>
                                                       

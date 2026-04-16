@@ -1,18 +1,16 @@
 "use client"
-import Product from '@/componants/Product';
-import { useGetProducts } from '@/hooks/useGetProducts';
-import { useUserStore } from '@/store/store';
 import { RealEstate } from '@/types/realEstate';
 import { useQueries, useQuery } from '@tanstack/react-query';
-import { PhoneCall } from 'lucide-react';
-import Image from 'next/image'
-import { useEffect, useState } from 'react'
-import Link from 'next/link';
-import { SendChat } from './SendChat';
+import { useState } from 'react'
 import Main from './PageComponentsMob/Main';
 import AboutProduct from './PageComponentsMob/AboutProduct';
 import Features from './PageComponents/Features';
 import dynamic from 'next/dynamic';
+import CallToAction from './PageComponentsMob/CallToAction';
+import MayProducts from './PageComponentsMob/MayProducts';
+import Link from 'next/link';
+import { PhoneCall } from 'lucide-react';
+import { SendChat } from './SendChat';
 
 const CarsoulImages = dynamic(() => import('./PageComponentsMob/CarsoulImages'), {
   ssr: false,
@@ -67,7 +65,6 @@ const schoolsWithDistance = nearbySchools.slice(0,5).map((school:object, i:numbe
 
 
 
-const {data:mayProducts} = useGetProducts("All");
 
 
         
@@ -94,36 +91,20 @@ const {data:mayProducts} = useGetProducts("All");
  <NearbySchools schoolsWithDistance={schoolsWithDistance} />
                                      </div>
 
-                                            <div className='bg-white mt-15 rounded-xl'>
-                                                <h1 className='font-semibold'>About Agent</h1>
-                                              <div className="box flex relative justify-between flex-col">
-                                                  <div className="flex gap-3 items-center mt-3">
-                                                    <Image src={Productdata?.user?.image} alt='' width={100} height={100} className='w-15 h-15 rounded-full' />
-                                                <div className="text">
-                                                    <h1 className='font-semibold'>{Productdata?.user?.userName}</h1>
-                                                    <h2 className='text-sm'>Property Owner</h2>
-                                                </div>
-                                                </div>
-                                                <div className="buttons z-99 flex fixed bottom-0 pb-5 py-3 bg-white left-0 px-2   w-full gap-3">
+                                           <CallToAction Productdata={Productdata} />
+
+  <div className="buttons z-99 flex fixed bottom-0 pb-5 py-3 bg-white left-0 px-2   w-full gap-3">
             <SendChat product={Productdata} type="mobile-product" />
-                                                        <Link href={`tel:${Productdata?.user?.phone}`}>
+                                            <Link href={`tel:${Productdata?.user?.phone}`}>
                                                         <button className='flex justify-center items-center basis-[80%] gap-3 p-4  bg-primary text-white rounded-lg'>
                                                             <PhoneCall size={19} />
                                                             Call The Owner
                                                             </button>
-                                                        </Link>
+                                                        </Link>            
 
                                                 </div>
-                                               
-                                              </div>
-                                            </div>
 
-                                                     <div className="second mt-15 bg-white   justify-center rounded-xl w-full flex  flex-col">
-                                                            <h1 className='font-semibold'>May you like</h1>
-                                                            <div className="boxs mt-8">
-                                                            {mayProducts?.slice(0,4)?.map((e:any) => <Product product={e} key={e?.id}  />)}
-                                                            </div>
-                                                           </div>
+                                                     <MayProducts />
              
 
 

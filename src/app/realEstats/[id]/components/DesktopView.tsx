@@ -30,20 +30,24 @@ import About from './PageComponents/About'
 import AboutEstate from './PageComponents/AboutEstate'
 import Features from './PageComponents/Features'
 import NearbySchools from './PageComponents/NearbySchools'
+import { RealEstate } from '@/types/realEstate'
+import UserAgent from './PageComponents/UserAgent'
+import { Skeleton } from '@/components/ui/skeleton'
+import { SkeletonBox } from './SkeletonBox'
 function DesktopView({wParams}:any) {
 
-    const [Productdata,setData]:any = useState(null);
     const [dataLocation,setDataLocation] = useState([]); 
 
-    const getData = async () => {
-        const getData = await fetch(`/api/RealEstats/${wParams.id}`);
-        const data = await getData.json();
-        setData(data.data)
-    }
-
-    useEffect(() => {
-        getData()
-    },[])
+  
+  const { data: Productdata } = useQuery<RealEstate | any>({
+    queryKey: ["product", wParams.id],
+    queryFn: async () => {
+      const res = await fetch(`/api/RealEstats/${wParams.id}`);
+      const json = await res.json();
+      return json.data;
+    },
+    staleTime: 1000 * 60 * 5,
+  });
 
     const shared = new Date().getDate() - new Date(Productdata?.createdAt)?.getDate();
     const isTodayOrNot = shared === 0 ? "Today" : `${shared} days ago`
@@ -136,7 +140,6 @@ if (user && Array.isArray(FavouriteProduct)){
         <IoIosArrowBack size={25} />
         <span className='font-semibold'>Search</span>
     </div>
-    {/* <Image src={"/aqare-edited.png"} alt='' width={251} height={109} className=' rounded-lg w-[100px]  object-cover' /> */}
     <div className="actions flex gap-6">
         <AddToFavourite Type={"product_onsite"} product={Productdata} isFavourite={IsFav} />
         <ShareProfile Type={"on-product"}  />
@@ -160,7 +163,8 @@ if (user && Array.isArray(FavouriteProduct)){
         <div className="container  flex gap-5 ">
            <div className="flex flex-col basis-[70%]">
              <Crubchumb parent={Productdata?.TransactionType === "Sale" ? "Buy" : "Rent"} child={Productdata?.title} />
-          <div className="flex flex-col">
+          {Productdata ? (
+            <div className="flex flex-col">
                        <Element name='Overview' className="flex bg-white flex-col mt-5 shadow-sm rounded-md p-5">
           <Main Productdata={Productdata} />
 </Element>          
@@ -212,53 +216,37 @@ if (user && Array.isArray(FavouriteProduct)){
 </div>
                                             </div>
          </div>
+          ) : <SkeletonBox />}
            </div>
          <div className="action basis-[30%]">
 <div className="box  justify-center sticky top-45  w-full flex items-center flex-col">
-   {/* <Button type="submit" className="py-7 flex flex-col font-bold text-md bg-blue-600 px-7 rounded-md mt-2 cursor-pointer hover:bg-blue-700 hover:text-white text-white w-full" variant="outline">
-        Request a tour
-        <span className='mt-[-8px] font-medium text-[12px]'>as early today as 10:00 PM</span>
-      </Button>
-   {/* <button className="py-4 items-center justify-center flex font-semibold text-md bg-green-600 px-7 transition rounded-md mt-2 cursor-pointer hover:bg-green-700 hover:text-white text-white w-full" >
-<IoCall size={22} className='mr-2' /> <span className='font-bold'> Call</span>
-            </button> 
-   <button className="py-4 items-center justify-center flex font-semibold text-md text-blue-600 border border-blue-600 px-7 duration-[200ms] rounded-md mt-2 cursor-pointer hover:bg-blue-700 hover:text-white w-full" >
-                {/* <IoMail size={22} className='mr-2' /> 
-                   <span className='font-bold'> Send Massege</span>
-                  </button> */}
 
-               <div className="first bg-white  justify-center  shadow-sm rounded-xl p-5 w-full items-center flex flex-col">
-                {/* <Head text='Agent Details' /> */}
-    {/* <div className="flex flex-col items-center mt-4"> */}
-                      <div className="account flex flex-col items-center">
-                     <Image src={Productdata?.user?.image || "/Heroo.webp"} alt='' width={150} height={150} className='w-20 h-20 mb-2 rounded-full bg-white' />
-                  <div className="text text-xl font-semibold text-center">
-                    <h1>{Productdata?.user?.userName}</h1>
-                    <h2 className='text-sm text-[#5e5e5e] font-medium'>{Productdata?.user?.company}</h2>
-                  </div>
-                 </div>
-    <div className="social flex gap-5 mt-3">
-<div className="icon p-2  rounded-full bg-white border border-gray-200">
-          <Link href={`https://wa.me/${Productdata?.user?.phone}?text=مرحبا ${Productdata?.user?.userName} , هل يمكنني الاستفسار عن  العقار الخاص بك ؟`}>
-            <BsWhatsapp color='#2cd46b'  size={21} />
-          </Link>
-</div>
-<div className="icon p-2  rounded-full bg-white border border-gray-200">
-         <Link href={`tel:${Productdata?.user?.phone}`}>
-            <Phone   size={21} />
-         </Link>
-</div>
-<div className="icon p-2  rounded-full bg-white border border-gray-200">
-            <SendChat product={Productdata} />
-</div>
 
-    {/* </div> */}
-    </div>
-               </div>
+              {Productdata?.user ? (
+                <UserAgent Productdata={Productdata} />
+              ) : (
+              <div className="flex justify-center items-center flex-col">
+                  <Skeleton className='w-20 h-20 rounded-full'></Skeleton>
+                <Skeleton className='w-40 h-5 mt-4'></Skeleton>
+                <Skeleton className='w-30 h-5 mt-3'></Skeleton>
+              </div>
+              )}
+              
                <div className="second mt-10 bg-white   justify-center shadow-sm rounded-xl my-5 p-5 w-full flex  flex-col">
                 <Head text='May you like' />
                 <div className="boxs mt-8">
-                {mayProducts?.slice(0,3).map((e:any) => <MayProduct product={e} key={e?.id}  />)}
+                {mayProducts ? (
+                   <> {mayProducts?.slice(0,3).map((e:any) => <MayProduct product={e} key={e?.id}  />)} </>
+                ) : (
+                   <>{Array.from({length:3}).map((x) =>  <div className='flex gap-5 mb-5 items-center'>
+                                          <Skeleton className='w-15 h-15 rounded-xl'></Skeleton>
+                                          <div className="text">
+                                             <Skeleton className='w-40 h-3'></Skeleton>
+                <Skeleton className='w-30 h-3 mt-3'></Skeleton>
+                                          </div>
+
+                    </div>)}</>
+                )}
                 </div>
                </div>
 </div>

@@ -41,7 +41,7 @@ function Map({location , setNearbySchools,setDataLocation}:{location:string,setN
   return (
    <>
     <div className="parent relative w-full my-2 h-[250px]">
-        <div onClick={() => setActive(true)} className="butt p-3 rounded-full bg-white absolute left-3 cursor-pointer top-3 z-9">
+        <div onClick={() => setActive(true)} className="butt p-3 rounded-full bg-white absolute left-3 cursor-pointer top-3 z-3">
             <GoScreenFull  size={22} />
         </div>
          <MapSingle setDataLocation={setDataLocation} setNearbySchools={setNearbySchools} location={location} />

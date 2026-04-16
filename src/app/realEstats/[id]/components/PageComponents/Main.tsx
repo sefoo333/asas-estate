@@ -23,8 +23,7 @@ function Main({Productdata}:{Productdata:RealEstate | any}) {
 
 
   return (
- <div className="flex flex-col">
-           <Element name='Overview' className="flex bg-white flex-col mt-5 shadow-sm rounded-md p-5">
+        <>
           <ImagesProduct Productdata={Productdata} />
                <div className="flex flex-col gap-3 mt-5 ">
              
@@ -50,12 +49,10 @@ function Main({Productdata}:{Productdata:RealEstate | any}) {
 </div>
 </div>
                </div>
-           </Element>
           
-   
-
+        </>
+  
                             
-         </div>
            )
 }
 
