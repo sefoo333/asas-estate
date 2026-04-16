@@ -67,7 +67,7 @@ const ReviewCard = ({
       )}
     >
       <div className="flex flex-row items-center gap-2">
-        <img className="rounded-full object-cover" width="32" height="32" alt="" src={img} />
+        <img loading="lazy" className="rounded-full object-cover" width="32" height="32" alt="" src={img} />
         <div className="flex flex-col">
           <figcaption className="text-sm font-medium dark:text-white">
             {name}
@@ -98,7 +98,7 @@ const Card = ({
         {body}
     </h1>
     <div className="profile flex gap-3 items-center mt-5">
-        <img src={img} className="w-[35px] h-[35px] rounded-full object-cover" width={100} height={100} alt="" />
+        <img loading="lazy" src={img} className="w-[35px] h-[35px] rounded-full object-cover" width={100} height={100} alt="" />
         <div className="text">
             <h1 className="font-semibold">{name}</h1>
             <span className="text-gray-700 text-[13px]">{username}</span>

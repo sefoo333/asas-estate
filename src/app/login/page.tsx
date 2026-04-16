@@ -14,6 +14,7 @@ import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
 import { signIn, signOut, useSession } from "next-auth/react"
 import { useUserStore } from '@/store/store';
+import { toast, Toaster } from 'sonner';
 
 const geistSans = Mona_Sans({
   variable: "--font-geist-sans",
@@ -27,7 +28,10 @@ function page() {
       const {data:session,status , update} = useSession();
 
     const sign = async (data:any) => {
-    const test = await fetch(`/api/authUser/${!data?.userName && data?.provider !== "" && status === "authenticated" ? "register" : "login"}` , {
+console.log(data?.provider)
+console.log(status)
+
+        const test = await fetch(`/api/authUser/${!switcher || status === "authenticated" ? "register" : "login"}` , {
         method:"POST",
         headers:{
             "Content-Type":"application/json"
@@ -45,8 +49,15 @@ const user = useUserStore((state) => state?.user);
     const mutation = useMutation({
         mutationFn: sign,
         onSuccess: (data) => {
+            console.log(data)
+           if (data?.pass !== undefined){
+ location.reload()
             router.replace("/")
-            
+           } else {
+            console.log("none")
+                        toast.error(data?.reason === "email" ? "Email is already used" : "data is not valid")
+
+           }
         }
     })
 
@@ -102,7 +113,9 @@ mutation.mutate({
  <>
  {/* <div onClick={() => {
 signout()
+
 }}>logout</div> */}
+<Toaster />
     <div className={`${geistSans.className} page flex items-center flex-row-reverse gap-20 h-screen w-full overflow-hidden`}>
     
             <div className="image h-full col-span-1 basis-[50%]  max-md:hidden relative">

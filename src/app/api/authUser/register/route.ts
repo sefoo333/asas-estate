@@ -42,11 +42,11 @@ export async function POST(req:Request) {
 
 
    if (!result.success){
-            return NextResponse.json({message:"Data is not valid"}, {status:400})
+            return NextResponse.json({message:"Data is not valid" , reason:"validation"}, {status:401})
    }
 
     if (checkEmail){
-        return NextResponse.json({message:"Email already exists"}, {status:400})
+        return NextResponse.json({message:"Email already exists",reason:"email"}, {status:400})
     }
 
     const saltRounds = 10;
@@ -75,6 +75,7 @@ await (await cookies()).set("token" ,token)
 
     return NextResponse.json({
         message:"user created",
+        pass:true,
         data:{
             email,
             userName,
