@@ -10,6 +10,7 @@ import { useQuery } from '@tanstack/react-query';
 import UserSet from '@/app/settings/_components/NavBarSettings/UserSet';
 import { ToggleNavMenu } from './ToggleNavMenu';
 import { useUserStore } from '@/store/store';
+import { LuUserRound } from 'react-icons/lu';
 
 function Navbar({landing}:{landing?:boolean}) {
 
@@ -94,7 +95,9 @@ function Navbar({landing}:{landing?:boolean}) {
         <div className="sm:flex sm:gap-4 items-center flex-row-reverse relative">
         {/* <div className='size-10 rounded-full bg-red-300'></div> */}
        {/* <Image src={"/images.jpg"} alt='' width={30} height={30} className='size-10 rounded-full' /> */}
-       <UserSet />
+       {user?.id ? <UserSet /> :  <div className='bg-gray-100 rounded-full border border-gray-300 p-2'>
+ <LuUserRound className='cursor-pointer'  size={21} />
+        </div> }
 
 {/* <div className="cart flex gap-2">
      <IoCartOutline size={25} />
