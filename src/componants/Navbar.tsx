@@ -93,9 +93,11 @@ function Navbar() {
         <div className="sm:flex sm:gap-4 items-center flex-row-reverse relative">
         {/* <div className='size-10 rounded-full bg-red-300'></div> */}
        {/* <Image src={"/images.jpg"} alt='' width={30} height={30} className='size-10 rounded-full' /> */}
-       {user?.id ? <UserSet /> :  <div className='bg-gray-100 rounded-full border border-gray-300 p-2'>
+       {user?.id ? <UserSet /> :  <Link href={"/login"}>
+       <div className='bg-gray-100 rounded-full border border-gray-300 p-2'>
  <LogIn className='cursor-pointer'  size={21} />
-        </div> }
+        </div>
+       </Link> }
 
 {/* <div className="cart flex gap-2">
      <IoCartOutline size={25} />
