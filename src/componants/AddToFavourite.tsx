@@ -35,7 +35,7 @@ function AddToFavourite({Type = true,product,isFavourite}:any) {
 
   return (
  <>
- {Type === "product_landing" ?  <div onClick={() => {AddToFavourite.mutate(product);setFav((e) => !e)}} className="favourite p-2 absolute top-3 left-3 bg-white rounded-full text-black">
+ {Type === "product_landing" ?  <div onClick={() => {AddToFavourite.mutate(product);setFav((e) => !e)}} className="favourite p-2 absolute top-5 left-5 cursor-pointer bg-white rounded-full z-1 text-black">
                                {fav ?  <IoHeart  size={21} className='text-red-500' /> :  <IoHeartOutline   size={21} className='' />}
                             </div>
                           : Type === "product_onsite" ?

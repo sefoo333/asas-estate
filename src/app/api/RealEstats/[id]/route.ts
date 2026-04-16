@@ -6,7 +6,7 @@ import { GetRole } from "@/modules/GetRole";
 
 export async function GET(req:Request , context: any){
 
-  const id = context.params?.id;
+  const id = (await context.params)?.id;
 
 const realEstates = await prisma.realEstate.findUnique({
     where: {
@@ -58,7 +58,7 @@ if (!isHaveArole){
     
 const realEstates = await prisma.realEstate.update({
     where: {
-        id: context.params?.chatId,
+        id:  (await context.params)?.id,
 
     },
     data:cleanData,

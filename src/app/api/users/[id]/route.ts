@@ -11,7 +11,8 @@ const updateUserSchema = userSchema.partial().refine(data => Object.keys(data).l
   });
 
 export async function GET(request:Request,context:any) {
-  const id = context.params?.id;
+      const id = (await context.params).id;
+
 
    if (!id) {
       return NextResponse.json({ message: "No user found" }, { status: 401 });
@@ -29,9 +30,12 @@ return NextResponse.json({message:"User fetched successfully",user:getUser}, {st
 }
 
 
-export async function PATCH(req:Request , context:any){
+export async function PATCH(req:Request ,context: { params: Promise<{ id: string }> }){
     const body = await req.json();
-      const id = context.params?.id;
+      const id = (await context.params).id;
+
+      console.log("userId " , id)
+
 
     // extract cookie
     const unLookCookie = (await cookies()).get("token")?.value;

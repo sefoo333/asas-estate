@@ -32,7 +32,7 @@ const isMob = useMediaQuery({maxWidth:767})
     <div className="page  px-7 max-md:px-5 py-7 basis-[100%]">
     <Crubchumb />
                 <HeadS title="Favourites" />
-                            <div className="window p-8 mt-10  max-md:px-0 rounded-lg border border-gray-200  ">
+                            <div className="window p-8 mt-10  max-md:px-0 rounded-lg border border-gray-200  bg-white ">
 <div className="favourites relative flex flex-col gap-10">
   {data?.length > 0 && user ? (
     <>

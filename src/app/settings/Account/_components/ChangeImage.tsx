@@ -11,8 +11,8 @@ function ChangeImage({data,setData,image , broker = false , onboarding}:{onboard
 const user = useUserStore((state) => state.user)
 const [imager,setImage] = useState("");
   const uploadImage = async (event:any) => {
-      const data:{secure_url:string} = await GiveMeImage(event);
-      setData((e:any) => ({...e,image:data.secure_url}))
+      const data:any = await GiveMeImage(event);
+      setData((e:any) => ({...e,image:data.map((e:any) => e.card)[0]}))
   toast.success("image has been added !")
 } 
 

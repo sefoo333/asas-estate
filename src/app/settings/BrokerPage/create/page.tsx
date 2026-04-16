@@ -1,24 +1,16 @@
 "use client"
-import React, { useState } from 'react'
-import Head from '@/app/realEstats/[id]/components/Head'
-import { AiOutlineFileAdd } from "react-icons/ai";
-import { FiLink } from "react-icons/fi";
+import { useState } from 'react'
 import { Input } from '@/components/ui/input';
 import { ImBold } from "react-icons/im";
 import { FaItalic } from "react-icons/fa";
 import { CiBoxList } from "react-icons/ci";
 import { FaListOl } from "react-icons/fa";
 import { Textarea } from '@/components/ui/textarea';
-import Image from 'next/image'
-import { IoIosArrowDown, IoMdCheckmark } from "react-icons/io";
+import {  IoMdCheckmark } from "react-icons/io";
 import { Select, SelectContent, SelectGroup, SelectItem, SelectLabel, SelectTrigger, SelectValue } from '@/components/ui/select'
 import Head_create from './_components/Head_create'
 import { Button } from '@/components/ui/button'
-import { GiGymBag } from 'react-icons/gi'
-import { CgGym } from 'react-icons/cg'
-import { IoClose } from 'react-icons/io5'
-import { BsMarkdownFill } from 'react-icons/bs'
-import { MdAdd } from 'react-icons/md'
+
 import { useForm } from 'react-hook-form'
 import { useMutation } from '@tanstack/react-query'
 import { toast } from 'sonner'

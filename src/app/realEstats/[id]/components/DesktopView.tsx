@@ -338,10 +338,15 @@ if (user && Array.isArray(FavouriteProduct)){
                                             </Element>
                                             <div className="recommends mb-10 bg-white mt-15 shadow-sm rounded-xl p-5">
 <Head text='May you like' />
-                                              <div className="w-full  flex gap-5">
-                                                   
-                                           {mayProducts?.slice(0,2).map((e:any , i:number) => <Product product={e} key={i}  />)}
-                                              </div>
+                                           <div className="w-full overflow-x-auto">
+  <div className="flex gap-5 flex-nowrap">
+    {mayProducts?.slice(0, 5).map((e: any, i: number) => (
+      <div className="flex-shrink-0" key={i}>
+        <Product product={e} />
+      </div>
+    ))}
+  </div>
+</div>
                                             </div>
          </div>
            </div>

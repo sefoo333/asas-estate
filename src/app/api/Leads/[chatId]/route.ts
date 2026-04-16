@@ -2,7 +2,7 @@ import prisma from "@/lib/db";
 import { NextResponse } from "next/server";
 
 export async function GET(req: Request, context: any) {
-  const id = context.params?.chatId;
+      const id = (await context.params).chatId;
 
   if (!id) {
     return NextResponse.json(
