@@ -27,7 +27,14 @@ try {
         }
     })
 
-        return NextResponse.json({message:"success create" , data:createBroker}, {status:200})
+    const editRole = await prisma.user?.update({
+        where:{id:idUser},
+        data:{
+            role:"Broker"
+        },
+    })
+
+        return NextResponse.json({message:"success create" , data:createBroker , role:editRole}, {status:200})
 
 } catch(err){
        return NextResponse.json({message:"failed to create"}, {status:500})
