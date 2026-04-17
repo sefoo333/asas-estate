@@ -189,14 +189,14 @@ if (user && Array.isArray(FavouriteProduct)){
 <Head text='Owner' />
                                                <div className="box mt-4 p-8 rounded-xl flex justify-between items-center bg-blue-50 dark:bg-gray-800 dark:border dark:border-gray-600 gap-5">
                                               <div className="fitst flex items-center gap-4">
-                                                   <Image src={"/Hero.jpg"} alt='' width={500}  height={500}           className="rounded-full w-[80px] h-[80px] object-cover" />
+                                                   <Image src={Productdata?.user?.image} alt='' width={500}  height={500}           className="rounded-full w-[80px] h-[80px] object-cover" />
                                                 <div className="second flex flex-col">
                                                 <h1 className='font-bold text-2xl'>{Productdata?.user?.userName}</h1>
                                                     <span className='text-sm text-gray-500'>Member since {(new Date(Productdata?.user?.createdAt) as any).getFullYear()}</span>
                                                 </div>
                                               </div>
                                                 <div className="third">
-                                                    <Button  className='px-8 py-5 border bg-primary text-primary   font-bold rounded-lg  hover:text-white cursor-pointer transition' variant={"outline"}>
+                                                    <Button  className='px-8 py-5 border border-primary text-primary   font-bold rounded-lg  hover:text-white cursor-pointer transition' variant={"outline"}>
                                                     <Link href={`/brokers/${Productdata?.userId}`}>
                                                     Contact Now
                                                     </Link>
