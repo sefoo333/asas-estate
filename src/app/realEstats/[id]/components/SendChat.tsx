@@ -41,7 +41,7 @@ const test = await fetch(`/api/Leads/SendMassege` , {
     body:JSON.stringify({
         ...data,
         id:user?.id,
-        idTo:type !== "Broker" ? product?.UserTo?.id : broker?.id,
+        idTo:type !== "Broker" ? product?.user?.id : broker?.id,
         idProduct:product?.id,
         title:`${user?.userName}`,
         description:`${user?.userName} send you a massege about your product ${product?.title}`,
@@ -49,6 +49,7 @@ const test = await fetch(`/api/Leads/SendMassege` , {
     })
 })
 
+console.log(product)
 
 
 return test.json()

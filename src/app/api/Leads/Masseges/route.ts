@@ -16,8 +16,6 @@ export async function GET(req:Request){
       return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
     }
 
-
-
 const data = await prisma.lead.findMany({
     where:{idTo:unLookToken?.id , NOT:{massege:"review"}},
     include:{userSender:true,product:true}
