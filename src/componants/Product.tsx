@@ -24,7 +24,7 @@ interface Product {
 }
 
 // {badge,image,Title,price,baths,beds,location,id}:Product
-function Product({product}:{product:Product}) {
+function Product({product , screen = false}:{product:Product ,screen?:boolean}) {
 
     const user = useUserStore((state) => state?.user)
 
@@ -43,7 +43,7 @@ function Product({product}:{product:Product}) {
   })
 
   return (
-      <div className="product p-3 rounded-xl relative flex-shrink-0 snap-start max-md:w-screen ">
+      <div className={`product p-3 rounded-xl relative flex-shrink-0 snap-start ${screen ? "max-md:w-screen" : "max-md:w-full"} `}>
         {user && Array.isArray(data) &&                          <AddToFavourite Type="product_landing" product={product} isFavourite={user?.id && Array.isArray(data) && data?.map((e) => e?.id).includes(product?.id) || false} />}
 
         <Link href={`/realEstats/${product?.id}`}>

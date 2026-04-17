@@ -1,18 +1,11 @@
 "use client"
 
-import { IoLocationSharp } from "react-icons/io5";
-import React, { useEffect } from 'react'
-import Image from "next/image";
-import { GiLoveHowl, GiLovers } from "react-icons/gi";
-import { GoHeart } from "react-icons/go";
-import { IoChatboxEllipses } from "react-icons/io5";
+
 import Head from "@/componants/Head";
-import { FaBath, FaBed } from "react-icons/fa";
 import Product from "@/componants/Product";
 import { Button } from "@/components/ui/button";
 import { useGetProducts } from "@/hooks/useGetProducts";
 import ProductsCarsoul from "./ProductsCarsoul";
-import { getSession, useSession } from "next-auth/react";
 import Link from "next/link";
 import { Skeleton } from "@/components/ui/skeleton";
 
@@ -30,7 +23,7 @@ function Products() {
             <>
              {data?.slice(0,4).map((e:any) => (
               
-              <Product key={e?.id} product={e} />
+              <Product screen={true} key={e?.id} product={e} />
             ))}
             </>
            ) : (

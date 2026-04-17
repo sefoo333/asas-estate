@@ -57,7 +57,6 @@ export async function GET(request: Request) {
       },
     });
 
-    // فلتر الـ features يدوياً بعد الجلب
     if (featuresArray.length > 0) {
       realEstates = realEstates.filter((estate) =>
         featuresArray.every((f) =>

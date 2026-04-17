@@ -6,7 +6,7 @@ function Main({Productdata}:any) {
 <>
 <div className="main flex justify-between items-center">
                 <div className="text">
-                    <h1 className='font-semibold'>{Productdata?.title}</h1>
+                    <h1 className='font-semibold w-[80%]'>{Productdata?.title}</h1>
                     <h2 className='text-sm flex items-center gap-1 dark:text-gray-300 text-[#5a5a5a] mt-1'>
                         <GoLocation size={18} className='' /> {Productdata?.location}
                      </h2>
