@@ -6,7 +6,6 @@ import SelectHero from './Selects/SelectEstat'
 import SelectPrice from './Selects/SelectPrice'
 import SelectTypes from './Selects/SelectTypes'
 import SearchInput from './SearchInput'
-import { useForm } from 'react-hook-form';
 import { useRouter } from 'next/navigation'
 
 function HeroInputSearch() {

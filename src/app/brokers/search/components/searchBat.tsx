@@ -1,13 +1,8 @@
 "use client"
 
 import SearchInput from '@/componants/InputSearch/SearchInput'
-import SelectEstat from '@/componants/InputSearch/Selects/SelectEstat'
-import SelectPrice from '@/componants/InputSearch/Selects/SelectPrice'
-import SelectTypes from '@/componants/InputSearch/Selects/SelectTypes'
 import { Button } from '@/components/ui/button'
-import { Input } from '@/components/ui/input'
-import React, { useState } from 'react'
-import { IoFilterOutline } from "react-icons/io5";
+import { useState } from 'react'
 import SelectInBroker from '../../_components/Select'
 import { useRouter } from 'next/navigation'
 import { Search } from 'lucide-react'

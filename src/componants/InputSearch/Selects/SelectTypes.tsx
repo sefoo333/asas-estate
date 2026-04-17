@@ -1,18 +1,7 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
-import { general } from './Types'
 
 import { MdKeyboardArrowDown } from "react-icons/md";
-import { Input } from '@/components/ui/input';
 import { Button } from '@/components/ui/button';
 function SelectTypes({setTypes,type , setData ,openar,setOpener}:{setTypes?:any,setOpener:any,openar:any,type?:{beds?:number,baths?:number} , setData?:(data:any) => void}) {
       const [select , SetSelect] = useState(false)

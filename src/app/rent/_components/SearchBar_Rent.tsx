@@ -7,6 +7,7 @@ import SelectTypes from '@/componants/InputSearch/Selects/SelectTypes'
 import OPtionsDrawer from '@/componants/OPtionsDrawer'
 import { Button } from '@/components/ui/button'
 import { Search } from 'lucide-react'
+import { useState } from 'react'
 
 function SearchBarRent({setData,setSearchResults,data}:any) {
 
@@ -21,7 +22,7 @@ setSearchResults(json.data)
   }
 
 
-
+const [openar,setOpener] = useState(false);
 
 
   return (
@@ -29,8 +30,8 @@ setSearchResults(json.data)
         <div className="container flex flex-col  gap-6 w-[80rem]">
             <SearchInput setData={setData} finder={true} placeholder={'Search Location'} />
            <div className="select flex gap-5 w-full">
-             <SelectTypes setData={setData} />
-            <SelectPrice setData={setData} />
+             <SelectTypes setOpener={setOpener} openar={openar} setData={setData} />
+            <SelectPrice setOpener={setOpener} openar={openar} setData={setData} />
             <SelectEstat setData={setData} />
                 <OPtionsDrawer setData={setData} data={data} />
                    <Button onClick={() => {

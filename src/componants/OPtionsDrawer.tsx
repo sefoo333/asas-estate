@@ -3,7 +3,6 @@ import {
   Drawer,
   DrawerClose,
   DrawerContent,
-  DrawerDescription,
   DrawerFooter,
   DrawerHeader,
   DrawerTitle,
@@ -17,8 +16,6 @@ import { FaUtensils } from 'react-icons/fa6'
 import { FaParking, FaPray, FaSwimmingPool } from 'react-icons/fa'
 import { Input } from "@/components/ui/input"
 import { useRouter } from "next/navigation"
-import SelectTypes from "./InputSearch/Selects/SelectTypes"
-import SelectPrice from "./InputSearch/Selects/SelectPrice"
 import SelectEstat from "./InputSearch/Selects/SelectEstat"
 import { LuFilter } from "react-icons/lu"
 

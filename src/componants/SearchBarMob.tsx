@@ -1,10 +1,5 @@
 "use client"
-import React from 'react'
 import SearchInput from './InputSearch/SearchInput'
-import { LuFilter } from 'react-icons/lu'
-import SelectTypes from './InputSearch/Selects/SelectTypes'
-import SelectPrice from './InputSearch/Selects/SelectPrice'
-import SelectEstat from './InputSearch/Selects/SelectEstat'
 import OPtionsDrawer from './OPtionsDrawer'
 
 function SearchBarMob({transactionType,data,setData}:any) {
