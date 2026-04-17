@@ -111,7 +111,7 @@ signout()
 </div>
 
 
-<form action="" onSubmit={handleSubmit((data) => mutation.mutate({...data,image:image?.image ?? extractData?.data?.user?.image,email:extractData.data?.user?.email,provider:"google", userName:extractData.data?.user?.name}))} className='mt-6'>
+<form action="" onSubmit={handleSubmit((data) => mutation.mutate({...data,image:image?.image || extractData?.data?.user?.image,email:extractData.data?.user?.email,provider:"google", userName:data?.userName || extractData.data?.user?.name}))} className='mt-6'>
 
             <ChangeImage setData={setImage} data={image} onboarding={true} image={"/Heroo.webp"} broker={false} />
 <div className="userName">
