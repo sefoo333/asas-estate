@@ -19,6 +19,7 @@ import { MessageCircleMore } from "lucide-react"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { IoChatboxEllipses } from "react-icons/io5"
+import { toast } from "sonner"
 
 export function SendChat({product , broker , type , box}:any) {
 
@@ -54,6 +55,9 @@ console.log(product)
 
 return test.json()
         },
+        onSuccess:async () => {
+          toast.success("Massege has sent to broker !")
+        }
        
       })
 
