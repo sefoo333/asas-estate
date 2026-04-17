@@ -41,10 +41,10 @@ const [openar,setOpener] = useState(false)
 </button>
 </div>
  <div className="flex w-full max-w-md items-center gap-2">
-<SearchInput setTextSearh={setTextSearh} finder={true} placeholder={'search Location'} className='max-md:!h-12' />
+<SearchInput parentClassName={"h-full"} setTextSearh={setTextSearh} finder={true} placeholder={'search Location'} className='max-md:!h-12 h-full' />
       <Button onClick={() => {
         searchProducts()
-      }}  className="py-6 px-7 h-full cursor-pointer max-md:h-12  hover:text-white text-white" variant="outline">
+      }}  className="py-6 bg-primary px-7 h-full cursor-pointer max-md:h-12  hover:text-white text-white" variant="outline">
         Search
       </Button>
     </div>

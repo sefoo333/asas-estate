@@ -38,13 +38,13 @@ function Main({Productdata}:{Productdata:RealEstate | any}) {
 </div>
 
 <div className="property flex gap-3">
-<div className="box border border-gray-200 rounded-xl py-1.5 px-4 flex gap-2 items-center">
+<div className="box border border-gray-200 dark:border-gray-600 rounded-xl py-1.5 px-4 flex gap-2 items-center">
          <Bed size={20} />   <span className="">{Productdata?.beds || 0} Bedroom</span>
 </div>
-<div className="box border border-gray-200 rounded-xl py-1.5 px-4 flex gap-2 items-center">
+<div className="box border border-gray-200 dark:border-gray-600 rounded-xl py-1.5 px-4 flex gap-2 items-center">
          <Bath size={20} />   <span className="">{Productdata?.Baths || 0} Bathroom</span>
 </div>
-<div className="box border border-gray-200 rounded-xl py-1.5 px-4 flex gap-2 items-center">
+<div className="box border border-gray-200 dark:border-gray-600 rounded-xl py-1.5 px-4 flex gap-2 items-center">
          <CiRuler size={21} />   <span className="">{Productdata?.Sqft || 0} <span className='font-medium'>m<sup>2</sup></span></span>
 </div>
 </div>

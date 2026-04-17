@@ -6,7 +6,7 @@ import { SendChat } from '../SendChat'
 
 function UserAgent({Productdata}:any) {
   return (
-<div className="first bg-white  justify-center  shadow-sm rounded-xl p-5 w-full items-center flex flex-col">
+<div className="first bg-white dark:bg-gray-800 dark:border dark:border-gray-600  justify-center  shadow-sm rounded-xl p-5 w-full items-center flex flex-col">
                       <div className="account flex flex-col items-center">
                      <Image src={Productdata?.user?.image || "/Heroo.webp"} alt='' width={150} height={150} className='w-20 h-20 mb-2 rounded-full bg-white' />
                   <div className="text text-xl font-semibold text-center">
@@ -15,17 +15,17 @@ function UserAgent({Productdata}:any) {
                   </div>
                  </div>
     <div className="social flex gap-5 mt-3">
-<div className="icon p-2  rounded-full bg-white border border-gray-200">
+<div className="icon p-2  rounded-full bg-white border dark:bg-gray-800 dark:border dark:border-gray-600 border-gray-200">
           <Link href={`https://wa.me/${Productdata?.user?.phone}?text=مرحبا ${Productdata?.user?.userName} , هل يمكنني الاستفسار عن  العقار الخاص بك ؟`}>
             <BsWhatsapp color='#2cd46b'  size={21} />
           </Link>
 </div>
-<div className="icon p-2  rounded-full bg-white border border-gray-200">
+<div className="icon p-2  rounded-full bg-white border dark:bg-gray-800 dark:border dark:border-gray-600 border-gray-200">
          <Link href={`tel:${Productdata?.user?.phone}`}>
             <Phone   size={21} />
          </Link>
 </div>
-<div className="icon p-2  rounded-full bg-white border border-gray-200">
+<div className="icon p-2  rounded-full bg-white border dark:bg-gray-800 dark:border dark:border-gray-600 border-gray-200">
             <SendChat product={Productdata} />
 </div>
 

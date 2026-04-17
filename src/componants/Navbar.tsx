@@ -56,8 +56,8 @@ function Navbar() {
         />
       </svg> */}
      <Link href={"/"}>
-      <Image className='w-25 h-15 object-contain dark:absolute dark:hidden' src={"/thya_masr.png"} alt='Logo' width={100} height={100} />
-      <Image className='w-25 h-15 object-contain absolute hidden dark:relative' src={"/logo-2.png"} alt='Logo' width={100} height={100} />
+      <Image className='w-25 h-15 object-contain dark:hidden' src={"/thya_masr.png"} alt='Logo' width={100} height={100} />
+      <Image className='w-25 h-15 object-contain absolute hidden dark:block dark:!relative' src={"/logo-2.png"} alt='Logo' width={100} height={100} />
      </Link>
      
     </a>

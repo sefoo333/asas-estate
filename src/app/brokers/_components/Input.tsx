@@ -1,22 +1,10 @@
 "use client"
-import React, { useEffect, useState } from 'react'
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
+import  { useEffect, useState } from 'react'
 
-import { Input } from "@/components/ui/input"
+
 import { Button } from "@/components/ui/button"
 
-import { IoLocationSharp } from "react-icons/io5";
 import SearchInput from '@/componants/InputSearch/SearchInput'
-import SelectEstat from '@/componants/InputSearch/Selects/SelectEstat'
-import SelectInBroker from './Select'
 import { useRouter } from 'next/navigation'
 
 
@@ -29,10 +17,8 @@ import { useRouter } from 'next/navigation'
 function BrokerInput({dataSearch,setData}:{setData:any,dataSearch:{location:string, finder:string,type:string}}) {
 
 
-  const data = ["house" , "villa" , "apartment"]
 const router = useRouter();
   const [switcher,setSwitcher] = useState(false)
-const [text,setText] = useState()
 
 const [type,setType] = useState("Sale");
 
@@ -100,7 +86,7 @@ router.push(`/brokers/search?finder=${switcher ? "name" : "location"}?${new URLS
     </div>
       <Button onClick={() => {
         searchProducts()
-      }} type="submit" className="py-6  bg-blue-600 px-8 cursor-pointer hover:bg-blue-700 hover:text-white text-white" variant="outline">
+      }} type="submit" className="py-6  bg-primary px-8 cursor-pointer hover:text-white text-white" variant="outline">
         Search
       </Button>
    </div>

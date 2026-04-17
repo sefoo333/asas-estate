@@ -17,7 +17,7 @@ function ImagesProduct({ Productdata }: any) {
       <div className="col-span-2 h-full">
                 <Image src={Productdata?.images[2]} alt='' width={500}  height={500}           className="rounded-2xl w-full h-full object-cover" />
 </div>
-<div onClick={() => setOpen((e) => !e)} className="button border px-4  border-gray-300 cursor-pointer transition hover:bg-gray-100 rounded-xl p-2 flex items-center bg-white  justify-center absolute right-3 bottom-3 ">
+<div onClick={() => setOpen((e) => !e)} className="button border px-4  border-gray-300 cursor-pointer transition hover:bg-gray-100 dark:bg-gray-800 dark:border dark:border-gray-600 rounded-xl p-2 flex items-center bg-white  justify-center absolute right-3 bottom-3 ">
     <Camera size={18} className='inline mr-2' />
     <span>{Productdata?.images?.length}</span>
 </div>

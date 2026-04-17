@@ -17,7 +17,7 @@ function Features({Productdata}:any) {
   return (
 <>
 <Head text='Features' />
-                                                 <div className="features grid max-md:gap-3 grid-cols-2 mt-4">
+                                                 <div className="features grid  max-md:gap-3 grid-cols-2 mt-4">
                                                     {Productdata?.features?.map((e:any , a:number) => (
                                                         <div className={`box flex justify-between items-center`} key={a}>
                                                             <div className="title flex items-center py-5">

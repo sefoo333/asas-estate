@@ -11,10 +11,8 @@ import { LuBath } from "react-icons/lu";
 import { IoIosArrowBack } from "react-icons/io";
 import {  MdOutlineReport, } from "react-icons/md";
 import { IoMdBuild } from "react-icons/io";
-import {  Phone } from 'lucide-react'
 import Product from '@/componants/Product'
 import Head from '../components/Head'
-import { BsWhatsapp } from 'react-icons/bs'
 import { useQueries, useQuery } from '@tanstack/react-query'
 import Link from 'next/link'
 import { Link as Linker, Element } from 'react-scroll';
@@ -23,7 +21,6 @@ import MayProduct from '../components/MayProduct'
 import AddToFavourite from '@/componants/AddToFavourite'
 import { ShareProfile } from '@/app/brokers/[brokerid]/_compoents/ShareProfile'
 import Map from '@/componants/Map'
-import { SendChat } from '../components/SendChat'
 import { useUserStore } from '@/store/store'
 import Main from './PageComponents/Main'
 import About from './PageComponents/About'
@@ -134,8 +131,8 @@ if (user && Array.isArray(FavouriteProduct)){
 
   return (
    <>
-     <div className={`window flex-col w-full pt-8 pb-4  items-center bg-white shadow-md fixed top-0 left-0 z-8 duration-300 flex ${!active ? "top-[-300px]" : "top-0"} `}>
-<div className="first_section border-b px-20  border-b-[#ccc] pb-5 flex w-full items-center justify-between">
+     <div className={`window flex-col w-full pt-8 pb-4  items-center bg-white dark:bg-gray-800 shadow-md fixed top-0 left-0 z-8 duration-300 flex ${!active ? "top-[-300px]" : "top-0"} `}>
+<div className="first_section border-b px-20  border-b-[#ccc] dark:border-gray-700 pb-5 flex w-full items-center justify-between">
     <div className="return flex gap-1 items-center">
         <IoIosArrowBack size={25} />
         <span className='font-semibold'>Search</span>
@@ -165,12 +162,12 @@ if (user && Array.isArray(FavouriteProduct)){
              <Crubchumb parent={Productdata?.TransactionType === "Sale" ? "Buy" : "Rent"} child={Productdata?.title} />
           {Productdata ? (
             <div className="flex flex-col">
-                       <Element name='Overview' className="flex bg-white flex-col mt-5 shadow-sm rounded-md p-5">
+                       <Element name='Overview' className="flex bg-white dark:bg-gray-800 dark:border dark:border-gray-600 flex-col mt-5 shadow-sm rounded-md p-5">
           <Main Productdata={Productdata} />
 </Element>          
    
 
-                                             <Element name='About' className="description bg-white shadow-sm rounded-xl mt-10 p-5">
+                                             <Element name='About' className="description bg-white dark:bg-gray-800 dark:border dark:border-gray-600 shadow-sm rounded-xl mt-10 p-5">
                                         <About par={Productdata?.description} />
                                                                                                         <Element name='location' className="map mt-2">
                                                                                                             <Map setDataLocation={setDataLocation} setNearbySchools={setNearbySchools} location={Productdata?.location} />
@@ -180,17 +177,17 @@ if (user && Array.isArray(FavouriteProduct)){
 
 <AboutEstate data={data} />
                                           
-                                            <Element name="Features" className="features bg-white mt-15 shadow-sm rounded-xl p-5">
+                                            <Element name="Features" className="features bg-white dark:bg-gray-800 dark:border dark:border-gray-600 mt-15 shadow-sm rounded-xl p-5">
 <Features Productdata={Productdata} />
                                             </Element>
 
-                                            <Element name='Nearby schools' className="schools bg-white mt-15 shadow-sm rounded-xl p-5">
+                                            <Element name='Nearby schools' className="schools bg-white dark:bg-gray-800 dark:border dark:border-gray-600 mt-15 shadow-sm rounded-xl p-5">
 <NearbySchools schoolsWithDistance={schoolsWithDistance} />
                                             </Element>
 
-                                            <Element name='Agent' className="owner bg-white mt-15 shadow-sm rounded-xl p-5">
+                                            <Element name='Agent' className="owner bg-white dark:bg-gray-800 dark:border dark:border-gray-600 mt-15 shadow-sm rounded-xl p-5">
 <Head text='Owner' />
-                                               <div className="box mt-4 p-8 rounded-xl flex justify-between items-center bg-blue-50 gap-5">
+                                               <div className="box mt-4 p-8 rounded-xl flex justify-between items-center bg-blue-50 dark:bg-gray-800 dark:border dark:border-gray-600 gap-5">
                                               <div className="fitst flex items-center gap-4">
                                                    <Image src={"/Hero.jpg"} alt='' width={500}  height={500}           className="rounded-full w-[80px] h-[80px] object-cover" />
                                                 <div className="second flex flex-col">
@@ -199,7 +196,7 @@ if (user && Array.isArray(FavouriteProduct)){
                                                 </div>
                                               </div>
                                                 <div className="third">
-                                                    <Button  className='px-8 py-5 border text-blue-600 border-blue-600  font-bold rounded-lg hover:bg-blue-700 hover:text-white cursor-pointer transition' variant={"outline"}>
+                                                    <Button  className='px-8 py-5 border bg-primary text-primary   font-bold rounded-lg  hover:text-white cursor-pointer transition' variant={"outline"}>
                                                     <Link href={`/brokers/${Productdata?.userId}`}>
                                                     Contact Now
                                                     </Link>
@@ -207,7 +204,7 @@ if (user && Array.isArray(FavouriteProduct)){
                                                 </div>
                                                </div>
                                             </Element>
-                                            <div className="recommends mb-10 bg-white mt-15 shadow-sm rounded-xl p-5">
+                                            <div className="recommends mb-10 bg-white dark:bg-gray-800 dark:border dark:border-gray-600 mt-15 shadow-sm rounded-xl p-5">
 <Head text='May you like' />
                                            <div className="w-full flex gap-5">
     {mayProducts?.slice(0, 2).map((e: any, i: number) => (
@@ -232,7 +229,7 @@ if (user && Array.isArray(FavouriteProduct)){
               </div>
               )}
               
-               <div className="second mt-10 bg-white   justify-center shadow-sm rounded-xl my-5 p-5 w-full flex  flex-col">
+               <div className="second mt-10 bg-white  dark:bg-gray-800 dark:border dark:border-gray-600 justify-center shadow-sm rounded-xl my-5 p-5 w-full flex  flex-col">
                 <Head text='May you like' />
                 <div className="boxs mt-8">
                 {mayProducts ? (
