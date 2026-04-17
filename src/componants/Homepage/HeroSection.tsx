@@ -17,7 +17,7 @@ import HeroInputSearch from "@/componants/InputSearch/HeroInputSearch"
 
 export function CarouselDemo() {
   return (
-    <div className="parent flex justify-center max-md:p-0">
+    <div className="parent flex mt-10 justify-center max-md:p-0">
       <div className="landing w-full container before:rounded-3xl max-md:before:rounded-none flex items-center justify-center relative p-14 max-md:p-0 h-[550px] max-md:h-[280px] ">
         <Image priority  src={"/Heroo.webp"} alt="" fill className=" object-cover rounded-3xl w-full h-full fixed z-[-1] max-md:rounded-none" />
    <div className="relative z-9 w-full flex flex-col gap-20 max-md:gap-10 items-center">

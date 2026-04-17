@@ -12,11 +12,10 @@ function ProductsCarsoul({data}:any) {
       <IoIosArrowForward />
     </div>
 
-      <div
+<div
   ref={re}
-  // "categories  relative max-md:left-1/2 max-md:right-1/2 max-md:-ml-[50vw] max-md:-mr-[50vw] max-md:w-screen flex overflow-x-auto snap-x snap-mandatory no-scrollbar gap-6 mt-13"
-  className="categories relative flex max-md:right-1/2 max-md:-ml-[50vw] max-md:-mr-[50vw] max-md:w-screen  overflow-x-auto snap-x snap-mandatory no-scrollbar gap-6 mt-13 w-full"
-  style={{scrollBehavior:"smooth" , scrollbarWidth:"none"}}
+  style={{scrollbarWidth:"none" , scrollBehavior:"smooth"}}
+  className="categories relative flex overflow-x-auto snap-x snap-mandatory no-scrollbar gap-6 mt-13 w-full"
 >
   {data?.slice(0,4).map((e:any) => (
     <Product key={e?.id} product={e} />

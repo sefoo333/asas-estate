@@ -9,7 +9,7 @@ function SearchInput({className , setTextSearh , setData ,placeholder = "locatio
         <Input onChange={(e) => {
           setTextSearh?.(e.target.value);
           setData?.((prevData:any) => ({ ...prevData, location: e.target.value }));
-        }} type="text" className={" pl-8 py-5 w-full max-md:!text-sm h-full  bg-white dark:bg-gray-800 dark:border dark:border-gray-600" + className} placeholder={`${placeholder}`}  />
+        }} type="text" className={" pl-8 py-5 w-full max-md:!text-sm h-full  bg-white dark:bg-gray-800 dark:border dark:border-gray-600 " + className} placeholder={`${placeholder}`}  />
         {finder ? <IoLocationSharp size={20} className='absolute left-2  top-1/2 translate-y-[-50%] ' color='#b5b5b5' /> : <FaUserLarge size={15} className='absolute left-2 top-1/2 translate-y-[-50%] ' color='#b5b5b5' />}
 </div>
   )

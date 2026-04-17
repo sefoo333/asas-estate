@@ -43,7 +43,7 @@ function Product({product}:{product:Product}) {
   })
 
   return (
-      <div className="product p-3 rounded-xl relative flex-shrink-0 snap-start max-md:w-full ">
+      <div className="product p-3 rounded-xl relative flex-shrink-0 snap-start max-md:w-screen ">
         {user && Array.isArray(data) &&                          <AddToFavourite Type="product_landing" product={product} isFavourite={user?.id && Array.isArray(data) && data?.map((e) => e?.id).includes(product?.id) || false} />}
 
         <Link href={`/realEstats/${product?.id}`}>

@@ -122,7 +122,7 @@ signout()
 <Toaster />
     <div className={`${geistSans.className} page flex items-center flex-row-reverse gap-20 h-screen w-full overflow-hidden`}>
     
-            <div className="image h-full col-span-1 basis-[50%]  max-md:hidden relative">
+            <div className="image h-full max-md:mt-12 col-span-1 basis-[50%]  max-md:hidden relative">
             <Image src={"/cityAbove.jpg"} alt='login' width={1200} height={1200} className='w-full brightness-70 h-full object-cover'/>
        
         </div>

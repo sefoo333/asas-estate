@@ -24,13 +24,13 @@ if (openar !== 1){
 }
   },[openar])
   return (
-   <div className="select w-full relative py-2 px-4 rounded-md border ml-10 shadow-sm !bg-white border-[#e5e5e5] dark:!bg-gray-800 left-[-20px] dark:!border-gray-600" >
+   <div className="select w-full relative py-2 px-4 rounded-md border ml-10 shadow-sm !bg-white border-[#e5e5e5] dark:!bg-gray-800 left-[-20px]  dark:!border-gray-600" >
 <div className="Title flex justify-between items-center" onClick={() => {SetSelect((e) => !e);setOpener(1)}}>
     <h1 className='text-[#737373] dark:text-gray-400 text-sm  select-none'>Beds & Baths</h1>
 <MdKeyboardArrowDown color='#737373' size={20} />
 </div>
 
- <div className={`window flex flex-col gap-5 bg-white dark:!bg-gray-800  dark:!border-gray-600 absolute bottom-[-375px] shadow rounded-md w-[350px]  left-0 p-5 transition ${select ? "z-9 opacity-100" : "z-[-1] opacity-0"}`}>
+ <div className={`window flex flex-col gap-5 bg-white max-xl:!left-[-90px] dark:!bg-gray-800  dark:!border-gray-600 absolute bottom-[-380px] shadow rounded-md w-[350px]  left-0 p-5 transition ${select ? "z-9 opacity-100" : "z-[-1] opacity-0"}`}>
      <div className="beds flex flex-col gap-1">
          <h1 className='font-semibold mb-1'>Beds</h1>
        <div className="grid grid-cols-5 gap-2">

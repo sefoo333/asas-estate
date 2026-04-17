@@ -101,7 +101,7 @@ const Card = ({
         <img loading="lazy" src={img} className="w-[35px] h-[35px] rounded-full object-cover" width={100} height={100} alt="" />
         <div className="text">
             <h1 className="font-semibold">{name}</h1>
-            <span className="text-gray-700 text-[13px]">{username}</span>
+            <span className="text-gray-700 dark:text-gray-300 text-[13px]">{username}</span>
         </div>
     </div>
 </div>
