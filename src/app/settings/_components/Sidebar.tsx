@@ -44,10 +44,10 @@ function SidebarSettings() {
       <Sidebar >
     <SidebarHeader className='mb-0'>
       {/* <h1 className='text-start text-3xl font-bold my-4 ml-4'>Sefoo</h1> */}
-<Link href={"/"}>
-      <Image className=' w-32 h-12 mt-4 object-contain rounded-xl dark:hidden ' src={"/logo-3.png"} alt='' width={100} height={100} />
-      <Image className=' w-32 h-12 mt-4 object-contain rounded-xl' src={"/logo-2.png"} alt='' width={100} height={100} />
-</Link>
+  <Link href={"/"}>
+      <Image className='w-25 h-15 object-contain dark:hidden' src={"/thya_masr.png"} alt='Logo' width={100} height={100} />
+      <Image className='w-25 h-15 object-contain absolute hidden dark:block dark:!relative' src={"/logo-2.png"} alt='Logo' width={100} height={100} />
+     </Link>
     </SidebarHeader>
     <SidebarContent>
         <SidebarGroup>
