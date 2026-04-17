@@ -23,7 +23,7 @@ function Products() {
   return (
     <div className="parent max-md:mt-35 mt-25 flex justify-center ">
         <div className="container">
-            <Head>Explore New Projects</Head>
+            <Head>Explore Properties</Head>
             <div className="products max-xl:hidden grid grid-cols-4 gap-3 mt-15">
             
            {data ? (

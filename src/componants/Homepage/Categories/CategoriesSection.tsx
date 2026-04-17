@@ -10,7 +10,7 @@ function Categories() {
   return (
     <div className="parent flex justify-center mt-30 max-2xl:my-10">
         <div className="container">
-            <Head>Explore Real Estats</Head>
+            <Head>Explore Categories</Head>
         <div className="wrapper relative">
                <div onClick={() => {
       re.current.scrollBy(420,0)
