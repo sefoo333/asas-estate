@@ -8,9 +8,9 @@ function Footer() {
   <div className="mx-auto max-w-screen-xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8">
     <div className="sm:flex sm:items-center dark:text-teal-300 sm:justify-between">
  <Link href={"/"}>
-  <Image className='w-25 h-15 object-contain dark:absolute dark:hidden' src={"/thya_masr.png"} alt='Logo' width={100} height={100} />
-      <Image className='w-25 h-15 object-contain absolute dark:relative' src={"/logo-2.png"} alt='Logo' width={100} height={100} />
- </Link>
+      <Image className='w-25 h-15 object-contain dark:absolute dark:hidden' src={"/thya_masr.png"} alt='Logo' width={100} height={100} />
+      <Image className='w-25 h-15 object-contain absolute hidden dark:relative' src={"/logo-2.png"} alt='Logo' width={100} height={100} />
+     </Link>
 
       <ul className="mt-8 flex justify-start gap-6 sm:mt-0 sm:justify-end">
         <li>
