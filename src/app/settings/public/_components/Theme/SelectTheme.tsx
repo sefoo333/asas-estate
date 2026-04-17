@@ -7,15 +7,14 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
-import { useRouter } from "next/navigation";
 
 export function SelectTheme() {
-const router = useRouter();
+// const router = useRouter();
 
     const changeTheme = localStorage?.getItem("theme") === "dark" ? "light" : "dark"
     const handleChange = (value:string) => {
       localStorage?.setItem("theme", value);
-    router.refresh();
+location.reload()
     }
 
   return (

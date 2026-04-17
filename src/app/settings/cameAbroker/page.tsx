@@ -63,7 +63,7 @@ function page() {
           
             <Crubchumb />
             <HeadS title='Become a broker' />
-            <div className="window p-5 max-md:w-full rounded-xl border border-gray-200 bg-white mt-7 ">
+            <div className="window p-5 max-md:w-full rounded-xl border border-gray-200 dark:bg-gray-800 dark:border dark:border-gray-600 bg-white mt-7 ">
 {/* <Head text='create real estate' /> */}
 
 <div className="flex flex-col  w-1/2 max-md:w-full">
@@ -90,7 +90,7 @@ function page() {
                    <label htmlFor="email" className='text-md font-semibold'>Phone</label>
                 <div className="box relative h-full ">
                     <input type='text'  {...register("phoneCode")} defaultValue={select?.phoneCode} className='country_code flex items-center justify-center w-[50px] h-fit  !outline-none  !shadonw-none  p-2  px-3  text-sm   !border-r !border-r-gray-300 left-1 absolute mr-5 top-3' />
-                  <input type="text" id='phone' {...register("phone")} placeholder='Enter your phone' className='pl-15 w-full mt-2 p-3 text-sm rounded-md border border-gray-300 outline-0' />
+                  <input type="text" id='phone' {...register("phone")} placeholder='Enter your phone' className='pl-15 w-full dark:bg-gray-700 dark:border dark:border-gray-600 mt-2 p-3 text-sm rounded-md border border-gray-300 outline-0' />
                 </div>
 </div>
 
