@@ -310,9 +310,9 @@ queryClient.invalidateQueries({ queryKey: ["MassegesKey"] })
           </DropdownMenuContent>
         </DropdownMenu>
       </div>
-      <div className="rounded-md border overflow-x-scroll ">
+      <div className="rounded-md border  ">
         <Table>
-          <TableHeader className="bg-slate-50">
+          <TableHeader className="bg-slate-50  dark:!bg-gray-800  dark:!border-gray-600">
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {

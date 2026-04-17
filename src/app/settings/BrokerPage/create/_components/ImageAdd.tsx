@@ -31,7 +31,7 @@ function ImageAdd({images,setImages}:any) {
   } 
 
   return (
-<div className="image border-[3px] flex flex-col p-7 mt-6 rounded-xl border-dashed items-center border-gray-300 bg-slate-50/80">
+<div className="image border-[3px] flex flex-col p-7 mt-6 rounded-xl border-dashed items-center border-gray-300  dark:!bg-gray-800  dark:!border-gray-600 bg-slate-50/80">
 <div className="cont grid grid-cols-3 gap-4">
 {/* <Image src="/Hero.jpg" alt='image' width={200} height={200} className='rounded-lg' />
 <Image src="/Hero.jpg" alt='image' width={200} height={200} className='rounded-lg' />

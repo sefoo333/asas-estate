@@ -8,7 +8,7 @@ function SelectCurrency({showList , setShowList,index , setIndex , currencies}:{
    
 
   return (
-      <div className="country_code  gap-2 flex items-center w-27 justify-between  p-2  px-3  text-sm  bg-white border-r border-gray-300 left-1 absolute mr-5 top-3">
+      <div className="country_code  gap-2 flex items-center w-27 justify-between  p-2  px-3  text-sm  bg-white border-r  dark:!bg-gray-800  dark:!border-gray-600 border-gray-300 left-1 absolute mr-5 top-3">
         <div className="value flex items-center gap-1 cursor-pointer" onClick={() => setShowList(!showList)}>
            <span className={`fi fi-${currencies[index].value} rounded-sm`}></span>
                                     <span className='text-sm'>{currencies[index].label}</span>

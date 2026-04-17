@@ -1,12 +1,16 @@
 import Image from 'next/image'
-import React from 'react'
+import Link from 'next/link'
+
 
 function Footer() {
   return (
     <footer className="bg-white dark:bg-gray-900">
   <div className="mx-auto max-w-screen-xl space-y-8 px-4 py-16 sm:px-6 lg:space-y-16 lg:px-8">
     <div className="sm:flex sm:items-center dark:text-teal-300 sm:justify-between">
-      <Image className='w-35 h-25 object-contain' src={"/thya_masr.png"} alt='Logo' width={100} height={100} />
+ <Link href={"/"}>
+  <Image className='w-25 h-15 object-contain dark:absolute dark:hidden' src={"/thya_masr.png"} alt='Logo' width={100} height={100} />
+      <Image className='w-25 h-15 object-contain absolute dark:relative' src={"/logo-2.png"} alt='Logo' width={100} height={100} />
+ </Link>
 
       <ul className="mt-8 flex justify-start gap-6 sm:mt-0 sm:justify-end">
         <li>
@@ -134,7 +138,7 @@ function Footer() {
       </div>
 
       <div>
-        <p className="font-medium text-gray-900">Company</p>
+        <p className="font-medium dark:text-white text-gray-900">Company</p>
 
         <ul className="mt-6 space-y-4 text-sm">
           <li>
@@ -152,7 +156,7 @@ function Footer() {
       </div>
 
       <div>
-        <p className="font-medium text-gray-900">Helpful Links</p>
+        <p className="font-medium dark:text-white text-gray-900">Helpful Links</p>
 
         <ul className="mt-6 space-y-4 text-sm">
           <li>
@@ -170,7 +174,7 @@ function Footer() {
       </div>
 
       <div>
-        <p className="font-medium text-gray-900">Legal</p>
+        <p className="font-medium dark:text-white text-gray-900">Legal</p>
 
         <ul className="mt-6 space-y-4 text-sm">
           <li>

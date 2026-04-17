@@ -76,7 +76,7 @@ return test.json()
             <DialogTitle>Review a broker</DialogTitle>
           </DialogHeader>
 
-{broker ? <div className="box mb-5 mt-7 flex gap-2 items-center p-3 transition-all border rounded-xl bg-white border-gray-200 ">
+{broker ? <div className="box mb-5 mt-7 flex gap-2 items-center p-3 transition-all border rounded-xl bg-white  dark:!bg-gray-800  dark:!border-gray-600 border-gray-200 ">
     <Image src={broker?.image || "/Heroo.webp"} alt="User Image" width={100} height={100} className="rounded-full w-15 h-15 " />
     <div className="info ml-3">
         <h2 className="font-semibold">{broker?.userName}</h2>

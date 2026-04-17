@@ -71,8 +71,8 @@ export function Bare() {
     ]
 
   return (
-    <Card className="border-gray-100 shadow  ">
-      <CardHeader className=" !p-0 !px-4 !pb-3.5 border-b border-b-gray-100">
+    <Card className="border-gray-100 shadow dark:!border-gray-600 ">
+      <CardHeader className=" !p-0 !px-4 !pb-3.5 border-b border-b-gray-100 dark:!border-gray-600">
         <CardTitle>Total Leads</CardTitle>
       </CardHeader>
       <CardContent className="">

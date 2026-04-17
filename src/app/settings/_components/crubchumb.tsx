@@ -12,7 +12,7 @@ useEffect(() => {
 },[])
   return (
     <nav aria-label="Breadcrumb">
-  <ol className="flex items-center gap-1 text-sm text-gray-700">
+  <ol className="flex items-center gap-1 text-sm text-gray-700 dark:text-gray-300">
     <li>
       <Link href="/" className="block transition-colors hover:text-gray-900" aria-label="Home">
         <svg

@@ -57,7 +57,7 @@ function Account() {
      <div className="page  px-7 max-md:px-5 py-7 basis-[100%]">
           <Crubchumb />
             <HeadS title="Account Settings" />
-            <div className="window p-8 mt-10 rounded-lg border border-gray-200 w-full  max-md:w-full">
+            <div className="window p-8 mt-10 rounded-lg border border-gray-200    dark:!border-gray-600  w-full  max-md:w-full">
              
               <ChangeImage setData={setData} data={data} broker={false} />
               <UserName setData={setData} data={user}  />

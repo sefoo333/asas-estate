@@ -45,7 +45,7 @@ function Navbar() {
   })
 
   return (
- <header className={`bg-[#ffffffab] dark:bg-[#303030ab] backdrop-blur-xl sticky duration-500 z-50 w-full  ${["/" , "/brokers" , "/contact"].includes(path) ? `${!active ? "top-[-300px]" : "top-0"} ` : ""}`}>
+ <header className={`bg-[#ffffffab] dark:bg-gray-800 dark:border-b dark:border-b-gray-700 backdrop-blur-xl sticky duration-500 z-50 w-full  ${["/" , "/brokers" , "/contact"].includes(path) ? `${!active ? "top-[-300px]" : "top-0"} ` : ""}`}>
   <div className="mx-auto flex h-26 max-w-screen-xl items-center gap-8 px-4 sm:px-6 lg:px-8">
     <a className="block text-teal-600" href="#">
       {/* <span className="sr-only">Home</span>
@@ -56,7 +56,8 @@ function Navbar() {
         />
       </svg> */}
      <Link href={"/"}>
-      <Image className='w-25 h-15 object-contain' src={"/thya_masr.png"} alt='Logo' width={100} height={100} />
+      <Image className='w-25 h-15 object-contain dark:absolute dark:hidden' src={"/thya_masr.png"} alt='Logo' width={100} height={100} />
+      <Image className='w-25 h-15 object-contain absolute dark:relative' src={"/logo-2.png"} alt='Logo' width={100} height={100} />
      </Link>
      
     </a>
@@ -94,7 +95,7 @@ function Navbar() {
         {/* <div className='size-10 rounded-full bg-red-300'></div> */}
        {/* <Image src={"/images.jpg"} alt='' width={30} height={30} className='size-10 rounded-full' /> */}
        {user?.id ? <UserSet /> :  <Link href={"/login"}>
-       <div className='bg-gray-100 rounded-full border border-gray-300 p-2'>
+       <div className='bg-gray-100 rounded-full border border-gray-300 dark:!bg-gray-800  dark:!border-gray-600 p-2'>
  <LogIn className='cursor-pointer'  size={21} />
         </div>
        </Link> }
@@ -103,7 +104,7 @@ function Navbar() {
      <IoCartOutline size={25} />
      <span>30.00$</span>
 </div> */}
-       <Link  href={user ? "/settings/Favourites" : ""} className="text-gray-600 max-md:hidden   relative transition hover:text-gray-600/75">
+       <Link  href={user ? "/settings/Favourites" : ""} className="text-gray-600 max-md:hidden dark:text-gray-300  relative transition hover:text-gray-600/75">
       {data?.length > 0 &&  <div className='w-3 h-3 absolute -left-1.5 -top-1 flex justify-center items-center text-sm bg-red-400 rounded-full text-white'>
        </div>}
           <FaRegHeart size={25} />

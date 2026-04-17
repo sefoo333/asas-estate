@@ -18,6 +18,7 @@ export interface BoxBrokerProps {
     propertiesCount: number;
     ratingSum: number;
     reviewsCount: number;
+    image:string;
   }
 }
 
@@ -30,8 +31,8 @@ function BoxBroker({data}:{data:BoxBrokerProps['data'] | any}) {
 // const max = Math.max(...returnPrices)
   return (
   <Link href={`/brokers/${data?.id}`} >
-      <div className="box  max-md:flex-col relative bg-white  flex justify-start border  border-gray-300 rounded-xl gap-5 p-5 w-full duration-300 hover:bg-blue-50/30 cursor-pointer">
-<Image src={data?.image || "/Heroo.webp"} alt="" width={400} height={400} className='w-[140px] rounded-full h-[140px] max-md:h-[220px] max-md:w-full max-md:rounded-lg' />
+      <div className="box  max-md:flex-col relative bg-white dark:!bg-gray-800  dark:!border-gray-600  flex justify-start border  border-gray-300 rounded-xl gap-5 p-5 w-full duration-300 hover:bg-blue-50/30 cursor-pointer">
+<Image src={data?.image || "/userD.png"} alt="" width={400} height={400} className='w-[140px] rounded-full h-[140px] max-md:h-[220px] max-md:w-full max-md:rounded-lg' />
   <div className="box w-full max-md:relative">
       <div className="text w-full">
   {/* <span className="rounded-full bg-blue-100 px-2.5 py-0.5 text-sm whitespace-nowrap max-md:hidden font-semibold text-blue-700">
@@ -47,13 +48,13 @@ function BoxBroker({data}:{data:BoxBrokerProps['data'] | any}) {
 
  <div className="rates flex gap-2 items-center my-2">
 <span className='font-semibold'>{avg.toFixed(1)}</span>
-     <div className="flex gap-0.5">
+     <div className="flex gap-0.5 dark:text-gray-300">
           {Array.from({length:avg}).map((e,i:number) => <FaStar key={i}  />)}
      </div>
     </div>
 
-  <h2 className='flex gap-2 items-center mt-1.5 text-gray-600 font-semibold text-sm'><IoLanguageOutline size={18} />{data?.languages.join(" , ")}</h2>
-  <h2 className='flex gap-2 items-center mt-1.5 text-gray-600 font-semibold text-sm'><BsHouses  size={18} />{data?.realEstates?.length} houses</h2>
+  <h2 className='flex gap-2 items-center mt-1.5 text-gray-600 dark:text-gray-400 font-semibold text-sm'><IoLanguageOutline size={18} />{data?.languages.join(" , ")}</h2>
+  <h2 className='flex gap-2 items-center mt-1.5 text-gray-600 dark:text-gray-400 font-semibold text-sm'><BsHouses  size={18} />{data?.realEstates?.length} houses</h2>
 
   
 </div>

@@ -112,7 +112,7 @@ return test.json()
      <div className="page  px-7 py-7 basis-[100%]">
     <Crubchumb />
                 <HeadS title="Lead Details" />
-                            <div className="window   p-8 mt-5 bg-white shadow  rounded-lg border border-gray-100  ">
+                            <div className="window   p-8 mt-5 bg-white shadow  rounded-lg border  dark:!bg-gray-800  dark:!border-gray-600 border-gray-100  ">
 
 <div className="grid grid-cols-2 gap-5">
     {data?.map((e) => (

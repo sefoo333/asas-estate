@@ -6,7 +6,7 @@ import { RiArrowRightSLine } from 'react-icons/ri'
 
 function BrokerSug({data}: {data: Broker | any}) {
   return (
-     <div className="box flex gap-3 items-center bg-slate-100/30 p-3 rounded-lg  ">
+     <div className="box flex gap-3 items-center bg-slate-100/30 dark:bg-gray-700/30 p-3 rounded-lg  ">
     <Image src={data?.image || "/userD.png"} alt='' width={200} height={200} className=" w-15 h-15  object-cover rounded-full " />
   <div className="flex justify-between w-full items-center">
       <div className="text">

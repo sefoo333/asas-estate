@@ -6,7 +6,7 @@ function NearbySchools({schoolsWithDistance}:any) {
 <>
 <Head text='Nearby Schools' />
 <div className="flex flex-col mt-4 gap-10">
-{schoolsWithDistance.length > 0 && schoolsWithDistance.map((e:any) => (
+{schoolsWithDistance.length > 0 ? schoolsWithDistance.map((e:any) => (
         <div key={e?.id} className="school flex gap-4 items-center">
     <div className="icon text-white p-4 bg-blue-700 rounded-full">
         <LuSchool size={30} />
@@ -16,7 +16,7 @@ function NearbySchools({schoolsWithDistance}:any) {
         <h2 className='text-sm'>Distance: <strong>{e.distance}KM</strong></h2>
     </div>
 </div>
-))}
+)) : <h1 className='animate-fade-in dark:text-white text-center font-semibold text-sm py-5'>No Schools Found 🙁</h1>}
 
 </div>
 </>  )

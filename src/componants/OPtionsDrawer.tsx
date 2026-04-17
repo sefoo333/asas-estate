@@ -59,7 +59,7 @@ return (
                 <IoFilterOutline size={30} /> <span className='font-semibold text-sm'>More Settings</span>
                 </Button>
    ) : (
-  <div className="box shadow-sm p-3 rounded-lg bg-white">
+  <div className="box shadow-sm p-3 rounded-lg bg-white dark:!bg-gray-800">
                         <LuFilter size={23} className='text-primary' />
                     </div>    
    )}
@@ -72,16 +72,16 @@ return (
      <div className="content px-4 overflow-y-scroll">
        <div className="section_Transaction mt-3">
         <h1 className="text-[15px] text-start  font-semibold mb-3">Transaction Type</h1>
-        <div className="button flex rounded-md  border border-[#ccc] p-0.5 w-full">
-<button  className={`px-8 font-semibold py-2.5 cursor-pointer rounded-md text-sm transition-[500ms] w-1/2 ${!switcher && "bg-blue-400/20 text-blue-700"}`} onClick={() => {setSwitcher(false); setData((prevData:any) => ({ ...prevData, transactionType: "buy" }))}}>
+        <div className="button flex rounded-md  border border-[#ccc] dark:border-gray-700 p-0.5 w-full">
+<button  className={`px-8 font-semibold py-2.5 cursor-pointer rounded-md text-sm transition-[500ms] w-1/2 ${!switcher && "bg-primary/20 text-primary"}`} onClick={() => {setSwitcher(false); setData((prevData:any) => ({ ...prevData, transactionType: "buy" }))}}>
   Buy
 </button>
-<button className={`px-8 font-semibold py-2.5 cursor-pointer rounded-md text-sm transition-[500ms] w-1/2 ${switcher && "bg-blue-400/20 text-blue-700"}`} onClick={() => {setSwitcher(true); setData((prevData:any) => ({ ...prevData, transactionType: "rent" }))}}>
+<button className={`px-8 font-semibold py-2.5 cursor-pointer rounded-md text-sm transition-[500ms] w-1/2 ${switcher && "bg-primary/20 text-primary"}`} onClick={() => {setSwitcher(true); setData((prevData:any) => ({ ...prevData, transactionType: "rent" }))}}>
   Rent
 </button>
 </div>
       </div>
-      <div className="section_features pb-5 border-b border-b-gray-300">
+      <div className="section_features pb-5 border-b border-b-gray-300 dark:border-gray-800">
         <h1 className="text-[15px] text-start  font-semibold  mt-5">Features</h1>
                  <div className="collections  justify-start mt-4 grid grid-cols-2 gap-4">
                 {featuresLabel.slice(0,length).map((e,x) => (
@@ -119,18 +119,18 @@ return (
       <div className="forMob hidden max-md:flex max-md:flex-col max-md:gap-5 max-md:mt-5">
 <div className="types">
           <h1 className="text-[15px] text-start  font-semibold  mb-2">Beds</h1>
-<div className="beds bg-white grid grid-cols-6 items-center   rounded-lg border border-gray-300 ">
+<div className="beds bg-white grid grid-cols-6 items-center   rounded-lg border border-gray-300 dark:!bg-gray-800 dark:text-gray-300  dark:!border-gray-600 ">
 {Array.from({ length: 6 }, (_, i) => i).map((e) => (
-  <span key={e} onClick={() => {setBeds(e);setData((x:any) => ({...x , beds:e}))}} className={`p-2 ${e+1 !== 6 ? 'border-r border-r-gray-300' : ''} ${e  === Beds && "!bg-blue-500 text-white "} text-center w-full transition-all `}>{e+1}</span>
+  <span key={e} onClick={() => {setBeds(e);setData((x:any) => ({...x , beds:e}))}} className={`p-2 ${e+1 !== 6 ? 'border-r border-r-gray-300 dark:border-gray-600' : ''} ${e  === Beds && "!bg-blue-500 text-white "} text-center w-full transition-all `}>{e+1}</span>
 ))}
 </div>
 
 </div>
 <div className="types">
           <h1 className="text-[15px] text-start  font-semibold  mb-2">Baths</h1>
-<div className="beds bg-white grid grid-cols-6 items-center   rounded-lg border border-gray-300 ">
+<div className="beds bg-white grid grid-cols-6 items-center   rounded-lg border border-gray-300 dark:!bg-gray-800 dark:text-gray-300  dark:!border-gray-600 ">
 {Array.from({ length: 6 }, (_, i) => i).map((e) => (
-  <span key={e} onClick={() => {setBaths(e); setData((x:any) => ({...x , baths:e}))}} className={`p-2 ${e+1 !== 6 ? 'border-r border-r-gray-300' : ''} ${e === baths && "!bg-blue-500 text-white "} text-center w-full transition-all focus:!bg-blue-500 focus:text-white `}>{e+1}</span>
+  <span key={e} onClick={() => {setBaths(e); setData((x:any) => ({...x , baths:e}))}} className={`p-2 ${e+1 !== 6 ? 'border-r border-r-gray-300 dark:border-gray-600' : ''} ${e === baths && "!bg-blue-500 text-white "} text-center w-full transition-all focus:!bg-blue-500 focus:text-white `}>{e+1}</span>
 ))}
 </div>
 

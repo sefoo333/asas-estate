@@ -14,7 +14,7 @@ import {
 function SelectInBroker({Title ="realEstat",data = ["house" , "villa" , "combound"],placeholder = "select estat" , onChange}:any) {
   return (
      <Select onValueChange={(e) => onChange(e)}>
-      <SelectTrigger className="w-[200px] max-md:w-full !bg-white py-5">
+      <SelectTrigger className="w-[200px] max-md:w-full py-5">
         <SelectValue placeholder={placeholder} />
       </SelectTrigger>
       <SelectContent>

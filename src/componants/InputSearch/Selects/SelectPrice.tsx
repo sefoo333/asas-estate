@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
   Select,
   SelectContent,
@@ -13,7 +13,7 @@ import {
 import { MdKeyboardArrowDown } from "react-icons/md";
 import { Input } from '@/components/ui/input';
 
-function SelectPrice({setSelectPrice , prices , setData}:{setSelectPrice?:({min,max}: {min?:string,max?:string}) => void , prices?: {min?:string,max?:string} | any , setData?:(data:any) => void}) {
+function SelectPrice({setSelectPrice , prices , setData,openar,setOpener}:{openar:any,setOpener:any,setSelectPrice?:({min,max}: {min?:string,max?:string}) => void , prices?: {min?:string,max?:string} | any , setData?:(data:any) => void}) {
     const [select , SetSelect] = useState(false)
     const [price, setPrice] = useState<{min?:string,max?:string}>({})
 
@@ -23,14 +23,20 @@ function SelectPrice({setSelectPrice , prices , setData}:{setSelectPrice?:({min,
         setSelectPrice?.(newPrice)
     }
 
+    useEffect(() => {
+    if (openar !== 0){
+      SetSelect(false)
+    }
+      },[openar])
+
   return (
- <div className="select w-full relative py-2 px-4 rounded-md shadow-sm !bg-white border border-[#e5e5e5]" >
-<div className="Title flex justify-between items-center" onClick={() => SetSelect((e) => !e)}>
-    <h1 className='text-[#737373] text-sm  select-none'>{prices?.min && prices.max ? `$${prices.min} - $${prices.max}` : "Select price"}</h1>
+ <div className="select w-full relative py-2 px-4 rounded-md shadow-sm !bg-white border border-[#e5e5e5] dark:!bg-gray-800  dark:!border-gray-600" >
+<div className="Title flex justify-between items-center" onClick={() => {SetSelect((e) => !e);setOpener(0)}}>
+    <h1 className='text-[#737373] dark:text-gray-400 text-sm  select-none'>{prices?.min && prices.max ? `$${prices.min} - $${prices.max}` : "Select price"}</h1>
 <MdKeyboardArrowDown color='#737373' size={20} />
 </div>
 
- <div className={`window flex gap-5 bg-white shadow absolute bottom-[-150px] rounded-md w-[400px]  left-0 p-3 transition ${select ? "z-9 opacity-100" : "z-[-1] opacity-0"}`}>
+ <div className={`window flex gap-5 bg-white dark:!bg-gray-800  shadow absolute bottom-[-150px] rounded-md w-[400px]  left-0 p-3 transition ${select ? "z-9 opacity-100" : "z-[-1] opacity-0"}`}>
     <div className="min">
         <h1 className='font-semibold mb-1 text-sm'>Min</h1>
         <Input type='number' onChange={(e) => {
@@ -46,7 +52,7 @@ function SelectPrice({setSelectPrice , prices , setData}:{setSelectPrice?:({min,
           setSelectPrice?.({})
           setData?.((prevData:any) => ({ ...prevData, min: undefined }));
         }}
-  className="inline-block w-full rounded-sm border border-blue-600 px-12 py-3 text-sm font-medium text-blue-600  mt-3 focus:ring-3 focus:outline-hidden"
+  className="inline-block w-full rounded-sm border border-primary text-primary px-12 py-3 text-sm font-medium   mt-3 focus:ring-3 focus:outline-hidden"
 >
   Reset
 </button>
@@ -61,7 +67,7 @@ function SelectPrice({setSelectPrice , prices , setData}:{setSelectPrice?:({min,
         }} type='number' placeholder='like $500,000' />
                 <button
                 onClick={() => SetSelect(false)}
-  className="inline-block w-full rounded-sm border border-blue-600 bg-blue-600 px-12 py-3 text-sm font-medium text-white  mt-3 focus:ring-3 focus:outline-hidden"
+  className="inline-block w-full rounded-sm  bg-primary  px-12 py-3 text-sm font-medium text-white  mt-3 focus:ring-3 focus:outline-hidden"
 >
   Done
 </button>

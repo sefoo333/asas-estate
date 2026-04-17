@@ -33,12 +33,12 @@ const isMob = useMediaQuery({maxWidth:767})
 
 
   return (
-    <div className="parent flex justify-center text-foreground dark:bg-background dark:text-foreground min-h-screen">
+    <div className="parent flex justify-center  mt-10   min-h-screen">
   <div className="container flex items-center flex-col">
         <div className="landing max-md:p-5 w-full max-md:mb-30 container before:rounded-3xl max-md:before:!rounded-none flex items-center justify-center relative p-14 h-[550px] max-md:h-[250px]">
         <Image src={"/brokers.jpg"} alt="" fill className=" object-cover rounded-3xl  max-md:!rounded-none w-full h-full absolute z-[-1]" style={!isMob ? {objectPosition:"0px -150px"} : {}} />
    <div className="relative z-9 w-full flex flex-col gap-20 items-center">
-    <div className="text font-bold max-md:mb-[90px] text-center mt-4 text-white">
+    <div className="text font-bold max-md:mb-[90px] text-center mt-4 text-white ">
       <h1 className="text-6xl leading-18 max-md:hidden max-md:text-3xl max-md:text-nowrap max-md:leading-9">
       Find your perfect broker <br/>for a minutes
      </h1>
@@ -51,7 +51,7 @@ const isMob = useMediaQuery({maxWidth:767})
    <BrokerInput setData={setData} dataSearch={dataSearch} />
    </div>
       </div>
-      <div className="brokers mb-9 w-full max-md:px-3 grid grid-cols-2 max-md:grid-cols-1 gap-8 mt-20">
+      <div className="brokers mb-9 w-full max-md:px-3 grid max-2xl:grid-cols-1 grid-cols-2  gap-8 mt-20">
 {data?.length === 0 ? (
   <h1 className='text-2xl text-center w-full font-semibold col-span-2 animate-fade-in'>No brokers found</h1>
 ) : (

@@ -29,11 +29,11 @@ router.refresh()
   return (
     <div className="parent flex justify-center mt-5">
         <div className="container flex max-md:flex-col items-center gap-6 w-[90rem] max-md:w-full">
-      <div className="button flex rounded-md  border border-[#ccc] p-0.5 ">
-<button className={`px-8 font-semibold py-2.5 cursor-pointer rounded-md transition-[500ms] ${!switcher && "bg-blue-400/20 text-blue-700"}`} onClick={() => setSwitcher(() => false)}>
+      <div className="button flex rounded-md  border border-[#ccc] dark:border-gray-600 p-0.5 ">
+<button className={`px-8 font-semibold py-2.5 cursor-pointer rounded-md transition-[500ms] ${!switcher && "bg-primary/20 text-primary"}`} onClick={() => setSwitcher(() => false)}>
   Name
 </button>
-<button className={`px-8 font-semibold py-2.5 cursor-pointer rounded-md transition-[500ms] ${switcher && "bg-blue-400/20 text-blue-700"}`} onClick={() => setSwitcher(() => true)}>
+<button className={`px-8 font-semibold py-2.5 cursor-pointer rounded-md transition-[500ms] ${switcher && "bg-primary/20 text-primary"}`} onClick={() => setSwitcher(() => true)}>
   Location
 </button>
 </div>

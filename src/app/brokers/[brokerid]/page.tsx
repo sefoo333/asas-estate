@@ -51,7 +51,7 @@ const [open,setOpen] = useState(false);
    <div className="parent flex justify-center">
     <div className="container w-full flex gap-10 justify-center">
 <div className="flex flex-col basis-[80%] max-md:basis-full max-md:px-2">
-    <div className="box shadow bg-white rounded-xl ">
+    <div className="box shadow bg-white  dark:!bg-gray-800  dark:!border-gray-600 rounded-xl ">
     <div className="profile w-full relative mb-14">
     <Image src={"/Hero.jpg"} alt='' width={1500} height={500} className="banner bg-blue-500 w-full h-[300px] max-md:h-[200px] rounded-xl object-cover rounded-b-none" />
     <Image src={brokerData?.image} alt='' width={1000} height={1000} className="image shadow w-35 h-35 max-md:w-20 max-md:h-20 object-cover rounded-full  absolute max-md:-bottom-10 -bottom-20 left-6" />
@@ -59,7 +59,7 @@ const [open,setOpen] = useState(false);
 <div className="profile mt-8 flex justify-between items-start p-6 max-md:mt-0 max-md:pt-0">
    <div className="text  mt-3 max-md:mt-0">
     <h1 className='font-semibold text-2xl'>{brokerData?.userName}</h1>
-    <h2 className='text-[18px] flex items-center mt-1.5 text-[#898989] mb-2 '>
+    <h2 className='text-[17px] flex items-center mt-1.5 text-[#898989] dark:text-gray-400  mb-2 '>
         {/* <Image src={``} alt='' width={20} height={20} className=" w-7 h-7 inline mr-2 " /> */}
         <span className={`fi fi-${brokerData?.locationCode} inline mr-2 !rounded-sm `}></span>
         <span>{brokerData?.location}</span>
@@ -81,24 +81,24 @@ const [open,setOpen] = useState(false);
 </div>
 </div>
 
-<div className="box shadow bg-white rounded-xl p-7 mt-10">
+<div className="box shadow bg-white  dark:!bg-gray-800  dark:!border-gray-600 rounded-xl p-7 mt-10">
 <h1 className='text-xl font-semibold mb-3'>Bio</h1>
 <p className='leading-8'>
     {brokerData?.bio}
      </p>
 </div>
 
-<div className="box shadow bg-white rounded-xl p-7 mt-10 mb-10">
+<div className="box shadow bg-white  dark:!bg-gray-800  dark:!border-gray-600 rounded-xl p-7 mt-10 mb-10">
     <h1 className='text-xl font-semibold mb-3'>Real Estats</h1>
-    <div className="products max-md:w-[300px]">
+    <div className="products max-md:max-w-[300px]">
       <div className='w-full grid-cols-3 max-md:overflow-x-scroll grid max-md:!flex gap-6 '>
           {productsData?.map((e:any,i:number) => <Product key={i} product={e} />)}
       </div>
     </div>
 </div>
-<div className="box shadow bg-white rounded-xl p-7 mt-10 mb-10">
+<div className="box shadow bg-white  dark:!bg-gray-800  dark:!border-gray-600 rounded-xl p-7 mt-10 mb-10">
     <h1 className='text-xl font-semibold mb-3'>Rates and reviews</h1>
-    <div className="products flex border-b pb-5 border-b-gray-300 justify-between items-center">
+    <div className="products flex max-md:flex-col max-md:gap-5 max-md:items-start border-b pb-5 border-b-gray-300 dark:border-b-gray-700 justify-between items-center">
 <div className="rates flex gap-3  items-center">
     <h2 className='font-semibold'>Total Rates: <span className='mx-3'>{avg.toFixed(1)}</span></h2>
 
@@ -121,7 +121,7 @@ const [open,setOpen] = useState(false);
     </div>
 </div>
 </div>
-<div className="sidebar p-10 px-5 basis-[30%] max-md:hidden  shadow bg-white mt-10 rounded-xl h-[700px]">
+<div className="sidebar p-10 px-5 basis-[30%] max-md:hidden  shadow bg-white  dark:!bg-gray-800  dark:!border-gray-600 mt-10 rounded-xl h-[700px]">
     <h1 className='text-xl font-semibold mb-6'>More Brokers</h1>
    {/* <div className="flex flex-col gap-3">
      <h1><strong>Languages: </strong>arabic, english, japaness</h1>

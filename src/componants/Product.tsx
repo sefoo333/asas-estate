@@ -43,7 +43,7 @@ function Product({product}:{product:Product}) {
   })
 
   return (
-      <div className="product p-3 rounded-xl relative max-xl:w-full ">
+      <div className="product p-3 rounded-xl relative flex-shrink-0 snap-start max-md:w-full ">
         {user && Array.isArray(data) &&                          <AddToFavourite Type="product_landing" product={product} isFavourite={user?.id && Array.isArray(data) && data?.map((e) => e?.id).includes(product?.id) || false} />}
 
         <Link href={`/realEstats/${product?.id}`}>
@@ -56,25 +56,25 @@ function Product({product}:{product:Product}) {
                        </div>
                         <div className="box py-4 px-1">
                             <div className="flex justify-between items-center mt-1 max-xl:flex-col-reverse max-xl:items-start">
-                                <h1 className="font-bold text-xl max-w-[60%]">{product?.title}</h1>
+                                <h1 className="font-bold text-xl max-w-[60%] max-md:max-w-full">{product?.title}</h1>
                         <h1 className="font-semibold text-2xl max-xl:text-[15px] max-xl:mb-1">${product?.price}</h1>
                             </div>
-                        <div className="location flex text-gray-600 gap-2 mb-2 items-center text-[15px]">
+                        <div className="location flex text-gray-600 dark:text-gray-500 gap-2 mb-2 items-center text-[15px]">
                              {/* <IoLocationSharp size={18} />  */}
                             <h3>{product?.location}</h3>
                         </div>
                              <div className="props flex gap-4 my-1.5">
-                                <div className="bed flex gap-2 max-xl:h-fit rounded-full bg-gray-50 border border-gray-200 items-center text-[#474747]">
-                                    <MdOutlineBed className='bg-white w-[30px] border border-gray-200 p-[4px] rounded-full h-full' size={15} color="#474747" />
-                                    <h1 className='pr-[9px]'>{product?.beds}</h1>
+                                <div className="bed flex gap-2 max-xl:h-fit rounded-full bg-gray-50 border border-gray-200 dark:!bg-gray-800  dark:!border-gray-600 items-center text-[#474747]">
+                                    <MdOutlineBed className='bg-white w-[30px] border border-gray-200 dark:!text-gray-300 dark:!bg-gray-800  dark:!border-gray-600 p-[4px] rounded-full h-full' size={15} color="#474747" />
+                                    <h1 className='pr-[9px] dark:text-gray-400'>{product?.beds}</h1>
                                 </div>
-                                <div className="bed flex gap-2 max-xl:h-fit rounded-full bg-gray-50 border border-gray-200 items-center text-[#474747]">
-                                    <LuBath  className='bg-white w-[30px] border border-gray-200 p-[5px] rounded-full h-full' size={15} color="#474747" />
-                                    <h1 className='pr-[9px]'>{product?.Baths}</h1>
+                                <div className="bed flex gap-2 max-xl:h-fit rounded-full bg-gray-50 border dark:!bg-gray-800  dark:!border-gray-600 border-gray-200 items-center text-[#474747]">
+                                    <LuBath  className='bg-white w-[30px] border border-gray-200 p-[5px] dark:!text-gray-300 dark:!bg-gray-800  dark:!border-gray-600 rounded-full h-full' size={15} color="#474747" />
+                                    <h1 className='pr-[9px] dark:text-gray-400'>{product?.Baths}</h1>
                                 </div>
-                                <div className="bed flex gap-2 max-xl:h-fit rounded-full bg-gray-50 border border-gray-200 items-center text-[#474747]">
-                                    <CiRuler  className='bg-white w-[30px] border border-gray-200 p-[4px] rounded-full h-full' size={15} color="#474747" />
-                                    <h1 className='pr-[9px]'>{product?.Sqft} <span className='font-medium max-md:hidden'>m<sup>2</sup></span></h1>
+                                <div className="bed flex gap-2 max-xl:h-fit rounded-full bg-gray-50 border dark:!bg-gray-800  dark:!border-gray-600 border-gray-200 items-center text-[#474747]">
+                                    <CiRuler  className='bg-white w-[30px] border border-gray-200 p-[4px] dark:!text-gray-300 dark:!bg-gray-800  dark:!border-gray-600 rounded-full h-full' size={16} color="#474747" />
+                                    <h1 className='pr-[9px] dark:text-gray-400'>{product?.Sqft} <span className='font-medium max-md:hidden '>m<sup>2</sup></span></h1>
                                 </div>
                               
                             </div>

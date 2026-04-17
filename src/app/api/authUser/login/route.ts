@@ -64,11 +64,11 @@ await (await cookies()).set("token" ,token)
     
     
     if (!getUser){
-        return NextResponse.json({message:"Invalid email or password"}, {status:400})
+        return NextResponse.json({message:"Invalid email or password" , reason:"from-login"}, {status:400})
     }
     
     if (!hash) {
-        return NextResponse.json({message:"Invalid email or password"}, {status:400})
+        return NextResponse.json({message:"Invalid email or password",reason:"from-login"}, {status:400})
     }
     
     

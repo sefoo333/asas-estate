@@ -123,7 +123,7 @@ const tt = type?.startsWith("b_") ? type?.slice(2) : type.toString()
           
             <Crubchumb />
             <HeadS title='Create Property' />
-            <div className="window p-5 max-md:w-full rounded-xl border border-gray-200 bg-white mt-7 ">
+            <div className="window p-5 max-md:w-full rounded-xl border border-gray-200  dark:!bg-gray-800  dark:!border-gray-600 bg-white mt-7 ">
 {/* <Head text='create real estate' /> */}
 
 <div className="flex flex-col  w-1/2 max-xl:w-full max-md:w-full">
@@ -235,12 +235,12 @@ const tt = type?.startsWith("b_") ? type?.slice(2) : type.toString()
 <div className="description p-4 rounded-xl">
     <Head_create>Description</Head_create>
         <div className="input mt-4">
-            <div className="tools flex gap-6 p-5 py-3 border border-gray-200 border-b-0 bg-slate-100/80">
+            {/* <div className="tools flex gap-6 p-5 py-3 border border-gray-200 border-b-0 bg-slate-100/80">
 {icons.map((E,i:number) =>(
     <E key={i} className='cursor-pointer duration-300 hover:text-gray-600' />
 ))}
-            </div>
-             <Textarea defaultValue={data?.description} className='h-[200px] rounded-t-none border-t-0' placeholder="Type your message here." {...register("description")} />
+            </div> */}
+             <Textarea defaultValue={data?.description} className='h-[200px] ' placeholder="Type your message here." {...register("description")} />
         </div>
 </div>
 

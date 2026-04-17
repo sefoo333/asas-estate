@@ -292,7 +292,7 @@ export default function TTable() {
       </div>
       <div className="overflow-hidden rounded-md border">
         <Table>
-          <TableHeader className="bg-slate-50">
+          <TableHeader className="bg-slate-50  dark:!bg-gray-800  ">
             {table.getHeaderGroups().map((headerGroup) => (
               <TableRow key={headerGroup.id}>
                 {headerGroup.headers.map((header) => {

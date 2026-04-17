@@ -24,8 +24,9 @@ const isTodayOrNot = useMemo(() => {
         ]
 
   return (
-  <div className="about_estate mt-15  bg-white rounded-xl ">
-                <h1 className='font-semibold'>About Property</h1>
+  <div className="about_estate mt-15  bg-white rounded-xl dark:!bg-gray-800  ">
+                <h1 className='font-semibold'>
+                    About Property</h1>
                                                             <div className="features grid grid-cols-1 mt-4">
                                                                 {data.map((e:any , a:number) => (
                                                                     <div className={`box flex gap-2 justify-between items-center ${a !== data.length -1 ? "border-b border-gray-300/40" : ""}`} key={a}>

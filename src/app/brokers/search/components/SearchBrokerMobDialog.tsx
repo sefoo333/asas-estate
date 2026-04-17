@@ -46,7 +46,7 @@ export function SearchBrokerMobDialog({
    
         <Drawer  >
           <DrawerTrigger asChild>
-              <div className="box shadow-sm p-3 rounded-lg bg-white">
+              <div className="box shadow-sm p-3 rounded-lg bg-white  dark:!bg-gray-800  ">
                                     <LuFilter size={23} className='text-primary' />
                                 </div>   
           </DrawerTrigger>
@@ -57,11 +57,11 @@ export function SearchBrokerMobDialog({
             </DrawerHeader>
            <div className="locati">
             <h1 className="text-[15px] text-start  font-semibold mb-3 mt-5">Type Search</h1>
-                <div className="button flex rounded-md  border border-[#ccc] p-0.5 ">
-<button className={`px-8 font-semibold py-2.5 cursor-pointer rounded-md w-1/2 transition-[500ms] ${!switcher && "bg-blue-400/20 text-blue-700"}`} onClick={() => setSwitcher(() => false)}>
+                <div className="button flex rounded-md  border border-[#ccc] dark:!border-gray-600 p-0.5 ">
+<button className={`px-8 font-semibold py-2.5 cursor-pointer rounded-md w-1/2 transition-[500ms] ${!switcher && "bg-primary/20 text-primary"}`} onClick={() => setSwitcher(() => false)}>
   Name
 </button>
-<button className={`px-8 font-semibold py-2.5 cursor-pointer rounded-md w-1/2 transition-[500ms] ${switcher && "bg-blue-400/20 text-blue-700"}`} onClick={() => setSwitcher(() => true)}>
+<button className={`px-8 font-semibold py-2.5 cursor-pointer rounded-md w-1/2 transition-[500ms] ${switcher && "bg-primary/20 text-primary"}`} onClick={() => setSwitcher(() => true)}>
   Location
 </button>
 </div>

@@ -29,7 +29,7 @@ function Features({features,setFeatures,edit = false}:{features:any,setFeatures:
     <div className="boxs my-4 flex flex-col gap-5">
        
         {features?.map((e:any , i:number) => (
-            <div key={i} className="box flex justify-between items-center py-4 px-4 border border-gray-200 rounded-xl">
+            <div key={i} className="box flex justify-between items-center py-4 px-4 border border-gray-200     dark:!border-gray-600 rounded-xl">
            <div className="first  items-center flex gap-3">
                <GetIcon icon={e?.key}/>
              {/* {edit ? (
@@ -46,7 +46,7 @@ function Features({features,setFeatures,edit = false}:{features:any,setFeatures:
        
       
       {add && (
-          <div className="box flex flex-col  py-4 px-4 border-2 border-dashed border-gray-200 rounded-xl">
+          <div className="box flex flex-col  py-4 px-4 border-2 border-dashed border-gray-200    dark:!border-gray-600 rounded-xl">
         {/* <div className="title">
               <Head_create>Title</Head_create>
     <Input onChange={(e) => setName(e.target.value) } className='p-5 mt-2 shadow-none' placeholder='Write Here' />

@@ -24,7 +24,7 @@ export function ShareProfile({Type = "" , link}: {Type:string , link?:string }) 
     <Dialog>
       <DialogTrigger asChild>
          {
-          Type === "broker" ?  <button className='bg-blue-600 duration-300 text-white hover:bg-blue-700 rounded-xl justify-center hover:text-white py-2.5 text-[15px] px-7 flex items-center   ' >
+          Type === "broker" ?  <button className='bg-primary duration-300 text-white hover:bg-primary/90 rounded-xl justify-center hover:text-white py-2.5 text-[15px] px-7 flex items-center   ' >
                     <RiShareForwardFill size={18} className='mr-2' />
                     Share profile
                 </button>
@@ -36,8 +36,8 @@ export function ShareProfile({Type = "" , link}: {Type:string , link?:string }) 
             </div>
           )
             : (
-               <Button variant={"outline"} className='p-2 border cursor-pointer transition-all hover:bg-slate-50 border-gray-300 bg-white rounded-lg '>
-                                                                <Share size={25} />
+      <Button  variant={"outline"} size={"icon-lg"} className='p-2 border cursor-pointer transition-all hover:bg-slate-50 border-gray-300 bg-white dark:!bg-gray-800  dark:!border-gray-600 rounded-lg '>                                                                <Share size={25} />
+                                                              
                                                                 </Button>
             )
          }

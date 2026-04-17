@@ -22,7 +22,7 @@ export function CarouselDemo() {
         <Image priority  src={"/Heroo.webp"} alt="" fill className=" object-cover rounded-3xl w-full h-full fixed z-[-1] max-md:rounded-none" />
    <div className="relative z-9 w-full flex flex-col gap-20 max-md:gap-10 items-center">
     <div className="text font-bold text-center mt-10 max-md:mt-0 text-white">
-      <h1 className="text-6xl animate-fade-in max-md:text-3xl max-md:leading-9 max-md:text-nowrap leading-18">
+      <h1 className="text-6xl max-md:mb-[58px] animate-fade-in max-md:text-3xl max-md:leading-9 max-md:text-nowrap leading-18">
       Find your home <br/>Anywhere in egypt
      </h1>
      {/* <p className="font-medium text-[13px]">Discover all properties you need</p> */}

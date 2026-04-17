@@ -81,14 +81,14 @@ export function SelectCountryT({setSelect}:any) {
     
     
         const fuse = new Fuse(countr, {
-      keys: ["location"], // الحقول اللي تبحث فيها
-      threshold: 0.3, // كل ما يقل = دقة أعلى
+      keys: ["location"], 
+      threshold: 0.3, 
     });
     
 
   return (
    <div className="">
-            <h1 className="font-semibold">Location</h1>
+            <h1 className="font-semibold text-sm">Location</h1>
 
      <Combobox
     onValueChange={(e:any) => {
@@ -96,7 +96,6 @@ export function SelectCountryT({setSelect}:any) {
 
     if (fullCountry) {
       
-      // 2. الآن يمكنك تخزين الكائن بالكامل أو أجزاء منه
       setSelect({
         locationCode: fullCountry.locationCode,
         location: fullCountry.location,

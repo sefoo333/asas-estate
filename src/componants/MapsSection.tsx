@@ -52,8 +52,8 @@ const {data,isLoading} =  useQuery({
         <div className='absolute flex top-3 left-3 z-9 w-full'>
         <Input onChange={(e) => {
           setName(e.target.value)
-        }} placeholder='Search Location' className='w-full mt-4  p-6 bg-white rounded-full' />
-        <Search size={20} className='absolute right-3 text-gray-700 top-1/2 translate-x-[-50%]' />
+        }} placeholder='Search Location' className='w-full mt-4  p-6 bg-white dark:!bg-gray-800  dark:border dark:!border-gray-600 rounded-full' />
+        <Search size={20} className='absolute right-3 text-gray-700 dark:text-gray-400 top-1/2 translate-x-[-50%]' />
       </div>
      {data && (
        <div className="window absolute overflow-y-auto left-3 top-22 w-full h-[200px] bg-white rounded-md shadow flex flex-col py-4 px-5 ">

@@ -25,7 +25,7 @@ useEffect(() => {
 
 
   return (
-    <div className="parent w-full max-xl:px-4 h-screen pb-70 overflow-y-scroll mt-10" style={{scrollbarWidth:"none"}}>
+    <div className="parent w-full max-xl:px-4 h-screen pb-70 overflow-y-scroll" style={{scrollbarWidth:"none"}}>
         <div className="container">
             <div className="title flex justify-between items-center">
                 <h1 className='font-semibold text-start text-3xl max-md:text-2xl'>Properties for sale</h1>

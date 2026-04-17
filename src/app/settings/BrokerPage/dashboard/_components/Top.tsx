@@ -36,8 +36,8 @@ const [dataPro,setData]:any = useState([]);
 
 
   return (
-        <div className="py-4 border border-gray-100  shadow rounded-xl bg-white">
- <h2 className=" px-4 font-semibold mb-0.5 border-b border-b-gray-100 pb-4 ">Top Properties</h2>
+        <div className="py-4 border border-gray-100  shadow rounded-xl bg-white  dark:!bg-gray-800  dark:!border-gray-600">
+ <h2 className=" px-4 font-semibold mb-0.5 border-b border-b-gray-100 dark:!border-gray-600 pb-4 ">Top Properties</h2>
       {/* <h3 className="text-sm px-4 font-medium text-[#9fa3af] border-b border-b-gray-100 pb-3">Monthly Sales Overview</h3> */}
       <div className={`boxs px-4 mt-4 ${dataPro?.length > 6 ? "overflow-y-scroll" : ""}`}>
   {dataPro?.length > 0 ? (

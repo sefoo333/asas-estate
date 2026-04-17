@@ -8,7 +8,7 @@ function page() {
      <div className="page  px-7 py-7 max-md:px-5 basis-[100%]">
     <Crubchumb />
                 <HeadS title="Orders" />
-                            <div className="window p-8 mt-10 bg-white shadow w-full  rounded-lg border border-gray-100  ">
+                            <div className="window p-8 mt-10 bg-white  dark:!bg-gray-800  dark:!border-gray-600 shadow w-full  rounded-lg border border-gray-100  ">
 <OrddersTable />
 </div>
 

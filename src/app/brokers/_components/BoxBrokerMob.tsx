@@ -7,13 +7,16 @@ import Link from 'next/link';
 function BoxBrokerMob({data}:{data:BoxBrokerProps['data']}) {
       const avg = data?.ratingSum / data?.reviewsCount || 0;
 const returnPrices:any = data?.realEstates?.map((e:any) => parseInt(e?.price))
-const min = Math.min(...returnPrices)
-const max = Math.max(...returnPrices)
+const miner:number | any = Math.min(...returnPrices)
+const maxer:number | any = Math.max(...returnPrices)
+const min = miner === Infinity ? "0" : miner;
+const max = maxer === -Infinity ? "0" : maxer;
+
   return (
- <div className="box border border-gray-300 bg-white p-5 rounded-lg">
+ <div className="box border border-gray-300 bg-white  dark:!bg-gray-800  dark:!border-gray-700 p-5 rounded-lg">
        <div className=' flex gap-3 w-full mb-2   '>
         <div className="i basis-[30%]">
-            <Image src="/Heroo.webp" alt='' width={150} height={150} className='w-20 h-20 rounded-full' />
+            <Image src={data?.image || "/userD.png"} alt='' width={150} height={150} className='w-20 h-20 rounded-full' />
         </div>
   <div className="text basis-[70%]">
     <h1 className='font-semibold text-lg'>{data.userName}</h1>

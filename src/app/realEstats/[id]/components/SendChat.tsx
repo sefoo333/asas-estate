@@ -64,7 +64,7 @@ return test.json()
     <Dialog onOpenChange={setOpen}>
               <DialogTrigger  asChild>
 {type === "Broker" ?  (
-   <button className='bg-white  border border-gray-200 duration-300 text-black hover:bg-gray-50/10 rounded-xl justify-center  py-2.5 text-[15px] px-7 flex items-center   ' >
+   <button className='bg-white  border border-gray-200  dark:!bg-gray-800  dark:!border-gray-600 dark:text-gray-300 duration-300 text-black hover:bg-gray-50/10 rounded-xl justify-center  py-2.5 text-[15px] px-7 flex items-center   ' >
         {/* <Mail size={18} className='mr-2' /> */}
        <span>
         Massege

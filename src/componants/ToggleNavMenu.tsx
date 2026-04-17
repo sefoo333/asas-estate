@@ -33,7 +33,7 @@ export function ToggleNavMenu() {
     <Drawer defaultOpen={open}  direction="left">
       <DrawerTrigger asChild>
  <button
-          className="block rounded-sm bg-gray-100 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden"
+          className="block rounded-sm bg-gray-100 dark:!bg-gray-700 dark:border dark:text-gray-300  dark:!border-gray-600 p-2.5 text-gray-600 transition hover:text-gray-600/75 md:hidden"
         >
           <span className="sr-only">Toggle menu</span>
           <svg
@@ -49,11 +49,12 @@ export function ToggleNavMenu() {
         </button>
               </DrawerTrigger>
       <DrawerContent className="!w-full z-999">
-        <DrawerHeader className="border-b border-b-gray-300 mb-5">
+        <DrawerHeader className="border-b border-b-gray-300 dark:border-b-gray-800 mb-5">
           <DrawerTitle className="flex relative gap-4 items-center justify-center" >
               <Link href={"/"}>
-      <Image className='w-25 h-15 object-contain' src={"/thya_masr.png"} alt='Logo' width={100} height={100} />
-     </Link>
+  <Image className='w-25 h-15 object-contain dark:absolute dark:hidden' src={"/thya_masr.png"} alt='Logo' width={100} height={100} />
+      <Image className='w-25 h-15 object-contain absolute dark:relative' src={"/logo-2.png"} alt='Logo' width={100} height={100} />
+           </Link>
            <DrawerClose>
              <CgClose  size={25} className="absolute left-3 top-1/2 -translate-y-1/2 " />
            </DrawerClose>
@@ -66,7 +67,7 @@ export function ToggleNavMenu() {
         <ul className="flex  flex-col font-semibold  gap-2 ">
         
         {data?.map((e) =>  
-             <li key={e?.value} className={`p-3 transition-all ${path === e.href ? "bg-primary/20 !text-primary rounded-lg" : ""} ${e.value === "stop" ? "border-t border-t-gray-200" : ""}`}>
+             <li key={e?.value} className={`p-3 transition-all ${path === e.href ? "bg-primary/20 !text-primary rounded-lg" : ""} ${e.value === "stop" ? "border-t border-t-gray-200 dark:border-t-gray-800" : ""}`}>
             <Link className="text-[#4e515b] dark:text-white transition hover:text-[#3f4147]" href={e.href}> {e.name} </Link>
           </li>)}
 
@@ -86,6 +87,7 @@ export function ToggleNavMenu() {
 {user?.id &&
         <DrawerFooter>
            <div className="flex  my-5 items-center justify-between">
+             <Link href={"/settings/Account"}>
               <div className="account flex items-center  gap-3">
                 <Image className="logo w-9 h-9 rounded-xl " src={user?.image} alt='' width={50} height={50} />
            <div className="text">
@@ -93,6 +95,7 @@ export function ToggleNavMenu() {
                <h2 className='text-[12px]'>{user?.email}</h2>
            </div>
               </div>
+             </Link>
               <div className="logout">
            <CgLogOut size={21} className='' />
               </div>

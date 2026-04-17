@@ -58,13 +58,13 @@ setData(brokerData)
      <div className="page  px-7 py-7 max-md:px-5 basis-[100%]">
           <Crubchumb />
             <HeadS title="Broker Settings" />
-            <div className="window bg-white p-8 mt-10 rounded-lg border border-gray-200 w-full ">
+            <div className="window bg-white  p-8 mt-10 rounded-lg border border-gray-200  dark:!bg-gray-800  dark:!border-gray-600 w-full ">
               <ChangeImage broker={true} image={brokerData?.image} setData={setData} data={data} />
                 <form action="" className='flex gap-6 items-center mt-8 w-full'>
                                <UserName data={data} setData={setData} />
                 </form>
 
-                <h1 className='pb-4 border-gray-300 border-b mt-13 text-2xl font-bold'>About Broker</h1>
+                <h1 className='pb-4 border-gray-300 dark:!border-gray-600 border-b mt-13 text-2xl font-bold'>About Broker</h1>
             <form action="" className='mt-6'>
             <BrokerAccount data={data} setData={setData} />       
             </form>

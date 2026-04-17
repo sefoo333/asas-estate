@@ -33,7 +33,7 @@ const [open,setOpen] = useState(false);
      <div className="bg-background  text-foreground dark:bg-background dark:text-foreground min-h-screen">
          <SearchBarMob setData={setData} setSearchResults={setSearchResults} data={data} />
         
-            <div className="window flex flex-col  relative gap-30 p-5 overflow-hidden">
+            <div className="window flex flex-col w-full  relative gap-30 p-5 overflow-hidden">
               <Products setSearchResults={setSearchResults} searchResults={searchResults} />
             {/* <Maps /> */}
             <div className="map  fixed right-0 bottom-10 p-3 bg-white shadow-sm text-primary rounded-full">

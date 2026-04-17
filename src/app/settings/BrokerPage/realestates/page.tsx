@@ -10,7 +10,7 @@ function page() {
     <div className="page  px-7 py-7 max-md:px-5 basis-[100%]">
         <Crubchumb />
 <HeadS title={"Real Estats"} />
-                            <div className="window p-8 mt-10  rounded-lg border bg-white border-gray-200  ">
+                            <div className="window p-8 mt-10  rounded-lg border  dark:!bg-gray-800  dark:!border-gray-600 bg-white border-gray-200  ">
                                 <h1 className='text-lg font-semibold'>Properties</h1>
                                <TTable />
 </div>

@@ -8,7 +8,7 @@ const router = useRouter();
   return (
    <div className="collections flex justify-start mt-5 gap-4">
               {data.map((e) => (
-                <div onClick={() => router.push(`?estateType=${e}&search=true`)}  className=' bg-white text-sm border flex flex-col items-center gap-2 border-gray-300 rounded-xl w-25  px-4 py-3 font-semibold'  key={e}>
+                <div onClick={() => router.push(`?estateType=${e}&search=true`)}  className=' bg-white transition-all cursor-pointer hover:bg-slate-50 dark:hover:bg-gray-900 dark:!bg-gray-800  dark:!border-gray-600 text-sm border flex flex-col items-center gap-2 border-gray-300 rounded-xl w-25  px-4 py-3 font-semibold'  key={e}>
                   {/* <IoHomeOutline size={32} /> */}
                   {e.startsWith("b_") ? e.slice(2) : e}
                 </div>

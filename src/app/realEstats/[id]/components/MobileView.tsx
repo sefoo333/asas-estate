@@ -72,11 +72,11 @@ const schoolsWithDistance = nearbySchools.slice(0,5).map((school:object, i:numbe
   return (
     <div className="paren relative">
        <CarsoulImages Productdata={Productdata}  />
-        <div className="content rounded-4xl bg-white w-full h-full relative bottom-8 p-6">
+        <div className="content rounded-4xl bg-white dark:!bg-gray-800  w-full h-full relative bottom-8 p-6">
            <Main Productdata={Productdata} />
             <div className="description mt-7">
                 <h1 className='font-semibold'>Description</h1>
-               <p className="text-[#5a5a5a] text-sm mt-2 min-h-[80px]">
+               <p className="text-[#5a5a5a] dark:text-gray-300 text-sm mt-2 min-h-[80px]">
   {Productdata?.description || ""}
 </p>
             <ViewMap setDataLocation={setDataLocation} setNearbySchools={setNearbySchools} location={Productdata?.location} />
@@ -93,7 +93,7 @@ const schoolsWithDistance = nearbySchools.slice(0,5).map((school:object, i:numbe
 
                                            <CallToAction Productdata={Productdata} />
 
-  <div className="buttons z-99 flex fixed bottom-0 pb-5 py-3 bg-white left-0 px-2   w-full gap-3">
+  <div className="buttons z-99 flex fixed bottom-0 pb-5 py-3 bg-white dark:!bg-gray-900 dark:border-t  dark:!border-gray-700 left-0 px-2   w-full gap-3">
             <SendChat product={Productdata} type="mobile-product" />
                                             <Link href={`tel:${Productdata?.user?.phone}`}>
                                                         <button className='flex justify-center items-center basis-[80%] gap-3 p-4  bg-primary text-white rounded-lg'>

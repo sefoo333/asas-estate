@@ -37,8 +37,8 @@ function UserSet() {
     <DropdownMenu>
   <DropdownMenuTrigger asChild>
         
-      {user?.image ? <Image src={user?.image || "/images.jpg"} alt='' width={30} height={30} className='size-9 border border-gray-300 rounded-full' /> : (
-        <div className='bg-gray-100 rounded-full border border-gray-300 p-2'>
+      {user?.image ? <Image src={user?.image || "/images.jpg"} alt='' width={30} height={30} className='size-9 border border-gray-300 dark:border-gray-600 rounded-full' /> : (
+        <div className='bg-gray-100  rounded-full border border-gray-300 dark:!bg-gray-800  dark:!border-gray-600 dark:text-gray-300 p-2'>
  {user?.id ? <LuUserRound className='cursor-pointer'  size={21} /> : <LogIn className='cursor-pointer'  size={21} />}
         </div>
       )}
@@ -48,7 +48,7 @@ function UserSet() {
       <DropdownMenuItem>
       <div className='flex flex-col text-start'>
           <h1 className='font-semibold'>{user?.userName}</h1>
-        <h3 className='text-gray-700 text-[12px]'>{user?.email}</h3>
+        <h3 className='text-gray-700 text-[12px] dark:text-gray-400'>{user?.email}</h3>
       </div>
       </DropdownMenuItem>
           <DropdownMenuSeparator />

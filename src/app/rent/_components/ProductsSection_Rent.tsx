@@ -35,7 +35,7 @@ useEffect(() => {
 const isMob = useMediaQuery({maxWidth:920}); 
 
 return (
-    <div className={`parent flex justify-center w-full max-md:basis-full h-screen pb-70 overflow-y-scroll mt-20`} style={{scrollbarWidth:"none"}}>
+    <div className={`parent flex justify-center w-full max-md:basis-full h-screen pb-70 overflow-y-scroll`} style={{scrollbarWidth:"none"}}>
         <div className="container w-[80rem] h-screen">
             <div className="title flex justify-between items-center">
                 <h1 className='font-semibold text-start text-3xl'>Properties for Rent</h1>
