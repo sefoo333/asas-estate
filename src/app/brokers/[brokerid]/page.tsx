@@ -5,14 +5,14 @@ import { Broker } from '@/types/Broker'
 import { useQuery } from '@tanstack/react-query'
 import Image from 'next/image'
 import { useParams } from 'next/navigation'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { ShareProfile } from './_compoents/ShareProfile'
 import { useGetProducts } from '@/hooks/useGetProducts'
 import { useUserStore } from '@/store/store'
 import { fetchBrokers } from '@/lib/Brokers'
 import BrokerSug from './_compoents/BrokerSug'
 import { SendChat } from '@/app/realEstats/[id]/components/SendChat'
-import { FaStar } from 'react-icons/fa6'
+import { FaStar, FaStarHalf } from 'react-icons/fa6'
 import Rate from './_compoents/Rate'
 import { IoMdAdd } from 'react-icons/io'
 import { RateWindow } from '@/componants/RateWindow'
@@ -46,6 +46,10 @@ function page() {
     
       const avg = (brokerData?.ratingSum ?? 0) / (brokerData?.reviewsCount ?? 1) || 0;
 const [open,setOpen] = useState(false);
+
+useEffect(() => {
+    console.log(brokerData)
+},[brokerData])
   return (
     <>
    <div className="parent flex justify-center">
@@ -104,6 +108,9 @@ const [open,setOpen] = useState(false);
 
      <div className="flex gap-0.5">
             {Array.from({length:avg}).map((e,i) => <FaStar key={i}  />)}
+            <>
+            {(avg.toString().split(".").slice(1)) as any !== "" && <FaStarHalf />}
+            </>
        </div>
 </div>
 <Button onClick={() => setOpen((e) => !e)} variant={"outline"} className='rounded-full cursor-pointer text-[14px] flex items-center !font-semibold px-[30px] py-[20px]'>
@@ -117,7 +124,6 @@ const [open,setOpen] = useState(false);
             {e?.massege !== "" && <Rate data={e} />}
             </>
         ))}
-        <RateWindow />
     </div>
 </div>
 </div>
@@ -146,7 +152,7 @@ const [open,setOpen] = useState(false);
 </div>
     </div>
    </div>
-           <RateWindow broker={brokerData} setOpene={setOpen} opene={open} />
+           <RateWindow product={brokerData} broker={brokerData} setOpene={setOpen} opene={open} />
 
    </>
   )

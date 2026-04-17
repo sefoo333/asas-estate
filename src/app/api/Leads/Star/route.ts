@@ -35,6 +35,7 @@ createdAt:new Date(),
  return NextResponse.json({message:"Rate created successfully", rate:createStar,broker:updateBroker},{status:200})
  
 } catch (err){
+    console.log(err)
     return NextResponse.json({message:"Error creating rate",err}, {status:500})
  }
 }

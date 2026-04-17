@@ -4,25 +4,21 @@ import {
   Dialog,
   DialogClose,
   DialogContent,
-  DialogDescription,
   DialogFooter,
   DialogHeader,
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
 import { Field, FieldGroup } from "@/components/ui/field"
-import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { useUserStore } from "@/store/store"
 import { useMutation } from "@tanstack/react-query"
-import { MessageCircleMore } from "lucide-react"
 import Image from "next/image"
-import { usePathname, useSearchParams } from "next/navigation"
+import { useRouter } from "next/navigation"
 import { useState } from "react"
 import { useForm } from "react-hook-form"
 import { toast, Toaster } from "sonner"
-import { id } from "zod/v4/locales"
 import { FaStar } from "react-icons/fa"
 import { Select, SelectContent, SelectGroup, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select'
 
@@ -34,7 +30,7 @@ export function RateWindow({product ,broker , opene,setOpene}:any) {
         handleSubmit,
         formState: { errors },
       } = useForm();
-
+const router = useRouter();
       const [rating,setRating] = useState(0);
 const [isNot,setIsNot] = useState(false);
 const [open,setOpen] = useState(true);
@@ -48,9 +44,9 @@ const test = await fetch(`/api/Leads/Star` , {
         "Content-Type":"application/json"
     },
     body:JSON.stringify({
-        ...data,
+        massege:massege,
         userId:user?.id,
-        BrokerId:product?.UserTo?.id,
+        BrokerId:broker?.id,
         rating:rating,
     })
 
@@ -61,6 +57,10 @@ const test = await fetch(`/api/Leads/Star` , {
 
 return test.json()
         },
+        onSuccess:async () => {
+toast.success("success to send 😀")
+router.refresh();
+        }
        
       })
 
@@ -79,7 +79,7 @@ return test.json()
 {broker ? <div className="box mb-5 mt-7 flex gap-2 items-center p-3 transition-all border rounded-xl bg-white  dark:!bg-gray-800  dark:!border-gray-600 border-gray-200 ">
     <Image src={broker?.image || "/Heroo.webp"} alt="User Image" width={100} height={100} className="rounded-full w-15 h-15 " />
     <div className="info ml-3">
-        <h2 className="font-semibold">{broker?.userName}</h2>
+        <h2 className="font-semibold text-black">{broker?.userName}</h2>
         <p className="text-sm text-gray-500">Broker</p>
     </div>
 </div>
@@ -114,7 +114,7 @@ return test.json()
             
             <Field>
               <Label htmlFor="massege">Massege</Label>
-              <Textarea id="massege"  {...register("massege")} name="massege" defaultValue={"hello Agent ! , i want to ask about property"} />
+              <Textarea id="massege" onChange={(e) => setMassege(e.target.value)}   name="massege" defaultValue={"hello Agent ! , i want to ask about property"} />
             </Field>
           </FieldGroup>
       {isNot && <h1 className="text-[13px] text-red-500 mt-2">You are not a user</h1>}
