@@ -3,13 +3,14 @@ import { NextResponse } from "next/server";
 
 
 export async function POST(request:Request) {
-    const {rating, BrokerId, userId}:any = await request.json();
+    const {rating, BrokerId,massege, userId}:any = await request.json();
 
  try {
     const createStar = await prisma.rate.create({
     data:{
 userId,
         BrokerId,
+        massege,
 rating,
 createdAt:new Date(),
     },
