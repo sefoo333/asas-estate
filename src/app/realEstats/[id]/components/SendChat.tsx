@@ -123,7 +123,7 @@ return test.json()
             <DialogClose asChild>
               <Button variant="outline">Cancel</Button>
             </DialogClose>
-            <Button className="cursor-pointer" type={"submit"}>Send</Button>
+            <Button onClick={() =>           toast.success("Massege has sent to broker !")} className="cursor-pointer" type={"submit"}>Send</Button>
 
           </DialogFooter>
       </form>
