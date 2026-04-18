@@ -12,10 +12,20 @@ import { BsHouseAdd } from "react-icons/bs";
 import { MdOutlineMarkunreadMailbox } from 'react-icons/md';
 import { useUserStore } from '@/store/store';
 import { User } from 'lucide-react';
+import { toast } from 'sonner';
+import { signOut } from 'next-auth/react';
 
 function SidebarSettings() {
 
   const user:any = useUserStore((state) => state.user)
+ const logout = useUserStore((state) => state.logout);
+
+const logOutFromProvider = async () => {
+
+  if (user?.provider === "google" || user?.provider === "facebook"){
+    await signOut()
+  };
+}
 
 
     
@@ -40,6 +50,19 @@ function SidebarSettings() {
       {icon:FiUsers , label:"Users" , link:"users"},
       {icon:FiHome , label:"Properties" , link:"properties"}
     ]
+
+
+      const logOut = async () => {
+    try {
+      logOutFromProvider()
+      await fetch("/api/authUser/logout",{method:"POST"})
+      await logout()
+      toast.success("LogOut Success")
+    } catch(err){
+      toast.error("something went wrong")
+    }
+  }
+
   return (
       <Sidebar >
     <SidebarHeader className='mb-0'>
@@ -137,7 +160,7 @@ function SidebarSettings() {
 </div>
    </div>
    <div className="logout">
-<CgLogOut size={21} className='' />
+<CgLogOut onClick={() => logOut()} size={21} className='' />
    </div>
 </div>
     </SidebarFooter>

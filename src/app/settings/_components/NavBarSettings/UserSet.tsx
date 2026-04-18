@@ -21,11 +21,16 @@ function UserSet() {
   const user:any = useUserStore((state) => state.user);
   const logout = useUserStore((state) => state.logout);
 
+const logOutFromProvider = async () => {
+
+  if (user?.provider === "google" || user?.provider === "facebook"){
+    await signOut()
+  };
+}
+
   const logOut = async () => {
     try {
-      if (user?.provider === "google" || user?.provider === "facebook"){
-        await signOut()
-      };
+      logOutFromProvider()
       await fetch("/api/authUser/logout",{method:"POST"})
       await logout()
       toast.success("LogOut Success")
