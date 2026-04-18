@@ -54,7 +54,7 @@ useEffect(() => {
     <>
    <div className="parent flex justify-center">
     <div className="container w-full flex gap-10 justify-center">
-<div className="flex flex-col basis-[80%] max-md:basis-full max-md:px-2">
+<div className="flex flex-col basis-[80%] min-w-0 max-md:w-full max-md:basis-full max-md:px-2">
     <div className="box shadow bg-white  dark:!bg-gray-800  dark:!border-gray-600 rounded-xl ">
     <div className="profile w-full relative mb-14">
     <Image src={"/Hero.jpg"} alt='' width={1500} height={500} className="banner bg-blue-500 w-full h-[300px] max-md:h-[200px] rounded-xl object-cover rounded-b-none" />
@@ -92,13 +92,31 @@ useEffect(() => {
      </p>
 </div>
 
-<div className="box shadow bg-white  dark:!bg-gray-800  dark:!border-gray-600 rounded-xl p-7 mt-10 mb-10">
+    <div className="box shadow bg-white  overflow-hidden   dark:!bg-gray-800  dark:!border-gray-600 rounded-xl p-7 mt-10 mb-10">
     <h1 className='text-xl font-semibold mb-3'>Real Estats</h1>
-    <div className="products max-md:max-w-[300px]">
-      <div className='w-full grid-cols-3 max-2xl:grid-cols-2 max-md:overflow-x-scroll grid max-md:!flex gap-6 '>
-          {productsData?.map((e:any,i:number) => <Product key={i} product={e} />)}
-      </div>
-    </div>
+
+    {/* categories relative flex overflow-x-auto snap-x snap-mandatory no-scrollbar gap-6 mt-13 w-full */}
+    {/* 
+    min-w-max
+  grid-cols-3
+  max-2xl:grid-cols-2
+  grid
+  max-md:!flex
+  max-md:overflow-x-auto
+  gap-6
+    */}
+<div className='
+w-full
+  grid-cols-3
+  max-2xl:grid-cols-2
+  grid
+  max-md:!flex
+  max-md:overflow-x-auto
+  gap-6
+  '>
+              {productsData?.map((e:any,i:number) => <Product key={i} product={e} screen={false} />)}
+      
+</div>
 </div>
 <div className="box shadow bg-white  dark:!bg-gray-800  dark:!border-gray-600 rounded-xl p-7 mt-10 mb-10">
     <h1 className='text-xl font-semibold mb-3'>Rates and reviews</h1>

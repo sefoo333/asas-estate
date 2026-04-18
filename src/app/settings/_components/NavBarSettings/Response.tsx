@@ -21,6 +21,7 @@ import { IoArrowUndoOutline, IoChatboxEllipsesOutline } from "react-icons/io5"
 import { useState } from "react"
 import { useUserStore } from "@/store/store"
 import { toast } from "sonner"
+import { useRouter } from "next/navigation"
 
 export function Response({chatId, openWindow , setOpenWindow}:any) {
 
@@ -90,6 +91,7 @@ return test.json()
        
       })
 
+      const router = useRouter();
   return (
     <Dialog onOpenChange={setOpenWindow} open={openWindow}>
       <form>
@@ -116,14 +118,11 @@ return test.json()
             <DialogClose onClick={() => setOpenWindow(false)} asChild>
               <Button variant="outline">Cancel</Button>
             </DialogClose>
-            <div className="buttons  flex gap-3 justify-end">
    
-       <Link href={`/brokers/${chatProduct?.userSender?.id}`}>
-    <Button className='px-10 cursor-pointer'>
+    <Button onClick={() => router.push(`/brokers/${chatProduct?.userSender?.id}`)} className='px-10 cursor-pointer'>
         <User />
         Broker 
     </Button>
-       </Link>
     <Button onClick={() => setOpen((e) => !e)} className='px-10 cursor-pointer'>
         <IoArrowUndoOutline />
         {!open ? "Response" : "Cancel Response"} 
@@ -133,7 +132,6 @@ return test.json()
         <IoChatboxEllipsesOutline />
         Send
     </Button>}
-</div>
           </DialogFooter>
         </DialogContent>
       </form>
