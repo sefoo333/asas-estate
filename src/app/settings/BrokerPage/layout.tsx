@@ -29,7 +29,7 @@ function layout({children}:{children:React.ReactNode}) {
 useEffect(() => {
   if (isLoading) return; // ⛔ استنى
 
-  if (!data) {
+  if (!data && data?.role !== "Broker" || data?.role !== "Admin") {
         toast.error("Access Denied")
     router.replace("/");
   }
