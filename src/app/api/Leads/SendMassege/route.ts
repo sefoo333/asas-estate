@@ -32,7 +32,7 @@ export async function POST(req:Request){
                 description:description,
                 Response
             },
-            linkNotifaction:Response ? linkNoti : `${linkNoti}/${sendMassege?.id}`,
+            linkNotifaction:Response ? sendMassege?.id : `${linkNoti}/${sendMassege?.id}`,
         }
     })
 
