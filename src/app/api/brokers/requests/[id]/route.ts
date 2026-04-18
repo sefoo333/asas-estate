@@ -51,11 +51,19 @@ export async function POST(req:Request, context:any){
             }
         })
         
+
+            const editRole = await prisma.user?.update({
+                where:{id:getRequest?.idUser},
+                data:{
+                    role:"Broker"
+                },
+            })
+
         if (createBroker){
               await prisma.requestBroker.delete({where:{id:id}});
         }
         
-            return NextResponse.json({message:"success",data:createBroker}, {status:200})
+            return NextResponse.json({message:"success",data:createBroker,role:editRole}, {status:200})
     
     }catch(err){
                 return NextResponse.json({message:"failed to get"}, {status:500})
