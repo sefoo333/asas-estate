@@ -71,7 +71,8 @@ const test = await fetch(`/api/Leads/SendMassege` , {
         title:`${user?.userName}`,
         massege:!type ? "review": massege,
         description:!type ? `${user?.userName} want to know your rate about Brokering service` : `${user?.userName} response to your massege`,
-        linkNoti:`${window.location.host}/brokers/${user?.id}/review`,
+        linkNoti:chatProduct?.id,
+        Response:true
     })
 })
 

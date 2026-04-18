@@ -21,6 +21,7 @@ import { useQuery } from '@tanstack/react-query'
 import { useRouter } from 'next/navigation'
 import { RateWindow } from '@/componants/RateWindow'
 import { ShowNotifactions } from './ShowNotifactions'
+import { Response } from './Response'
 function Notfications() {
   const user = useUserStore((state) => state.user);
   const logout = useUserStore((state) => state.logout);
@@ -39,6 +40,7 @@ return json
 
   const [opene,setOpen] = useState(false);
 const [selectedNotifaction,setSelectedNotifaction]:any = useState(null);
+    const [openWindow,setOpenWindow] = useState(false);
 
   return (
 <>
@@ -64,6 +66,9 @@ const [selectedNotifaction,setSelectedNotifaction]:any = useState(null);
  if ( e?.linkNotifaction === "review"){
   setOpen(true);
    setSelectedNotifaction(e)
+ } else if (e?.Content?.Response){
+  setOpenWindow(true)
+     setSelectedNotifaction(e)
  } else {
    router.push(`${window.location.protocol}//${e?.linkNotifaction}`)
  } 
@@ -77,11 +82,12 @@ const [selectedNotifaction,setSelectedNotifaction]:any = useState(null);
 </div>
 </div>
 ))}
-{data?.length > 4 && <ShowNotifactions data={data} setOpen={setOpen} setSelectedNotifaction={setSelectedNotifaction} />}
+{data?.length > 4 && <ShowNotifactions setOpenWindow={setOpenWindow} data={data} setOpen={setOpen} setSelectedNotifaction={setSelectedNotifaction} />}
 </>}
 </div>
   </PopoverContent>
 </Popover>
+<Response openWindow={openWindow} setOpenWindow={setOpenWindow} chatId={selectedNotifaction?.linkNotifaction}   />
 <RateWindow opene={opene} setOpene={setOpen} product={selectedNotifaction} />
 </>
   )

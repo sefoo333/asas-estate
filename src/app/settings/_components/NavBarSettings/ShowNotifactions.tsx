@@ -9,13 +9,10 @@ import {
   DialogTitle,
   DialogTrigger,
 } from "@/components/ui/dialog"
-import { Field, FieldGroup } from "@/components/ui/field"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
 import Image from "next/image"
 import { useRouter } from "next/navigation"
 
-export function ShowNotifactions({data,setOpen,setSelectedNotifaction}:any) {
+export function ShowNotifactions({data,setOpen,setSelectedNotifaction,setOpenWindow}:any) {
     const router = useRouter();
   return (
     <Dialog>
@@ -33,8 +30,9 @@ export function ShowNotifactions({data,setOpen,setSelectedNotifaction}:any) {
           if (  e?.linkNotifaction === "review"){
            setOpen(true)
            setSelectedNotifaction(e) 
-          }
-            else {
+          } else if (e?.Content?.Response){
+setOpenWindow(true)
+          }   else {
            router.push(`${window.location.protocol}//${e?.linkNotifaction}`)
            }
           }} className='relative z-999' key={e?.id}>

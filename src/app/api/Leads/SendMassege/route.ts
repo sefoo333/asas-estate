@@ -4,7 +4,7 @@ import { NextResponse } from "next/server";
 
 
 export async function POST(req:Request){
-    const {id,massege,idTo,idProduct,title,linkNoti,description} = await req.json();
+    const {id,massege,idTo,idProduct,title,Response,linkNoti,description} = await req.json();
 
     if (!id) {
         return NextResponse.json({massege:"user id reqiured" , who:"sys"}, {status:404})
@@ -29,7 +29,8 @@ export async function POST(req:Request){
             To:idTo,
             Content:{
                 title:title,
-                description:description
+                description:description,
+                Response
             },
             linkNotifaction:`${linkNoti}/${sendMassege?.id}`,
         }

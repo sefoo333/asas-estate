@@ -11,7 +11,7 @@ export const GetRole = async (id:string , role:string) =>{
           return false; 
         }
         
-        if (getUser?.role !== role){
+        if (getUser?.role !== role && getUser?.role !== "Admin"){
         return false; 
     }
     return true
