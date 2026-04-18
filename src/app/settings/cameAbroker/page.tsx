@@ -69,7 +69,7 @@ const router = useRouter();
   } = useForm();
 
   useEffect(() => {
-    const getSent = localStorage.getItem("isSent") || false;
+    const getSent:any = localStorage.getItem("isSent") || false;
 const sent = JSON.parse(getSent);
 if (sent){
               toast.error("you are aleardy sent !")
