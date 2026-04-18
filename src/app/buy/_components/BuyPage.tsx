@@ -64,7 +64,7 @@ const [open,setOpen] = useState(false);
   return (
     <>
    {/* from-black via-zinc-900 to-zinc-800 text-white */}
-        <SearchBar setData={setData} setSearchResults={setSearchResults} data={data} />
+        <SearchBar setOpen={setOpen} setData={setData} setSearchResults={setSearchResults} data={data} />
   
             <div className="window flex relative gap-30 pl-35 max-2xl:pl-20 max-xl:pl-5 overflow-hidden">
             
