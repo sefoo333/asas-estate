@@ -14,6 +14,7 @@ import {
   ItemDescription,
   ItemTitle,
 } from "@/components/ui/item"
+import { useUserStore } from "@/store/store"
 import { countries } from "countries-list"
 import Fuse from "fuse.js"
 
@@ -72,6 +73,7 @@ import Fuse from "fuse.js"
 
 export function SelectCountryT({setSelect}:any) {
 
+const user:any = useUserStore((state) => state.user);
 
         const countr = Object.entries(countries).map(([code,country]) => ({
             locationCode:code ,
@@ -91,6 +93,7 @@ export function SelectCountryT({setSelect}:any) {
             <h1 className="font-semibold text-sm">Location</h1>
 
      <Combobox
+     defaultValue={user?.location}
     onValueChange={(e:any) => {
        const fullCountry = countr.find(c => c.location === e);
 
