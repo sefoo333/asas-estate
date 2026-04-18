@@ -74,7 +74,7 @@ const [selectedNotifaction,setSelectedNotifaction]:any = useState(null);
  } 
 }} className='relative z-999' key={e?.id}>
   <div className="box flex gap-4 items-center p-3 transition-all border-b border-b-gray-200 dark:border-b-gray-600 hover:bg-slate-100/20 cursor-pointer">
-    <Image src={"/Hero.jpg"} alt='' className='rounded-full w-10 h-10' width={50} height={50} />
+    <Image src={e?.userSender?.image} alt='' className='rounded-full w-10 h-10' width={50} height={50} />
     <div className="text">
         <h1 className='font-semibold text-[15px]'>{e?.Content?.title}</h1>
         <h2 className='text-[12px] text-gray-500'>{e?.Content?.description}</h2>

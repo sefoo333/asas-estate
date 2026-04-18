@@ -8,7 +8,6 @@ const {userName, bio, image, company,idUser, phoneCode, phone, location, locatio
 
 if (!idUser){
     return NextResponse.json({message:"id not found"}, {status:201})
-
 }
 
 try {
