@@ -12,6 +12,7 @@ export const useGetProducts = (type?: string , id?:string | any) => {
     const json = await res.json()
    return json?.data
   }
+  
   const {data , isLoading} = useQuery({
     queryKey:["fetchProducts"],
     queryFn:fetchData,

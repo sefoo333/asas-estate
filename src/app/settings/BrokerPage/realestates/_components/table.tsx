@@ -193,7 +193,7 @@ location.reload()
                   </Link>
                 </DropdownMenuItem>
                 <DropdownMenuItem
-                  onClick={() => DeleteProperties}
+                 onClick={() => DeleteProperties.mutate({ids: table.getSelectedRowModel().rows.map(row => row.original?.id)})}
                   className="text-red-500"
                 >
                   Delete
