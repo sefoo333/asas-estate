@@ -1,6 +1,5 @@
 "use client"
 
-import * as React from "react"
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -13,7 +12,7 @@ import {
   useReactTable,
   VisibilityState,
 } from "@tanstack/react-table"
-import { ArrowUpDown, ChevronDown, MoreHorizontal } from "lucide-react"
+import { ArrowUpDown, ChevronDown, Delete, MoreHorizontal } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { Checkbox } from "@/components/ui/checkbox"
@@ -43,6 +42,7 @@ import { useUserStore } from "@/store/store"
 import { User } from "@/types/User"
 import { ChangeStatus } from "./ChangeStatus"
 import { toast } from "sonner"
+import { useCallback, useMemo, useState } from "react"
 
 
 export interface lead {
@@ -90,171 +90,181 @@ export default function MassegesTable() {
 queryClient.invalidateQueries({ queryKey: ["MassegesKey"] })
     }
     })
-  const columns: ColumnDef<lead , any>[] = [
-   {
-     id: "select",
-     header: ({ table }) => (
-       <Checkbox
-         checked={
-           table.getIsAllPageRowsSelected() ||
-           (table.getIsSomePageRowsSelected() && "indeterminate")
-         }
-         onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
-         aria-label="Select all"
-       />
-     ),
-     cell: ({ row }) => (
-       <Checkbox
-         checked={row.getIsSelected()}
-         onCheckedChange={(value) => row.toggleSelected(!!value)}
-         aria-label="Select row"
-       />
-     ),
-     enableSorting: false,
-     enableHiding: false,
-   },
-   {
-     accessorKey: "UserName",
-     header: ({ column }) => {
-       return (
-         <Button
-           variant="ghost"
-           className="font-semibold"
-           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-         >
-           userName
-                     <ArrowUpDown />
-         </Button>
-       )
-     },
-     cell: ({ row }) => <div className="lowercase flex gap-2 items-center">
-       <Image src={row?.original?.userSender?.image || ""} alt="" width={50} height={50} className="w-8 h-8 rounded-md" />
-       <span>{row?.original?.userSender?.userName || ""}</span>
-     </div>,
-   },
-   {
-     accessorKey: "Phone",
-     header: ({ column }) => {
-       return (
-         <Button
-           variant="ghost"
-           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-         >
-           Phone
-         </Button>
-       )
-     },
-     cell: ({ row }) => <div className="lowercase">{row.original?.userSender?.phone}</div>,
-   },
-   {
-     accessorKey: "createdAt",
-     header: ({ column }) => {
-       return (
-         <Button
-         variant="ghost"
-         className="w-10 font-semibold"
-         onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-         >
-           Added To
-         </Button>
-       )
-     },
-     cell: ({ row }) => <div className="lowercase w-10">{new Date().toLocaleDateString()}</div>,
-   },
-   {
-     accessorKey: "status",
-     header: ({ column }) => {
-       return (
-         <Button
-           variant="ghost"
-           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
-         >
-           status
-         </Button>
-       )
-     },
-     cell: ({ row }) => {
-       const rower = row.original;
-       const con:any = rower.status === "Spam" ? "destructive" : rower.status === "not Replied" ? "outline" : "defualt"
-       return <Badge className="font-semibold" variant={con}>{row.original?.status}</Badge>
-     },
-   },
-   {
-       accessorKey: "Product",
-       header: "product",
+
+    const memoData = useMemo(() => data ?? [], [data])
+
+const handleDelete = useCallback((id:string) => {
+  DeleteLead.mutate(id)
+}, [DeleteLead])
+
+
+
+const columns: ColumnDef<lead , any>[] = useMemo(() =>  [
+     {
+       id: "select",
+       header: ({ table }) => (
+         <Checkbox
+           checked={
+             table.getIsAllPageRowsSelected() ||
+             (table.getIsSomePageRowsSelected() && "indeterminate")
+           }
+           onCheckedChange={(value) => table.toggleAllPageRowsSelected(!!value)}
+           aria-label="Select all"
+         />
+       ),
        cell: ({ row }) => (
-        <>
-           {row?.original?.productId ? <Badge className="font-semibold" variant={"default"}><Link href={`/realEstats/${row.original?.productId}`}>show product</Link></Badge> : 
-           <Badge className="font-semibold" variant={"outline"}>No product</Badge>}
-        </>
-         ),
-     },
-     {
-       accessorKey: "Massege",
-       header: () => <div className="text-right w-8 font-semibold">Massege</div>,
-       cell: ({ row }) => {
-       const rower = row.original; 
-       const massege = rower.massege.split(" ").slice(0,20).join(" ");
-       const threedots = rower.massege.split(" ").length >= 20 && "..." ;
-       return (
-          <p>{massege}{threedots}</p>
-       )
-       },
-     },
-     {
-       id: "actions",
+         <Checkbox
+           checked={row.getIsSelected()}
+           onCheckedChange={(value) => row.toggleSelected(!!value)}
+           aria-label="Select row"
+         />
+       ),
+       enableSorting: false,
        enableHiding: false,
-       cell: ({ row }) => {
-         const payment = row.original
-   
+     },
+     {
+       accessorKey: "UserName",
+       header: ({ column }) => {
          return (
-           <DropdownMenu>
-             <DropdownMenuTrigger  asChild>
-               <Button variant="ghost" className="h-8 w-8 p-0">
-                 <span className="sr-only">Open menu</span>
-                 <MoreHorizontal />
-               </Button>
-             </DropdownMenuTrigger>
-             <DropdownMenuContent align="end">
-               {/* <DropdownMenuSeparator /> */}
-               <DropdownMenuItem>
-                 <Link href={`masseges/${payment?.id}`}>
-                 View Massege
-                 </Link>
-               </DropdownMenuItem>
-               <DropdownMenuItem>
-                 <Link href={`/realEstats/${payment.productId}`}>
-                 View Real Estate
-                 </Link>
-               </DropdownMenuItem>
-              <ChangeStatus   id={payment.id} />
-               <DropdownMenuItem
-                 onClick={() => DeleteLead.mutate(payment.id)}
-                 className="text-red-500"
-               >
-                 Delete
-               </DropdownMenuItem>
-             </DropdownMenuContent>
-           </DropdownMenu>
+           <Button
+             variant="ghost"
+             className="font-semibold"
+             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+           >
+             userName
+                       <ArrowUpDown />
+           </Button>
          )
        },
+       cell: ({ row }) => <div className="lowercase flex gap-2 items-center">
+         <Image src={row?.original?.userSender?.image || ""} alt="" width={50} height={50} className="w-8 h-8 rounded-md" />
+         <span>{row?.original?.userSender?.userName || ""}</span>
+       </div>,
      },
- ]
+     {
+       accessorKey: "Phone",
+       header: ({ column }) => {
+         return (
+           <Button
+             variant="ghost"
+             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+           >
+             Phone
+           </Button>
+         )
+       },
+       cell: ({ row }) => <div className="lowercase">{row.original?.userSender?.phone}</div>,
+     },
+     {
+       accessorKey: "createdAt",
+       header: ({ column }) => {
+         return (
+           <Button
+           variant="ghost"
+           className="w-10 font-semibold"
+           onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+           >
+             Added To
+           </Button>
+         )
+       },
+       cell: ({ row }) => <div className="lowercase w-10">{new Date().toLocaleDateString()}</div>,
+     },
+     {
+       accessorKey: "status",
+       header: ({ column }) => {
+         return (
+           <Button
+             variant="ghost"
+             onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
+           >
+             status
+           </Button>
+         )
+       },
+       cell: ({ row }) => {
+         const rower = row.original;
+         const con:any = rower.status === "Spam" ? "destructive" : rower.status === "not Replied" ? "outline" : "defualt"
+         return <Badge className="font-semibold" variant={con}>{row.original?.status}</Badge>
+       },
+     },
+     {
+         accessorKey: "Product",
+         header: "product",
+         cell: ({ row }) => (
+          <>
+             {row?.original?.productId ? <Badge className="font-semibold" variant={"default"}><Link href={`/realEstats/${row.original?.productId}`}>show product</Link></Badge> : 
+             <Badge className="font-semibold" variant={"outline"}>No product</Badge>}
+          </>
+           ),
+       },
+       {
+         accessorKey: "Massege",
+         header: () => <div className="text-right w-8 font-semibold">Massege</div>,
+         cell: ({ row }) => {
+         const rower = row.original; 
+         const massege = rower.massege.split(" ").slice(0,20).join(" ");
+         const threedots = rower.massege.split(" ").length >= 20 && "..." ;
+         return (
+            <p>{massege}{threedots}</p>
+         )
+         },
+       },
+       {
+         id: "actions",
+         enableHiding: false,
+         cell: ({ row }) => {
+           const payment = row.original
+     
+           return (
+             <DropdownMenu>
+               <DropdownMenuTrigger  asChild>
+                 <Button variant="ghost" className="h-8 w-8 p-0">
+                   <span className="sr-only">Open menu</span>
+                   <MoreHorizontal />
+                 </Button>
+               </DropdownMenuTrigger>
+               <DropdownMenuContent align="end">
+                 {/* <DropdownMenuSeparator /> */}
+                 <DropdownMenuItem>
+                   <Link href={`masseges/${payment?.id}`}>
+                   View Massege
+                   </Link>
+                 </DropdownMenuItem>
+                 <DropdownMenuItem>
+                   <Link href={`/realEstats/${payment.productId}`}>
+                   View Real Estate
+                   </Link>
+                 </DropdownMenuItem>
+                <ChangeStatus   id={payment.id} />
+                 <DropdownMenuItem
+                   onClick={() => handleDelete(payment.id)}
+                   className="text-red-500"
+                 >
+                   Delete
+                 </DropdownMenuItem>
+               </DropdownMenuContent>
+             </DropdownMenu>
+           )
+         },
+       },
+   ]
+  
+  , [handleDelete])
     const user = useUserStore((state) => state.user);
 
 
 
   const router = useRouter();
-  const [sorting, setSorting] = React.useState<SortingState>([])
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
+  const [sorting, setSorting] = useState<SortingState>([])
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>(
     []
   )
-  const [columnVisibility, setColumnVisibility] =
-    React.useState<VisibilityState>({})
-  const [rowSelection, setRowSelection] = React.useState({})
+  const [columnVisibility, setColumnVisibility] =useState<VisibilityState>({})
+  const [rowSelection, setRowSelection] = useState({})
 
   const table = useReactTable({
-    data : data ?? [],
+    data : memoData,
     columns,
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,

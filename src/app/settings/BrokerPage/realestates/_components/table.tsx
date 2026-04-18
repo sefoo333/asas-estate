@@ -1,6 +1,5 @@
 "use client"
 
-import * as React from "react"
 import {
   ColumnDef,
   ColumnFiltersState,
@@ -45,6 +44,7 @@ import DeleteButton from "@/app/settings/Account/_components/DeleteButton"
 import { useUserStore } from "@/store/store"
 import { useMutation, useQuery } from "@tanstack/react-query"
 import { toast } from "sonner"
+import { useCallback, useMemo, useState } from "react"
 
 
 
@@ -73,7 +73,17 @@ location.reload()
   }
   })
 
- const columns: ColumnDef<RealEstate , any>[] = [
+
+
+  
+  const handleDelete = useCallback((ids:any) => {
+
+DeleteProperties.mutate({ids: ids})
+
+  }, [DeleteProperties])
+  
+
+  const columns: ColumnDef<RealEstate , any>[] = useMemo(() =>  [
     {
       id: "select",
       header: ({ table }) => (
@@ -203,9 +213,9 @@ location.reload()
           )
         },
       },
-  ]
+  ], [handleDelete])
 
-  
+
 
   const user = useUserStore((state) => state.user)
   // const {data}:any = useGetProducts("",user?.id);
@@ -220,19 +230,23 @@ location.reload()
   const {data , isLoading} = useQuery({
     queryKey:["fetchProducts"],
     queryFn:fetchData,
-  refetchOnWindowFocus:false
+  refetchOnWindowFocus:false,
+  enabled:user?.id !== undefined,
   })
 
-  const [sorting, setSorting] = React.useState<SortingState>([])
-  const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
+      const memoData = useMemo(() => data, [data])
+
+
+  const [sorting, setSorting] = useState<SortingState>([])
+  const [columnFilters, setColumnFilters] = useState<ColumnFiltersState>(
     []
   )
   const [columnVisibility, setColumnVisibility] =
-    React.useState<VisibilityState>({})
-  const [rowSelection, setRowSelection] = React.useState({})
+    useState<VisibilityState>({})
+  const [rowSelection, setRowSelection] = useState({})
 
   const table = useReactTable({
-    data : data ?? [],
+    data : memoData ?? [],
     columns,
     onSortingChange: setSorting,
     onColumnFiltersChange: setColumnFilters,
