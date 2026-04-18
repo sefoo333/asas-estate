@@ -15,7 +15,7 @@ function SelectCurrency({showList , setShowList,index , setIndex , currencies}:{
         </div>
         <IoIosArrowDown onClick={() => setShowList(!showList)} />
 
-                           <div className={`list absolute flex flex-col gap-1 -bottom-30 z-9 transition-all left-1/2 -translate-x-1/2 w-full bg-white rounded-md shadow-lg p-2 ${showList ? "block" : "hidden"}`}>
+                           <div className={`list absolute flex flex-col gap-1 -bottom-30 z-9 transition-all left-1/2 -translate-x-1/2 w-full  dark:!bg-gray-800  dark:!border-gray-600  bg-white rounded-md shadow-lg p-2 ${showList ? "block" : "hidden"}`}>
 
                             {currencies.map((e,a) => (
                                 <div key={a} className="item flex cursor-pointer transiton-all hover:bg-slate-50 p-1  items-center gap-2" onClick={() => {
