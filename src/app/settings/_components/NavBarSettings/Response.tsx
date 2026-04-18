@@ -91,7 +91,7 @@ return test.json()
       })
 
   return (
-    <Dialog open={openWindow}>
+    <Dialog onOpenChange={setOpenWindow} open={openWindow}>
       <form>
         <DialogContent className="sm:max-w-2xl">
           <DialogHeader>
