@@ -61,7 +61,12 @@ const router = useRouter();
         onSuccess: (data) => {
             
             toast.success("Property created 😀")
-router.push(`/realEstats/${data.data._id}`)
+if (data?.data?.id){
+  router.push(`/realEstats/${data.data.id}`)
+} else {
+  router.push("/settings/BrokerPage/realestates");
+}
+            
         },
         onError:(error) => {
           toast.error("Error creating real estate")
