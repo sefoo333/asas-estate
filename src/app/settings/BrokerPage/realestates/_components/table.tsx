@@ -43,7 +43,7 @@ import { useRouter } from "next/navigation"
 import Link from "next/link"
 import DeleteButton from "@/app/settings/Account/_components/DeleteButton"
 import { useUserStore } from "@/store/store"
-import { useMutation } from "@tanstack/react-query"
+import { useMutation, useQuery } from "@tanstack/react-query"
 import { toast } from "sonner"
 
 
@@ -208,7 +208,21 @@ location.reload()
   
 
   const user = useUserStore((state) => state.user)
-  const {data}:any = useGetProducts("",user?.id)
+  // const {data}:any = useGetProducts("",user?.id);
+
+
+    const fetchData = async () => {
+    const res = await fetch(`/api/RealEstats/RealEstates?idBroker=${user?.id}`)
+    const json = await res.json()
+   return json?.data
+  }
+  
+  const {data , isLoading} = useQuery({
+    queryKey:["fetchProducts"],
+    queryFn:fetchData,
+  refetchOnWindowFocus:false
+  })
+
   const [sorting, setSorting] = React.useState<SortingState>([])
   const [columnFilters, setColumnFilters] = React.useState<ColumnFiltersState>(
     []
