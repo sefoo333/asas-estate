@@ -1,5 +1,5 @@
 "use client"
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
 import Image from 'next/image'
@@ -16,12 +16,24 @@ import ChangeImage from '../Account/_components/ChangeImage';
 import { SelectCountryT } from '../Account/_components/SelectCountryT';
 import Languages from '../BrokerPage/Broker/_components/Languages';
 import { Kbd } from '@/components/ui/kbd';
+import { useRouter } from 'next/navigation';
 
 
 
 function page() {
     const user = useUserStore((state) => state.user);
     
+const router = useRouter();
+    useEffect(() => {
+    
+      if (!user) return; 
+
+      if (user?.role === "Broker" || user?.role === "Admin") {
+        toast.error("Access Denied");
+        router.back();
+      }
+    }, [user]);
+
     const CreateBroker = async (data:any) => {
     const test = await fetch(`/api/brokers/createBroker` , {
         method:"POST",
@@ -41,9 +53,10 @@ function page() {
         mutationFn: CreateBroker,
         onSuccess: (data) => {
             toast.success("request sent !")
+            localStorage.setItem("isSent",JSON.stringify(true));
         },
         onError:(error) => {
-          toast.error("Error creating real estate")
+          toast.error("Error creating a request")
         }
     })
 
@@ -54,6 +67,16 @@ function page() {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  useEffect(() => {
+    const getSent = localStorage.getItem("isSent") || false;
+const sent = JSON.parse(getSent);
+if (sent){
+              toast.error("you are aleardy sent !")
+              router.back();
+}
+  },[])
+
 
 
   const [myData,setData] = useState({image:user?.image});

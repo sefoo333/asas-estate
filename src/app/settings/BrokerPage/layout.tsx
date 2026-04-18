@@ -27,10 +27,12 @@ function layout({children}:{children:React.ReactNode}) {
 });
 
 useEffect(() => {
-  if (isLoading) return; // ⛔ استنى
+  if (isLoading) return;
 
-  if (!data && data?.role !== "Broker" || data?.role !== "Admin") {
-        toast.error("Access Denied")
+  if (!data) return; 
+
+  if (data.role !== "Broker" && data.role !== "Admin") {
+    toast.error("Access Denied");
     router.replace("/");
   }
 }, [isLoading, data]);
