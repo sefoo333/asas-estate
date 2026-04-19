@@ -78,7 +78,7 @@ await (await cookies()).set("token" ,token)
        userName: getUser?.userName,
         role:getUser?.role,
         id:getUser?.id,
-    },process.env.JWT_SECRET_KEY as string , {expiresIn:"1d"});
+    },process.env.JWT_SECRET_KEY as string , {expiresIn:"5d"});
 
 await (await cookies()).set("token" ,token)
 

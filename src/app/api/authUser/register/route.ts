@@ -69,7 +69,7 @@ export async function POST(req:Request) {
         userName,
 id:user?.id,
         role:"user",
-    },process.env.JWT_SECRET_KEY as string , {expiresIn:"1d"});
+    },process.env.JWT_SECRET_KEY as string , {expiresIn:"5d"});
 
 await (await cookies()).set("token" ,token)
 
