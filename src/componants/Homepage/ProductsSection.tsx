@@ -11,7 +11,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 
 function Products() {
 
-  const {data} = useGetProducts("All",4);
+  const {data} = useGetProducts("All","","4");
 
   return (
     <div className="parent max-md:mt-35 mt-25 flex justify-center ">
