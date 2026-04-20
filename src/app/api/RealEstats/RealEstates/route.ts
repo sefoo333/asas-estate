@@ -5,6 +5,7 @@ import { NextResponse } from "next/server";
 export async function GET(request:Request){
     const { searchParams } = new URL(request.url);
     const type = searchParams.get("type") || "Sale";
+    const limit:any = searchParams.get("limit") || 4;
 
     
     let realEstates;
@@ -14,7 +15,8 @@ export async function GET(request:Request){
     if (id && id !== undefined) {
         realEstates = await prisma.realEstate.findMany({
                where:{userId:id},
-               include:{user:true}
+               include:{user:true},
+                                         take:limit ? parseInt(limit) : 4
            });
     
         }
@@ -24,20 +26,25 @@ if (!id){
     if (type === "All"){
  realEstates = await prisma.realEstate.findMany({
         where:{TransactionType:{in:["Sale","Rent"]}},
-                       include:{user:true}
+        // omit:{images:true},
+                       include:{user:true},
+                                                 take:limit ? parseInt(limit) : 4
     });
     
 }else if (type === "com"){
     realEstates = await prisma.realEstate.findMany({
            where:{type:{startsWith:"b_"}},
-                          include:{user:true}
+                          include:{user:true},
+                          take:limit ? parseInt(limit) : 4
 
        });
 
 } else {
  realEstates = await prisma.realEstate.findMany({
         where:{TransactionType:type},
-                       include:{user:true}
+                       include:{user:true},
+                                                 take:limit ? parseInt(limit) : 4
+
     });
 }
 }

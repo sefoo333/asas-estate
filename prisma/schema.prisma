@@ -89,11 +89,12 @@ model RealEstate {
   features     Json[]
   TransactionType String
   status String? @default("active")
-
   user Broker? @relation(fields: [userId], references: [id], onDelete: Cascade)
   favourites Favourites[]
 
   leads Lead[]
+
+@@index([location, type, TransactionType, price])
 }
 
 model Lead {

@@ -52,7 +52,7 @@ function Product({product , screen = false,className}:{product:Product ,screen?:
       New - 5 hours
     </span> */}
     
-                         <Image  className="image rounded-t-xl rounded-xl w-full h-full bg-transparent " src={product?.images[0]} alt="" width={300} height={200} />
+                         <Image  className="image rounded-t-xl rounded-xl w-full h-full bg-transparent " src={product?.images?.[0] || "/Heroo.jpg"} alt="" width={300} height={200} />
                        </div>
                         <div className="box py-4 px-1">
                             <div className="flex justify-between items-center mt-1 max-xl:flex-col-reverse max-xl:items-start">
