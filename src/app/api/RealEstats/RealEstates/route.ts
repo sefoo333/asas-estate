@@ -6,6 +6,7 @@ export async function GET(request:Request){
     const { searchParams } = new URL(request.url);
     const type = searchParams.get("type") || "Sale";
     const limit:any = searchParams.get("limit") || 4;
+    const landing:any = searchParams.get("landing") || false;
 
     
     let realEstates;
@@ -26,7 +27,7 @@ if (!id){
     if (type === "All"){
  realEstates = await prisma.realEstate.findMany({
         where:{TransactionType:{in:["Sale","Rent"]}},
-        // omit:{images:true},
+         omit:landing ?{images:true,description:true,features:true} : {}, 
                        include:{user:true},
                                                  take:limit ? parseInt(limit) : 4
     });
@@ -34,6 +35,7 @@ if (!id){
 }else if (type === "com"){
     realEstates = await prisma.realEstate.findMany({
            where:{type:{startsWith:"b_"}},
+           
                           include:{user:true},
                           take:limit ? parseInt(limit) : 4
 

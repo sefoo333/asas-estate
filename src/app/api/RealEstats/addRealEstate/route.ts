@@ -31,7 +31,6 @@ export async function POST(request: Request) {
       return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
     }
 
-    // ✅ تأكد إن الـ required fields موجودة
     if (!title || !description || !price || !location || !type || !currency || !TransactionType) {
       return NextResponse.json({ message: "All fields are required" }, { status: 400 });
     }
@@ -44,15 +43,16 @@ export async function POST(request: Request) {
         title,
         description,
         userId: unLookToken?.id,
-        price: parseFloat(price),        // ✅ parseFloat أأمن من +price
+        price: parseFloat(price),       
         location,
-        beds: +beds || 0,                // ✅ fallback لـ 0 لو undefined
+        beds: +beds || 0,                
         Baths: +Baths || 0,
         Sqft: +Sqft || 0,
         type,
         currency,
-        features: features || [],        // ✅ fallback لـ array فاضي
-        images: images || [],            // ✅ مش undefined
+        thumbnail: images && images.length > 0 ? images[0] : null,
+        features: features || [],       
+        images: images || [],            
         TransactionType,
       },
    include: { user: true }

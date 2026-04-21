@@ -150,6 +150,7 @@ export const RealEstateScalarFieldEnum = {
   images: 'images',
   features: 'features',
   TransactionType: 'TransactionType',
+  thumbnail: 'thumbnail',
   status: 'status'
 } as const
 

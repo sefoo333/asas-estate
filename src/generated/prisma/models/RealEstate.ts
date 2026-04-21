@@ -55,6 +55,7 @@ export type RealEstateMinAggregateOutputType = {
   createdAt: Date | null
   UpdatedAt: Date | null
   TransactionType: string | null
+  thumbnail: string | null
   status: string | null
 }
 
@@ -73,6 +74,7 @@ export type RealEstateMaxAggregateOutputType = {
   createdAt: Date | null
   UpdatedAt: Date | null
   TransactionType: string | null
+  thumbnail: string | null
   status: string | null
 }
 
@@ -93,6 +95,7 @@ export type RealEstateCountAggregateOutputType = {
   images: number
   features: number
   TransactionType: number
+  thumbnail: number
   status: number
   _all: number
 }
@@ -127,6 +130,7 @@ export type RealEstateMinAggregateInputType = {
   createdAt?: true
   UpdatedAt?: true
   TransactionType?: true
+  thumbnail?: true
   status?: true
 }
 
@@ -145,6 +149,7 @@ export type RealEstateMaxAggregateInputType = {
   createdAt?: true
   UpdatedAt?: true
   TransactionType?: true
+  thumbnail?: true
   status?: true
 }
 
@@ -165,6 +170,7 @@ export type RealEstateCountAggregateInputType = {
   images?: true
   features?: true
   TransactionType?: true
+  thumbnail?: true
   status?: true
   _all?: true
 }
@@ -272,6 +278,7 @@ export type RealEstateGroupByOutputType = {
   images: runtime.JsonValue[]
   features: runtime.JsonValue[]
   TransactionType: string
+  thumbnail: string | null
   status: string | null
   _count: RealEstateCountAggregateOutputType | null
   _avg: RealEstateAvgAggregateOutputType | null
@@ -315,6 +322,7 @@ export type RealEstateWhereInput = {
   images?: Prisma.JsonNullableListFilter<"RealEstate">
   features?: Prisma.JsonNullableListFilter<"RealEstate">
   TransactionType?: Prisma.StringFilter<"RealEstate"> | string
+  thumbnail?: Prisma.StringNullableFilter<"RealEstate"> | string | null
   status?: Prisma.StringNullableFilter<"RealEstate"> | string | null
   user?: Prisma.XOR<Prisma.BrokerNullableScalarRelationFilter, Prisma.BrokerWhereInput> | null
   favourites?: Prisma.FavouritesListRelationFilter
@@ -338,6 +346,7 @@ export type RealEstateOrderByWithRelationInput = {
   images?: Prisma.SortOrder
   features?: Prisma.SortOrder
   TransactionType?: Prisma.SortOrder
+  thumbnail?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrderInput | Prisma.SortOrder
   user?: Prisma.BrokerOrderByWithRelationInput
   favourites?: Prisma.FavouritesOrderByRelationAggregateInput
@@ -364,6 +373,7 @@ export type RealEstateWhereUniqueInput = Prisma.AtLeast<{
   images?: Prisma.JsonNullableListFilter<"RealEstate">
   features?: Prisma.JsonNullableListFilter<"RealEstate">
   TransactionType?: Prisma.StringFilter<"RealEstate"> | string
+  thumbnail?: Prisma.StringNullableFilter<"RealEstate"> | string | null
   status?: Prisma.StringNullableFilter<"RealEstate"> | string | null
   user?: Prisma.XOR<Prisma.BrokerNullableScalarRelationFilter, Prisma.BrokerWhereInput> | null
   favourites?: Prisma.FavouritesListRelationFilter
@@ -387,6 +397,7 @@ export type RealEstateOrderByWithAggregationInput = {
   images?: Prisma.SortOrder
   features?: Prisma.SortOrder
   TransactionType?: Prisma.SortOrder
+  thumbnail?: Prisma.SortOrderInput | Prisma.SortOrder
   status?: Prisma.SortOrderInput | Prisma.SortOrder
   _count?: Prisma.RealEstateCountOrderByAggregateInput
   _avg?: Prisma.RealEstateAvgOrderByAggregateInput
@@ -415,6 +426,7 @@ export type RealEstateScalarWhereWithAggregatesInput = {
   images?: Prisma.JsonNullableListFilter<"RealEstate">
   features?: Prisma.JsonNullableListFilter<"RealEstate">
   TransactionType?: Prisma.StringWithAggregatesFilter<"RealEstate"> | string
+  thumbnail?: Prisma.StringNullableWithAggregatesFilter<"RealEstate"> | string | null
   status?: Prisma.StringNullableWithAggregatesFilter<"RealEstate"> | string | null
 }
 
@@ -434,6 +446,7 @@ export type RealEstateCreateInput = {
   images?: Prisma.RealEstateCreateimagesInput | runtime.InputJsonValue[]
   features?: Prisma.RealEstateCreatefeaturesInput | runtime.InputJsonValue[]
   TransactionType: string
+  thumbnail?: string | null
   status?: string | null
   user?: Prisma.BrokerCreateNestedOneWithoutRealEstatesInput
   favourites?: Prisma.FavouritesCreateNestedManyWithoutRealEstateInput
@@ -457,6 +470,7 @@ export type RealEstateUncheckedCreateInput = {
   images?: Prisma.RealEstateCreateimagesInput | runtime.InputJsonValue[]
   features?: Prisma.RealEstateCreatefeaturesInput | runtime.InputJsonValue[]
   TransactionType: string
+  thumbnail?: string | null
   status?: string | null
   favourites?: Prisma.FavouritesUncheckedCreateNestedManyWithoutRealEstateInput
   leads?: Prisma.LeadUncheckedCreateNestedManyWithoutProductInput
@@ -478,6 +492,7 @@ export type RealEstateUpdateInput = {
   images?: Prisma.RealEstateUpdateimagesInput | runtime.InputJsonValue[]
   features?: Prisma.RealEstateUpdatefeaturesInput | runtime.InputJsonValue[]
   TransactionType?: Prisma.StringFieldUpdateOperationsInput | string
+  thumbnail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   user?: Prisma.BrokerUpdateOneWithoutRealEstatesNestedInput
   favourites?: Prisma.FavouritesUpdateManyWithoutRealEstateNestedInput
@@ -501,6 +516,7 @@ export type RealEstateUncheckedUpdateInput = {
   images?: Prisma.RealEstateUpdateimagesInput | runtime.InputJsonValue[]
   features?: Prisma.RealEstateUpdatefeaturesInput | runtime.InputJsonValue[]
   TransactionType?: Prisma.StringFieldUpdateOperationsInput | string
+  thumbnail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   favourites?: Prisma.FavouritesUncheckedUpdateManyWithoutRealEstateNestedInput
   leads?: Prisma.LeadUncheckedUpdateManyWithoutProductNestedInput
@@ -523,6 +539,7 @@ export type RealEstateCreateManyInput = {
   images?: Prisma.RealEstateCreateimagesInput | runtime.InputJsonValue[]
   features?: Prisma.RealEstateCreatefeaturesInput | runtime.InputJsonValue[]
   TransactionType: string
+  thumbnail?: string | null
   status?: string | null
 }
 
@@ -542,6 +559,7 @@ export type RealEstateUpdateManyMutationInput = {
   images?: Prisma.RealEstateUpdateimagesInput | runtime.InputJsonValue[]
   features?: Prisma.RealEstateUpdatefeaturesInput | runtime.InputJsonValue[]
   TransactionType?: Prisma.StringFieldUpdateOperationsInput | string
+  thumbnail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
@@ -562,6 +580,7 @@ export type RealEstateUncheckedUpdateManyInput = {
   images?: Prisma.RealEstateUpdateimagesInput | runtime.InputJsonValue[]
   features?: Prisma.RealEstateUpdatefeaturesInput | runtime.InputJsonValue[]
   TransactionType?: Prisma.StringFieldUpdateOperationsInput | string
+  thumbnail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
@@ -607,6 +626,7 @@ export type RealEstateCountOrderByAggregateInput = {
   images?: Prisma.SortOrder
   features?: Prisma.SortOrder
   TransactionType?: Prisma.SortOrder
+  thumbnail?: Prisma.SortOrder
   status?: Prisma.SortOrder
 }
 
@@ -632,6 +652,7 @@ export type RealEstateMaxOrderByAggregateInput = {
   createdAt?: Prisma.SortOrder
   UpdatedAt?: Prisma.SortOrder
   TransactionType?: Prisma.SortOrder
+  thumbnail?: Prisma.SortOrder
   status?: Prisma.SortOrder
 }
 
@@ -650,6 +671,7 @@ export type RealEstateMinOrderByAggregateInput = {
   createdAt?: Prisma.SortOrder
   UpdatedAt?: Prisma.SortOrder
   TransactionType?: Prisma.SortOrder
+  thumbnail?: Prisma.SortOrder
   status?: Prisma.SortOrder
 }
 
@@ -784,6 +806,7 @@ export type RealEstateCreateWithoutUserInput = {
   images?: Prisma.RealEstateCreateimagesInput | runtime.InputJsonValue[]
   features?: Prisma.RealEstateCreatefeaturesInput | runtime.InputJsonValue[]
   TransactionType: string
+  thumbnail?: string | null
   status?: string | null
   favourites?: Prisma.FavouritesCreateNestedManyWithoutRealEstateInput
   leads?: Prisma.LeadCreateNestedManyWithoutProductInput
@@ -805,6 +828,7 @@ export type RealEstateUncheckedCreateWithoutUserInput = {
   images?: Prisma.RealEstateCreateimagesInput | runtime.InputJsonValue[]
   features?: Prisma.RealEstateCreatefeaturesInput | runtime.InputJsonValue[]
   TransactionType: string
+  thumbnail?: string | null
   status?: string | null
   favourites?: Prisma.FavouritesUncheckedCreateNestedManyWithoutRealEstateInput
   leads?: Prisma.LeadUncheckedCreateNestedManyWithoutProductInput
@@ -856,6 +880,7 @@ export type RealEstateScalarWhereInput = {
   images?: Prisma.JsonNullableListFilter<"RealEstate">
   features?: Prisma.JsonNullableListFilter<"RealEstate">
   TransactionType?: Prisma.StringFilter<"RealEstate"> | string
+  thumbnail?: Prisma.StringNullableFilter<"RealEstate"> | string | null
   status?: Prisma.StringNullableFilter<"RealEstate"> | string | null
 }
 
@@ -875,6 +900,7 @@ export type RealEstateCreateWithoutLeadsInput = {
   images?: Prisma.RealEstateCreateimagesInput | runtime.InputJsonValue[]
   features?: Prisma.RealEstateCreatefeaturesInput | runtime.InputJsonValue[]
   TransactionType: string
+  thumbnail?: string | null
   status?: string | null
   user?: Prisma.BrokerCreateNestedOneWithoutRealEstatesInput
   favourites?: Prisma.FavouritesCreateNestedManyWithoutRealEstateInput
@@ -897,6 +923,7 @@ export type RealEstateUncheckedCreateWithoutLeadsInput = {
   images?: Prisma.RealEstateCreateimagesInput | runtime.InputJsonValue[]
   features?: Prisma.RealEstateCreatefeaturesInput | runtime.InputJsonValue[]
   TransactionType: string
+  thumbnail?: string | null
   status?: string | null
   favourites?: Prisma.FavouritesUncheckedCreateNestedManyWithoutRealEstateInput
 }
@@ -933,6 +960,7 @@ export type RealEstateUpdateWithoutLeadsInput = {
   images?: Prisma.RealEstateUpdateimagesInput | runtime.InputJsonValue[]
   features?: Prisma.RealEstateUpdatefeaturesInput | runtime.InputJsonValue[]
   TransactionType?: Prisma.StringFieldUpdateOperationsInput | string
+  thumbnail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   user?: Prisma.BrokerUpdateOneWithoutRealEstatesNestedInput
   favourites?: Prisma.FavouritesUpdateManyWithoutRealEstateNestedInput
@@ -955,6 +983,7 @@ export type RealEstateUncheckedUpdateWithoutLeadsInput = {
   images?: Prisma.RealEstateUpdateimagesInput | runtime.InputJsonValue[]
   features?: Prisma.RealEstateUpdatefeaturesInput | runtime.InputJsonValue[]
   TransactionType?: Prisma.StringFieldUpdateOperationsInput | string
+  thumbnail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   favourites?: Prisma.FavouritesUncheckedUpdateManyWithoutRealEstateNestedInput
 }
@@ -975,6 +1004,7 @@ export type RealEstateCreateWithoutFavouritesInput = {
   images?: Prisma.RealEstateCreateimagesInput | runtime.InputJsonValue[]
   features?: Prisma.RealEstateCreatefeaturesInput | runtime.InputJsonValue[]
   TransactionType: string
+  thumbnail?: string | null
   status?: string | null
   user?: Prisma.BrokerCreateNestedOneWithoutRealEstatesInput
   leads?: Prisma.LeadCreateNestedManyWithoutProductInput
@@ -997,6 +1027,7 @@ export type RealEstateUncheckedCreateWithoutFavouritesInput = {
   images?: Prisma.RealEstateCreateimagesInput | runtime.InputJsonValue[]
   features?: Prisma.RealEstateCreatefeaturesInput | runtime.InputJsonValue[]
   TransactionType: string
+  thumbnail?: string | null
   status?: string | null
   leads?: Prisma.LeadUncheckedCreateNestedManyWithoutProductInput
 }
@@ -1033,6 +1064,7 @@ export type RealEstateUpdateWithoutFavouritesInput = {
   images?: Prisma.RealEstateUpdateimagesInput | runtime.InputJsonValue[]
   features?: Prisma.RealEstateUpdatefeaturesInput | runtime.InputJsonValue[]
   TransactionType?: Prisma.StringFieldUpdateOperationsInput | string
+  thumbnail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   user?: Prisma.BrokerUpdateOneWithoutRealEstatesNestedInput
   leads?: Prisma.LeadUpdateManyWithoutProductNestedInput
@@ -1055,6 +1087,7 @@ export type RealEstateUncheckedUpdateWithoutFavouritesInput = {
   images?: Prisma.RealEstateUpdateimagesInput | runtime.InputJsonValue[]
   features?: Prisma.RealEstateUpdatefeaturesInput | runtime.InputJsonValue[]
   TransactionType?: Prisma.StringFieldUpdateOperationsInput | string
+  thumbnail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   leads?: Prisma.LeadUncheckedUpdateManyWithoutProductNestedInput
 }
@@ -1075,6 +1108,7 @@ export type RealEstateCreateManyUserInput = {
   images?: Prisma.RealEstateCreateimagesInput | runtime.InputJsonValue[]
   features?: Prisma.RealEstateCreatefeaturesInput | runtime.InputJsonValue[]
   TransactionType: string
+  thumbnail?: string | null
   status?: string | null
 }
 
@@ -1094,6 +1128,7 @@ export type RealEstateUpdateWithoutUserInput = {
   images?: Prisma.RealEstateUpdateimagesInput | runtime.InputJsonValue[]
   features?: Prisma.RealEstateUpdatefeaturesInput | runtime.InputJsonValue[]
   TransactionType?: Prisma.StringFieldUpdateOperationsInput | string
+  thumbnail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   favourites?: Prisma.FavouritesUpdateManyWithoutRealEstateNestedInput
   leads?: Prisma.LeadUpdateManyWithoutProductNestedInput
@@ -1115,6 +1150,7 @@ export type RealEstateUncheckedUpdateWithoutUserInput = {
   images?: Prisma.RealEstateUpdateimagesInput | runtime.InputJsonValue[]
   features?: Prisma.RealEstateUpdatefeaturesInput | runtime.InputJsonValue[]
   TransactionType?: Prisma.StringFieldUpdateOperationsInput | string
+  thumbnail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   favourites?: Prisma.FavouritesUncheckedUpdateManyWithoutRealEstateNestedInput
   leads?: Prisma.LeadUncheckedUpdateManyWithoutProductNestedInput
@@ -1136,6 +1172,7 @@ export type RealEstateUncheckedUpdateManyWithoutUserInput = {
   images?: Prisma.RealEstateUpdateimagesInput | runtime.InputJsonValue[]
   features?: Prisma.RealEstateUpdatefeaturesInput | runtime.InputJsonValue[]
   TransactionType?: Prisma.StringFieldUpdateOperationsInput | string
+  thumbnail?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
   status?: Prisma.NullableStringFieldUpdateOperationsInput | string | null
 }
 
@@ -1196,6 +1233,7 @@ export type RealEstateSelect<ExtArgs extends runtime.Types.Extensions.InternalAr
   images?: boolean
   features?: boolean
   TransactionType?: boolean
+  thumbnail?: boolean
   status?: boolean
   user?: boolean | Prisma.RealEstate$userArgs<ExtArgs>
   favourites?: boolean | Prisma.RealEstate$favouritesArgs<ExtArgs>
@@ -1220,6 +1258,7 @@ export type RealEstateSelectCreateManyAndReturn<ExtArgs extends runtime.Types.Ex
   images?: boolean
   features?: boolean
   TransactionType?: boolean
+  thumbnail?: boolean
   status?: boolean
   user?: boolean | Prisma.RealEstate$userArgs<ExtArgs>
 }, ExtArgs["result"]["realEstate"]>
@@ -1241,6 +1280,7 @@ export type RealEstateSelectUpdateManyAndReturn<ExtArgs extends runtime.Types.Ex
   images?: boolean
   features?: boolean
   TransactionType?: boolean
+  thumbnail?: boolean
   status?: boolean
   user?: boolean | Prisma.RealEstate$userArgs<ExtArgs>
 }, ExtArgs["result"]["realEstate"]>
@@ -1262,10 +1302,11 @@ export type RealEstateSelectScalar = {
   images?: boolean
   features?: boolean
   TransactionType?: boolean
+  thumbnail?: boolean
   status?: boolean
 }
 
-export type RealEstateOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "title" | "description" | "price" | "type" | "beds" | "Baths" | "currency" | "Sqft" | "location" | "createdAt" | "UpdatedAt" | "images" | "features" | "TransactionType" | "status", ExtArgs["result"]["realEstate"]>
+export type RealEstateOmit<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = runtime.Types.Extensions.GetOmit<"id" | "userId" | "title" | "description" | "price" | "type" | "beds" | "Baths" | "currency" | "Sqft" | "location" | "createdAt" | "UpdatedAt" | "images" | "features" | "TransactionType" | "thumbnail" | "status", ExtArgs["result"]["realEstate"]>
 export type RealEstateInclude<ExtArgs extends runtime.Types.Extensions.InternalArgs = runtime.Types.Extensions.DefaultArgs> = {
   user?: boolean | Prisma.RealEstate$userArgs<ExtArgs>
   favourites?: boolean | Prisma.RealEstate$favouritesArgs<ExtArgs>
@@ -1303,6 +1344,7 @@ export type $RealEstatePayload<ExtArgs extends runtime.Types.Extensions.Internal
     images: runtime.JsonValue[]
     features: runtime.JsonValue[]
     TransactionType: string
+    thumbnail: string | null
     status: string | null
   }, ExtArgs["result"]["realEstate"]>
   composites: {}
@@ -1746,6 +1788,7 @@ export interface RealEstateFieldRefs {
   readonly images: Prisma.FieldRef<"RealEstate", 'Json[]'>
   readonly features: Prisma.FieldRef<"RealEstate", 'Json[]'>
   readonly TransactionType: Prisma.FieldRef<"RealEstate", 'String'>
+  readonly thumbnail: Prisma.FieldRef<"RealEstate", 'String'>
   readonly status: Prisma.FieldRef<"RealEstate", 'String'>
 }
     
