@@ -11,11 +11,11 @@ function ImagesProduct({ Productdata }: any) {
 <>
  <div className="images gap-5 relative  grid grid-cols-3 items-center  ">
       <div className="flex flex-col gap-4 h-fit">
-                    <Image src={Productdata?.images[0]} alt='' width={500}  height={500}                     className="rounded-2xl w-full h-1/2 object-cover" />
-                    <Image src={Productdata?.images[1]} alt='' width={500}  height={500}                     className="rounded-2xl w-full h-1/2 object-cover" />
+                    <Image src={Productdata?.images?.[0]} alt='' width={500}  height={500}                     className="rounded-2xl w-full h-1/2 object-cover" />
+                    <Image src={Productdata?.images?.[1]} alt='' width={500}  height={500}                     className="rounded-2xl w-full h-1/2 object-cover" />
                 </div>
       <div className="col-span-2 h-full">
-                <Image src={Productdata?.images[2]} alt='' width={500}  height={500}           className="rounded-2xl w-full h-full object-cover" />
+                <Image src={Productdata?.images?.[2]} alt='' width={500}  height={500}           className="rounded-2xl w-full h-full object-cover" />
 </div>
 <div onClick={() => setOpen((e) => !e)} className="button border px-4  border-gray-300 cursor-pointer transition hover:bg-gray-100 dark:bg-gray-800 dark:border dark:border-gray-600 rounded-xl p-2 flex items-center bg-white  justify-center absolute right-3 bottom-3 ">
     <Camera size={18} className='inline mr-2' />
