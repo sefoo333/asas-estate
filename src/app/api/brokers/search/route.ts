@@ -25,7 +25,7 @@ if (!brokerId) {
 
 try {
     const getBroker = await prisma.broker.findUnique({
-      where: { id: brokerId }, // ✅ استخدم المتغير
+      where: { id: brokerId }, 
       include:{rates:{include:{User:true}}}
     });
 

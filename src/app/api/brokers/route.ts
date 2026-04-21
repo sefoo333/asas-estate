@@ -19,8 +19,8 @@ const {searchParams} = new URL(req.url);
 try {
     const getBrokers = await prisma.broker.findMany({
         where: unLookToken ? { NOT: { id: unLookToken.id } } : {},
-        include:{realEstates:true},
-        take:Number(limit)
+        select:{id:true,languages:true,company:true,userName:true,rates:true,image:true, realEstates: {select: {id: true,price: true,}}},
+        take: parseInt(limit as string)
     });
 
 

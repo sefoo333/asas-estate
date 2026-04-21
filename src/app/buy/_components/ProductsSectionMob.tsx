@@ -8,7 +8,7 @@ import Product from '@/componants/Product';
 function ProductsMob({searchResults,setSearchResults}:any) {
   const params = useSearchParams();
 
-const {data} = useGetProducts("Sale");
+const {data} = useGetProducts("Sale","","",true);
 
 const searchQuery = params.get("search"); 
 

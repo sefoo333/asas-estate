@@ -54,7 +54,7 @@ function BoxBroker({data}:{data:BoxBrokerProps['data'] | any}) {
     </div>
 
   <h2 className='flex gap-2 items-center mt-1.5 text-gray-600 dark:text-gray-400 font-semibold text-sm'><IoLanguageOutline size={18} />{data?.languages.join(" , ")}</h2>
-  <h2 className='flex gap-2 items-center mt-1.5 text-gray-600 dark:text-gray-400 font-semibold text-sm'><BsHouses  size={18} />{data?.realEstates?.length} houses</h2>
+  {/* <h2 className='flex gap-2 items-center mt-1.5 text-gray-600 dark:text-gray-400 font-semibold text-sm'><BsHouses  size={18} />{data?.realEstates?.length} houses</h2> */}
 
   
 </div>

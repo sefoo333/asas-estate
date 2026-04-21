@@ -25,7 +25,7 @@ import Product_BRC from '@/componants/Product_BRC';
 import Product from '@/componants/Product';
 function Products({searchResults}:any) {
 
-  const {data} = useGetProducts("com");
+  const {data} = useGetProducts("com","","",true);
 const isMob = useMediaQuery({maxWidth:1000});
 
 

@@ -17,7 +17,7 @@ import Product_BRC from '@/componants/Product_BRC';
 import Product from '@/componants/Product';
 function ProductsRent({searchResults,setSearchResults ,setOpen ,open }:any) {
   
-const {data} = useGetProducts("Rent");
+const {data} = useGetProducts("Rent","","",true);
 
 const params = useSearchParams();
 const searchQuery = params.get("search"); 
