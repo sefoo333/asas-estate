@@ -24,15 +24,17 @@ function UserSet() {
 const logOutFromProvider = async () => {
 
   if (user?.provider === "google" || user?.provider === "facebook"){
-    await signOut()
+    await signOut({ callbackUrl: "/login" })
   };
 }
 
   const logOut = async () => {
     try {
-      logOutFromProvider()
       await fetch("/api/authUser/logout",{method:"POST"})
-      await logout()
+      
+    await logOutFromProvider?.();
+
+    await logout?.();
       toast.success("LogOut Success")
     } catch(err){
       toast.error("something went wrong")

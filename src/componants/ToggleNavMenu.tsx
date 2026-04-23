@@ -52,9 +52,10 @@ export function ToggleNavMenu() {
         <DrawerHeader className="border-b border-b-gray-300 dark:border-b-gray-800 mb-5">
           <DrawerTitle className="flex relative gap-4 items-center justify-center" >
               <Link href={"/"}>
-  <Image className='w-25 h-15 object-contain dark:absolute dark:hidden' src={"/thya_masr.png"} alt='Logo' width={100} height={100} />
-      <Image className='w-25 h-15 object-contain absolute dark:relative' src={"/logo-2.png"} alt='Logo' width={100} height={100} />
-           </Link>
+      <Image className='w-25 h-15 object-contain dark:hidden' src={"/thya_masr.png"} alt='Logo' width={100} height={100} />
+      <Image className='w-25 h-15 object-contain absolute hidden dark:block dark:!relative' src={"/logo-2.png"} alt='Logo' width={100} height={100} />
+     </Link>
+     
            <DrawerClose>
              <CgClose  size={25} className="absolute left-3 top-1/2 -translate-y-1/2 " />
            </DrawerClose>
