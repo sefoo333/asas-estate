@@ -1,19 +1,11 @@
 "use client"
-import HeroInputSearch from '@/componants/InputSearch/HeroInputSearch'
 import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
+import { useState } from 'react'
 import BrokerInput from './_components/Input'
-import { House, LocateIcon, Star } from 'lucide-react'
-import { CiLocationOn } from 'react-icons/ci'
-import { IoLanguageOutline } from "react-icons/io5";
-import { BiStar } from 'react-icons/bi'
-import { FaHouse, FaStar } from 'react-icons/fa6'
-import { BsHouses } from 'react-icons/bs'
-import { Button } from '@/components/ui/button'
+
 import BoxBroker from './_components/BoxBroker'
 import { useQuery } from '@tanstack/react-query'
 import { fetchBrokers } from '@/lib/Brokers'
-import NotFound from '@/componants/NotFound'
 import BoxBrokerMob from './_components/BoxBrokerMob'
 import { useMediaQuery } from 'react-responsive'
 
@@ -22,7 +14,7 @@ const isMob = useMediaQuery({maxWidth:767})
 
 
 
-  const {data, isLoading} = useQuery({
+  const {data} = useQuery({
     queryKey:["brokers"],
     queryFn:() => fetchBrokers(10),
     refetchOnWindowFocus:false

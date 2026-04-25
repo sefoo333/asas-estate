@@ -12,7 +12,6 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Share } from "lucide-react"
-import { usePathname } from "next/navigation"
 import { PiShareFatLight } from "react-icons/pi"
 import { RiShareForwardFill } from "react-icons/ri"
 

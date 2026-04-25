@@ -2,10 +2,7 @@
 import { Button } from '@/components/ui/button'
 import { useUserStore } from '@/store/store'
 import { useMutation } from '@tanstack/react-query'
-import { Heart } from 'lucide-react'
-import React, { useEffect, useState } from 'react'
-import { BiHeart } from 'react-icons/bi'
-import { FaHeart, FaRegHeart } from 'react-icons/fa6'
+import { useEffect, useState } from 'react'
 import { IoHeart, IoHeartOutline } from 'react-icons/io5'
 function AddToFavourite({Type = true,product,isFavourite}:any) {
     const user = useUserStore((state) => state.user)

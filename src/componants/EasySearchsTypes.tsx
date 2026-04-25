@@ -1,7 +1,9 @@
+
 import { useRouter } from 'next/navigation'
-import React from 'react'
 
 function EasySearchsTypes({products , isCommercial}:any) {
+
+
     const getProductsTypes = products?.map((e:{type:string}) => e?.type).filter((v:any) => isCommercial ? v.startsWith("b_") : !v.startsWith("b_"))
     const data = [...new Set(getProductsTypes)].filter((v): v is string => !!v)
 const router = useRouter();

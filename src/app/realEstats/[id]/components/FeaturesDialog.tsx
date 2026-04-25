@@ -1,3 +1,4 @@
+
 import { Button } from "@/components/ui/button"
 import {
   Dialog,
@@ -8,6 +9,8 @@ import {
 } from "@/components/ui/dialog"
 
 export function FeaturesDialog({featuresData , GetIcon}:any) {
+
+
   return (
     <Dialog>
       <form>

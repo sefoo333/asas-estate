@@ -1,23 +1,10 @@
 "use client";
-import React, { useEffect, useState } from "react";
-import {
-  MapContainer,
-  TileLayer,
-  Marker,
-  Popup,
-  ZoomControl,
-  useMap,
-} from "react-leaflet";
+import { useState } from "react";
+
 import L from "leaflet";
-import { TfiFullscreen } from "react-icons/tfi";
-import { useQuery } from "@tanstack/react-query";
-import FlyToLocation from "./Map/ToLocation";
 import MapSingle from "./MapSingle";
 import { GoScreenFull, GoScreenNormal } from "react-icons/go";
-import icon from "leaflet/dist/images/marker-icon.png";
-import iconRetina from "leaflet/dist/images/marker-icon-2x.png";
-import shadow from "leaflet/dist/images/marker-shadow.png";
-// delete (L.Icon.Default.prototype as any)._getIconUrl;
+
 
 
 L.Icon.Default.mergeOptions({

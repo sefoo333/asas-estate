@@ -1,18 +1,17 @@
 "use client"
 
 import { Checkbox } from '@/components/ui/checkbox';
-import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Eye, EyeOff } from 'lucide-react';
 import Image from 'next/image'
-import React, { useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 import { useForm } from 'react-hook-form';
 import { FaFacebook } from 'react-icons/fa6';
 import { FcGoogle } from 'react-icons/fc'
 import { Mona_Sans } from 'next/font/google';
 import { useMutation } from '@tanstack/react-query';
 import { useRouter } from 'next/navigation';
-import { signIn, signOut, useSession } from "next-auth/react"
+import { signIn, useSession } from "next-auth/react"
 import { useUserStore } from '@/store/store';
 import { toast, Toaster } from 'sonner';
 

@@ -1,20 +1,10 @@
 "use client"
-import React, { useEffect, useState } from 'react'
-import { IoLocationSharp } from "react-icons/io5";
-import { FaBath, FaBed } from 'react-icons/fa6'
-import { RxDimensions } from "react-icons/rx";
-import { MdEmail } from "react-icons/md";
-import { FaPhoneAlt } from "react-icons/fa";
-import { IoChatboxEllipses } from "react-icons/io5";
-import { Button } from '@/components/ui/button';
-import Image from 'next/image';
-import { BiHeart } from 'react-icons/bi';
+
 import {
   Select,
   SelectContent,
   SelectGroup,
   SelectItem,
-  SelectLabel,
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select"
