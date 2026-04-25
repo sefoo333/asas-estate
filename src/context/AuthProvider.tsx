@@ -35,6 +35,7 @@ if (data) {
   },[data])
 
 
+
   
    
 
@@ -48,6 +49,11 @@ document.documentElement.classList.add(getTheme);
       <>
       <SessionProvider refetchOnWindowFocus={false}>
         {/* <ReactQueryDevtools initialIsOpen={false} /> */}
+        {/* {!isLoading && !data?.id && (
+          <div className="z-999 fixed top-0 left-0 w-full h-full flex justify-center items-center bg-white dark:bg-gray-900">
+  <div className="loader"></div>
+</div>
+        )} */}
       {children}
       </SessionProvider>
       </>

@@ -1,4 +1,3 @@
-import React from 'react'
 import { TiStarFullOutline } from "react-icons/ti";
 import Head from '../Head';
 import { MarqueeDemo } from './Tha-marq';

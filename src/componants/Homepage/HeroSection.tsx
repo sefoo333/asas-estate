@@ -1,18 +1,5 @@
-import * as React from "react"
-
-import {
-  Select,
-  SelectContent,
-  SelectGroup,
-  SelectItem,
-  SelectLabel,
-  SelectTrigger,
-  SelectValue,
-} from "@/components/ui/select"
 
 import Image from "next/image"
-import { Input } from "@/components/ui/input"
-import { Button } from "@/components/ui/button"
 import HeroInputSearch from "@/componants/InputSearch/HeroInputSearch"
 
 export function CarouselDemo() {

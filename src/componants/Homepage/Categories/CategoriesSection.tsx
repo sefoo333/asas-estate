@@ -1,7 +1,6 @@
 "use client"
-import React, { useRef } from 'react'
+import  { useRef } from 'react'
 import Head from '../../Head'
-import Image from 'next/image'
 import Category from './Category'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io';
 
