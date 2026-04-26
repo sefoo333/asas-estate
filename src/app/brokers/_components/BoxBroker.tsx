@@ -2,8 +2,7 @@ import { Button } from '@/components/ui/button'
 import { RealEstate } from '@/types/realEstate'
 import Image from 'next/image'
 import Link from 'next/link'
-import React from 'react'
-import { BsHouses } from 'react-icons/bs'
+
 import { FaStar } from 'react-icons/fa6'
 import { IoLanguageOutline } from 'react-icons/io5'
 

@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { BsGithub } from 'react-icons/bs'
 import { FaLinkedin, FaYoutube } from 'react-icons/fa6'
 
 

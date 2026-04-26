@@ -1,6 +1,4 @@
 "use client"
-
-
 import Head from "@/componants/Head";
 import Product from "@/componants/Product";
 import { Button } from "@/components/ui/button";

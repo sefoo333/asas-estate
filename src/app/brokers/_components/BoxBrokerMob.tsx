@@ -1,5 +1,4 @@
 import Image from 'next/image'
-import React from 'react'
 import { FaStar } from 'react-icons/fa6'
 import { BoxBrokerProps } from './BoxBroker'
 import Link from 'next/link';

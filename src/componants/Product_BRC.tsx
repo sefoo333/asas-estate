@@ -57,7 +57,7 @@ function Product_BRC({product}: {product: RealEstate | any}) {
                         <div className="text p-7">
                             <h1 className='text-[15px]'>{product?.type.startsWith("b_") ? product?.type?.slice(2) : product?.type}</h1>
                             <h1 className='font-bold text-3xl mb-4 mt-3'>${product?.price}</h1>
-                            <p className='text-[16px] text-gray-700 dark:text-gray-400'>{product?.description.slice(0,20)}</p>
+                            <p className='text-[16px] text-gray-700 dark:text-gray-400'>{product?.description?.slice(0,20)}</p>
                                                         <div className="location flex gap-1.5 items-center mt-7 mb-3">
                                                             <IoLocationSharp size={22} />
                                                             <span className='text-sm font-semibold'>{product?.location}</span>

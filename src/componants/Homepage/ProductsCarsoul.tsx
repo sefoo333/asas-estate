@@ -1,4 +1,4 @@
-import React, { useRef } from 'react'
+import { useRef } from 'react'
 import { IoIosArrowBack, IoIosArrowForward } from 'react-icons/io'
 import Product from '../Product';
 

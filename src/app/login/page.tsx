@@ -78,22 +78,16 @@ router.replace("/")
   },[user,session,status])
 
 
-//   useEffect(() => {
-// if (user){
-//     mutation.mutate(() => ({userName:session?.user?.name ,provider:"google" , image:session?.user?.image , email:session?.user?.email}))
-// }
-// },[session?.user])
+
 
   const [switcher,setSwitch] = useState(true);
 
-  useEffect(() => {
-    
-  },[session])
+
 
   useEffect(() => {
     if (status === "loading") return;
 
-    if (session) {
+    if (session?.user) {
       if (session.isNewUser) {
         router.replace("/login/onboarding");
       } else {

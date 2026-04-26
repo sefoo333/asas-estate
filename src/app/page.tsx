@@ -6,7 +6,6 @@ import Thanks from "@/componants/Homepage/Thanks";
 
 export default  function Page() {
 
-
   return (
    <main>
     <CarouselDemo />
