@@ -30,12 +30,14 @@ const logOutFromProvider = async () => {
 
   const logOut = async () => {
     try {
+      if (user?.id){
       await fetch("/api/authUser/logout",{method:"POST"})
       
     await logOutFromProvider?.();
 
     await logout?.();
-      toast.success("LogOut Success")
+    toast.success("LogOut Success")
+  }
     } catch(err){
       toast.error("something went wrong")
     }
