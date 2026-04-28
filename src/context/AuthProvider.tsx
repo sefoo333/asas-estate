@@ -1,11 +1,9 @@
 'use client'
 
 import { useUserStore } from '@/store/store';
-import { User } from '@/types/User';
-import { QueryClient, QueryClientProvider, useQuery } from '@tanstack/react-query'
-import { SessionProvider, signOut } from 'next-auth/react';
-import { useEffect, useState } from 'react'
-import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
+import { useQuery } from '@tanstack/react-query'
+import { SessionProvider } from 'next-auth/react';
+import { useEffect } from 'react'
 
 export default function AuthProvider({ children }: { children: React.ReactNode }) {
 //   const [user,setUser] = useState<User | null>(null);
@@ -33,11 +31,6 @@ if (data) {
   }
 
   },[data])
-
-
-
-  
-   
 
   useEffect(() => {
     const getTheme = localStorage.getItem("theme") || "light";
