@@ -127,7 +127,7 @@ w-full
      <div className="flex gap-0.5">
             {Array.from({length:avg}).map((e,i) => <FaStar key={i}  />)}
             <>
-            {(avg.toString().split(".").slice(1)) as any !== "" && <FaStarHalf />}
+          {avg % 1 !== 0 && <FaStarHalf />}
             </>
        </div>
 </div>

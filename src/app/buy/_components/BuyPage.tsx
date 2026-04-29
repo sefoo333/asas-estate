@@ -1,8 +1,7 @@
 "use client"
-import { useEffect, useState } from 'react'
+import { Suspense, useEffect, useState } from 'react'
 import { useSearchParams } from 'next/navigation'
 import { toast } from 'sonner'
-import { useMediaQuery } from 'react-responsive'
 import SearchBar from '@/componants/SearchBar'
 import Products from './ProductsSection'
 import Maps from '@/componants/MapsSection'
@@ -67,9 +66,15 @@ const [open,setOpen] = useState(false);
         <SearchBar setOpen={setOpen} setData={setData} setSearchResults={setSearchResults} data={data} />
   
             <div className="window flex relative gap-30 pl-35 max-2xl:pl-20 max-xl:pl-5 overflow-hidden">
-            
-              <Products setSearchResults={setSearchResults} searchResults={searchResults} />
-            <Maps open={open} setOpen={setOpen} />
+             <Suspense fallback={<div>Loading Products...</div>}>
+        <Products setSearchResults={setSearchResults} searchResults={searchResults} />
+      </Suspense>
+              
+             <Suspense fallback={<div>Loading Users...</div>}>
+  <Suspense fallback={<div className='bg-red'>Loading Users...</div>}>
+       <Maps open={open} setOpen={setOpen} />
+      </Suspense>
+      </Suspense>
         </div>
    </>
   )

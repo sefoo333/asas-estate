@@ -10,7 +10,6 @@ export default function Providers({ children }: { children: React.ReactNode }) {
   const [user,setUser] = useState<User | null>(null);
 
 
-
   return (
     <QueryClientProvider client={queryClient}>
       <AuthProvider>
